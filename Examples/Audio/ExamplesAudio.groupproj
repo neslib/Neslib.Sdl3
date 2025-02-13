@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8522AA0F-98CD-49DC-A111-EEC964255915}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="01-SimplePlayback\SimplePlayback.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="02-SimplePlaybackCallback\SimplePlaybackCallback.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="03-LoadWav\LoadWav.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="04-MultipleStreams\MultipleStreams.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SimplePlayback">
+        <MSBuild Projects="01-SimplePlayback\SimplePlayback.dproj"/>
+    </Target>
+    <Target Name="SimplePlayback:Clean">
+        <MSBuild Projects="01-SimplePlayback\SimplePlayback.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SimplePlayback:Make">
+        <MSBuild Projects="01-SimplePlayback\SimplePlayback.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SimplePlaybackCallback">
+        <MSBuild Projects="02-SimplePlaybackCallback\SimplePlaybackCallback.dproj"/>
+    </Target>
+    <Target Name="SimplePlaybackCallback:Clean">
+        <MSBuild Projects="02-SimplePlaybackCallback\SimplePlaybackCallback.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SimplePlaybackCallback:Make">
+        <MSBuild Projects="02-SimplePlaybackCallback\SimplePlaybackCallback.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="LoadWav">
+        <MSBuild Projects="03-LoadWav\LoadWav.dproj"/>
+    </Target>
+    <Target Name="LoadWav:Clean">
+        <MSBuild Projects="03-LoadWav\LoadWav.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LoadWav:Make">
+        <MSBuild Projects="03-LoadWav\LoadWav.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MultipleStreams">
+        <MSBuild Projects="04-MultipleStreams\MultipleStreams.dproj"/>
+    </Target>
+    <Target Name="MultipleStreams:Clean">
+        <MSBuild Projects="04-MultipleStreams\MultipleStreams.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MultipleStreams:Make">
+        <MSBuild Projects="04-MultipleStreams\MultipleStreams.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SimplePlayback;SimplePlaybackCallback;LoadWav;MultipleStreams"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SimplePlayback:Clean;SimplePlaybackCallback:Clean;LoadWav:Clean;MultipleStreams:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SimplePlayback:Make;SimplePlaybackCallback:Make;LoadWav:Make;MultipleStreams:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A058D727-B277-4728-8E4B-D20DCF1AC2FA}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="01-LoadBitmap\LoadBitmaps.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="LoadBitmaps">
+        <MSBuild Projects="01-LoadBitmap\LoadBitmaps.dproj"/>
+    </Target>
+    <Target Name="LoadBitmaps:Clean">
+        <MSBuild Projects="01-LoadBitmap\LoadBitmaps.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LoadBitmaps:Make">
+        <MSBuild Projects="01-LoadBitmap\LoadBitmaps.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="LoadBitmaps"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="LoadBitmaps:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="LoadBitmaps:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

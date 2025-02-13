@@ -1,0 +1,288 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{67D535A4-A9C2-438E-9C5D-E872A837A06E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Renderer\01-Clear\Clear.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\02-Primitives\Primitives.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\03-Lines\Lines.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\04-Points\Points.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\05-Rectangles\Rectangles.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\06-Textures\Textures.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\07-StreamingTextures\StreamingTextures.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\08-RotatingTextures\RotatingTextures.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\09-ScalingTextures\ScalingTextures.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\10-Geometry\Geometry.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\11-ColorMods\ColorMods.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\14-Viewport\Viewport.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\15-ClipRect\ClipRect.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\17-ReadPixels\ReadPixels.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Renderer\18-DebugText\DebugText.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Camera\01-ReadAndDraw\ReadAndDraw.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Audio\01-SimplePlayback\SimplePlayback.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Audio\02-SimplePlaybackCallback\SimplePlaybackCallback.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Audio\03-LoadWav\LoadWav.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Audio\04-MultipleStreams\MultipleStreams.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Pen\01-DrawingLines\DrawingLines.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="AsyncIO\01-LoadBitmap\LoadBitmaps.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Clear">
+        <MSBuild Projects="Renderer\01-Clear\Clear.dproj"/>
+    </Target>
+    <Target Name="Clear:Clean">
+        <MSBuild Projects="Renderer\01-Clear\Clear.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Clear:Make">
+        <MSBuild Projects="Renderer\01-Clear\Clear.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Primitives">
+        <MSBuild Projects="Renderer\02-Primitives\Primitives.dproj"/>
+    </Target>
+    <Target Name="Primitives:Clean">
+        <MSBuild Projects="Renderer\02-Primitives\Primitives.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Primitives:Make">
+        <MSBuild Projects="Renderer\02-Primitives\Primitives.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Lines">
+        <MSBuild Projects="Renderer\03-Lines\Lines.dproj"/>
+    </Target>
+    <Target Name="Lines:Clean">
+        <MSBuild Projects="Renderer\03-Lines\Lines.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Lines:Make">
+        <MSBuild Projects="Renderer\03-Lines\Lines.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Points">
+        <MSBuild Projects="Renderer\04-Points\Points.dproj"/>
+    </Target>
+    <Target Name="Points:Clean">
+        <MSBuild Projects="Renderer\04-Points\Points.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Points:Make">
+        <MSBuild Projects="Renderer\04-Points\Points.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Rectangles">
+        <MSBuild Projects="Renderer\05-Rectangles\Rectangles.dproj"/>
+    </Target>
+    <Target Name="Rectangles:Clean">
+        <MSBuild Projects="Renderer\05-Rectangles\Rectangles.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Rectangles:Make">
+        <MSBuild Projects="Renderer\05-Rectangles\Rectangles.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Textures">
+        <MSBuild Projects="Renderer\06-Textures\Textures.dproj"/>
+    </Target>
+    <Target Name="Textures:Clean">
+        <MSBuild Projects="Renderer\06-Textures\Textures.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Textures:Make">
+        <MSBuild Projects="Renderer\06-Textures\Textures.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="StreamingTextures">
+        <MSBuild Projects="Renderer\07-StreamingTextures\StreamingTextures.dproj"/>
+    </Target>
+    <Target Name="StreamingTextures:Clean">
+        <MSBuild Projects="Renderer\07-StreamingTextures\StreamingTextures.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StreamingTextures:Make">
+        <MSBuild Projects="Renderer\07-StreamingTextures\StreamingTextures.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RotatingTextures">
+        <MSBuild Projects="Renderer\08-RotatingTextures\RotatingTextures.dproj"/>
+    </Target>
+    <Target Name="RotatingTextures:Clean">
+        <MSBuild Projects="Renderer\08-RotatingTextures\RotatingTextures.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RotatingTextures:Make">
+        <MSBuild Projects="Renderer\08-RotatingTextures\RotatingTextures.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ScalingTextures">
+        <MSBuild Projects="Renderer\09-ScalingTextures\ScalingTextures.dproj"/>
+    </Target>
+    <Target Name="ScalingTextures:Clean">
+        <MSBuild Projects="Renderer\09-ScalingTextures\ScalingTextures.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ScalingTextures:Make">
+        <MSBuild Projects="Renderer\09-ScalingTextures\ScalingTextures.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Geometry">
+        <MSBuild Projects="Renderer\10-Geometry\Geometry.dproj"/>
+    </Target>
+    <Target Name="Geometry:Clean">
+        <MSBuild Projects="Renderer\10-Geometry\Geometry.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Geometry:Make">
+        <MSBuild Projects="Renderer\10-Geometry\Geometry.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ColorMods">
+        <MSBuild Projects="Renderer\11-ColorMods\ColorMods.dproj"/>
+    </Target>
+    <Target Name="ColorMods:Clean">
+        <MSBuild Projects="Renderer\11-ColorMods\ColorMods.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ColorMods:Make">
+        <MSBuild Projects="Renderer\11-ColorMods\ColorMods.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Viewport">
+        <MSBuild Projects="Renderer\14-Viewport\Viewport.dproj"/>
+    </Target>
+    <Target Name="Viewport:Clean">
+        <MSBuild Projects="Renderer\14-Viewport\Viewport.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Viewport:Make">
+        <MSBuild Projects="Renderer\14-Viewport\Viewport.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ClipRect">
+        <MSBuild Projects="Renderer\15-ClipRect\ClipRect.dproj"/>
+    </Target>
+    <Target Name="ClipRect:Clean">
+        <MSBuild Projects="Renderer\15-ClipRect\ClipRect.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ClipRect:Make">
+        <MSBuild Projects="Renderer\15-ClipRect\ClipRect.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ReadPixels">
+        <MSBuild Projects="Renderer\17-ReadPixels\ReadPixels.dproj"/>
+    </Target>
+    <Target Name="ReadPixels:Clean">
+        <MSBuild Projects="Renderer\17-ReadPixels\ReadPixels.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ReadPixels:Make">
+        <MSBuild Projects="Renderer\17-ReadPixels\ReadPixels.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DebugText">
+        <MSBuild Projects="Renderer\18-DebugText\DebugText.dproj"/>
+    </Target>
+    <Target Name="DebugText:Clean">
+        <MSBuild Projects="Renderer\18-DebugText\DebugText.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DebugText:Make">
+        <MSBuild Projects="Renderer\18-DebugText\DebugText.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ReadAndDraw">
+        <MSBuild Projects="Camera\01-ReadAndDraw\ReadAndDraw.dproj"/>
+    </Target>
+    <Target Name="ReadAndDraw:Clean">
+        <MSBuild Projects="Camera\01-ReadAndDraw\ReadAndDraw.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ReadAndDraw:Make">
+        <MSBuild Projects="Camera\01-ReadAndDraw\ReadAndDraw.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SimplePlayback">
+        <MSBuild Projects="Audio\01-SimplePlayback\SimplePlayback.dproj"/>
+    </Target>
+    <Target Name="SimplePlayback:Clean">
+        <MSBuild Projects="Audio\01-SimplePlayback\SimplePlayback.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SimplePlayback:Make">
+        <MSBuild Projects="Audio\01-SimplePlayback\SimplePlayback.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SimplePlaybackCallback">
+        <MSBuild Projects="Audio\02-SimplePlaybackCallback\SimplePlaybackCallback.dproj"/>
+    </Target>
+    <Target Name="SimplePlaybackCallback:Clean">
+        <MSBuild Projects="Audio\02-SimplePlaybackCallback\SimplePlaybackCallback.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SimplePlaybackCallback:Make">
+        <MSBuild Projects="Audio\02-SimplePlaybackCallback\SimplePlaybackCallback.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="LoadWav">
+        <MSBuild Projects="Audio\03-LoadWav\LoadWav.dproj"/>
+    </Target>
+    <Target Name="LoadWav:Clean">
+        <MSBuild Projects="Audio\03-LoadWav\LoadWav.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LoadWav:Make">
+        <MSBuild Projects="Audio\03-LoadWav\LoadWav.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MultipleStreams">
+        <MSBuild Projects="Audio\04-MultipleStreams\MultipleStreams.dproj"/>
+    </Target>
+    <Target Name="MultipleStreams:Clean">
+        <MSBuild Projects="Audio\04-MultipleStreams\MultipleStreams.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MultipleStreams:Make">
+        <MSBuild Projects="Audio\04-MultipleStreams\MultipleStreams.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DrawingLines">
+        <MSBuild Projects="Pen\01-DrawingLines\DrawingLines.dproj"/>
+    </Target>
+    <Target Name="DrawingLines:Clean">
+        <MSBuild Projects="Pen\01-DrawingLines\DrawingLines.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DrawingLines:Make">
+        <MSBuild Projects="Pen\01-DrawingLines\DrawingLines.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="LoadBitmaps">
+        <MSBuild Projects="AsyncIO\01-LoadBitmap\LoadBitmaps.dproj"/>
+    </Target>
+    <Target Name="LoadBitmaps:Clean">
+        <MSBuild Projects="AsyncIO\01-LoadBitmap\LoadBitmaps.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LoadBitmaps:Make">
+        <MSBuild Projects="AsyncIO\01-LoadBitmap\LoadBitmaps.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Clear;Primitives;Lines;Points;Rectangles;Textures;StreamingTextures;RotatingTextures;ScalingTextures;Geometry;ColorMods;Viewport;ClipRect;ReadPixels;DebugText;ReadAndDraw;SimplePlayback;SimplePlaybackCallback;LoadWav;MultipleStreams;DrawingLines;LoadBitmaps"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Clear:Clean;Primitives:Clean;Lines:Clean;Points:Clean;Rectangles:Clean;Textures:Clean;StreamingTextures:Clean;RotatingTextures:Clean;ScalingTextures:Clean;Geometry:Clean;ColorMods:Clean;Viewport:Clean;ClipRect:Clean;ReadPixels:Clean;DebugText:Clean;ReadAndDraw:Clean;SimplePlayback:Clean;SimplePlaybackCallback:Clean;LoadWav:Clean;MultipleStreams:Clean;DrawingLines:Clean;LoadBitmaps:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Clear:Make;Primitives:Make;Lines:Make;Points:Make;Rectangles:Make;Textures:Make;StreamingTextures:Make;RotatingTextures:Make;ScalingTextures:Make;Geometry:Make;ColorMods:Make;Viewport:Make;ClipRect:Make;ReadPixels:Make;DebugText:Make;ReadAndDraw:Make;SimplePlayback:Make;SimplePlaybackCallback:Make;LoadWav:Make;MultipleStreams:Make;DrawingLines:Make;LoadBitmaps:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

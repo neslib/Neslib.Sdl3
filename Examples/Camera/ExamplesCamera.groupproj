@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{22A2CC50-9755-45DB-BBAD-0BBF74CF9794}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="01-ReadAndDraw\ReadAndDraw.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ReadAndDraw">
+        <MSBuild Projects="01-ReadAndDraw\ReadAndDraw.dproj"/>
+    </Target>
+    <Target Name="ReadAndDraw:Clean">
+        <MSBuild Projects="01-ReadAndDraw\ReadAndDraw.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ReadAndDraw:Make">
+        <MSBuild Projects="01-ReadAndDraw\ReadAndDraw.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ReadAndDraw"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ReadAndDraw:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ReadAndDraw:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

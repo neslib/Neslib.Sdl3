@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{22AE5753-006E-4E78-98E2-83E4A445229B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="01-DrawingLines\DrawingLines.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DrawingLines">
+        <MSBuild Projects="01-DrawingLines\DrawingLines.dproj"/>
+    </Target>
+    <Target Name="DrawingLines:Clean">
+        <MSBuild Projects="01-DrawingLines\DrawingLines.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DrawingLines:Make">
+        <MSBuild Projects="01-DrawingLines\DrawingLines.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DrawingLines"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DrawingLines:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DrawingLines:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

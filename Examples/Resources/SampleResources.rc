@@ -1,0 +1,3 @@
+SAMPLE_BMP RCDATA "sample.bmp"
+SAMPLE_WAV RCDATA "sample.wav"
+SWORD_WAV RCDATA "sword.wav"
