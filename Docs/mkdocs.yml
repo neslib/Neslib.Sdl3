@@ -1,0 +1,665 @@
+site_name: Neslib.Sdl3
+site_url: https://github.com/neslib/Neslib.Sdl3
+nav: 
+  - Home: 
+    - index.md
+    - API by Category: 
+      - Categories: APIByCategory/index.md
+      - APIByCategory/Neslib.Sdl3.md
+      - APIByCategory/Neslib.Sdl3.Basics.md
+      - APIByCategory/Neslib.Sdl3.Video.md
+      - APIByCategory/Neslib.Sdl3.Input.md
+      - APIByCategory/Neslib.Sdl3.Events.md
+      - APIByCategory/Neslib.Sdl3.Haptic.md
+      - APIByCategory/Neslib.Sdl3.Audio.md
+      - APIByCategory/Neslib.Sdl3.Gpu.md
+      - APIByCategory/Neslib.Sdl3.Time.md
+      - APIByCategory/Neslib.Sdl3.IO.md
+      - APIByCategory/Neslib.Sdl3.Additional.md
+    - Useful Information:
+      - Misc/KeyboardBestPractices.md
+  - Reference:
+    - Neslib.Sdl3.Additional:
+      - Reference/Neslib.Sdl3.Additional/index.md
+      - Interfaces:
+        - ISdlClipboardDataProvider: Reference/Neslib.Sdl3.Additional/interfaces/ISdlClipboardDataProvider.md
+      - Classes & Records:
+        - TSdlClipboard: Reference/Neslib.Sdl3.Additional/classes/TSdlClipboard.md
+        - TSdlCpu: Reference/Neslib.Sdl3.Additional/classes/TSdlCpu.md
+        - TSdlDialog: Reference/Neslib.Sdl3.Additional/classes/TSdlDialog.md
+        - TSdlDialogFileFilter: Reference/Neslib.Sdl3.Additional/classes/TSdlDialogFileFilter.md
+        - TSdlEnvironment: Reference/Neslib.Sdl3.Additional/classes/TSdlEnvironment.md
+        - TSdlLocale: Reference/Neslib.Sdl3.Additional/classes/TSdlLocale.md
+        - TSdlMemoryManager: Reference/Neslib.Sdl3.Additional/classes/TSdlMemoryManager.md
+        - TSdlMessageBoxButtonData: Reference/Neslib.Sdl3.Additional/classes/TSdlMessageBoxButtonData.md
+        - TSdlMessageBoxColor: Reference/Neslib.Sdl3.Additional/classes/TSdlMessageBoxColor.md
+        - TSdlMessageBoxColorScheme: Reference/Neslib.Sdl3.Additional/classes/TSdlMessageBoxColorScheme.md
+        - TSdlMessageBoxData: Reference/Neslib.Sdl3.Additional/classes/TSdlMessageBoxData.md
+        - TSdlProcess: Reference/Neslib.Sdl3.Additional/classes/TSdlProcess.md
+        - TSdlTray: Reference/Neslib.Sdl3.Additional/classes/TSdlTray.md
+        - TSdlTrayEntry: Reference/Neslib.Sdl3.Additional/classes/TSdlTrayEntry.md
+        - TSdlTrayMenu: Reference/Neslib.Sdl3.Additional/classes/TSdlTrayMenu.md
+      - Types:
+        - PSdlMessageBoxButtonData: Reference/Neslib.Sdl3.Additional/types/PSdlMessageBoxButtonData.md
+        - PSdlMessageBoxColorScheme: Reference/Neslib.Sdl3.Additional/types/PSdlMessageBoxColorScheme.md
+        - TSdlCAllocFunc: Reference/Neslib.Sdl3.Additional/types/TSdlCAllocFunc.md
+        - TSdlDialogFileCallback: Reference/Neslib.Sdl3.Additional/types/TSdlDialogFileCallback.md
+        - TSdlFreeFunc: Reference/Neslib.Sdl3.Additional/types/TSdlFreeFunc.md
+        - TSdlMAllocFunc: Reference/Neslib.Sdl3.Additional/types/TSdlMAllocFunc.md
+        - TSdlMessageBoxButtonFlag: Reference/Neslib.Sdl3.Additional/types/TSdlMessageBoxButtonFlag.md
+        - TSdlMessageBoxButtonFlags: Reference/Neslib.Sdl3.Additional/types/TSdlMessageBoxButtonFlags.md
+        - TSdlMessageBoxColorType: Reference/Neslib.Sdl3.Additional/types/TSdlMessageBoxColorType.md
+        - TSdlMessageBoxFlag: Reference/Neslib.Sdl3.Additional/types/TSdlMessageBoxFlag.md
+        - TSdlMessageBoxFlags: Reference/Neslib.Sdl3.Additional/types/TSdlMessageBoxFlags.md
+        - TSdlPowerState: Reference/Neslib.Sdl3.Additional/types/TSdlPowerState.md
+        - TSdlProcessIO: Reference/Neslib.Sdl3.Additional/types/TSdlProcessIO.md
+        - TSdlReallocFunc: Reference/Neslib.Sdl3.Additional/types/TSdlReallocFunc.md
+        - TSdlSandbox: Reference/Neslib.Sdl3.Additional/types/TSdlSandbox.md
+        - TSdlTrayCallback: Reference/Neslib.Sdl3.Additional/types/TSdlTrayCallback.md
+        - TSdlTrayEntryFlag: Reference/Neslib.Sdl3.Additional/types/TSdlTrayEntryFlag.md
+        - TSdlTrayEntryFlags: Reference/Neslib.Sdl3.Additional/types/TSdlTrayEntryFlags.md
+      - Routines:
+        - SdlAlignedAlloc: Reference/Neslib.Sdl3.Additional/routines/SdlAlignedAlloc.md
+        - SdlAlignedFree: Reference/Neslib.Sdl3.Additional/routines/SdlAlignedFree.md
+        - SdlCAlloc: Reference/Neslib.Sdl3.Additional/routines/SdlCAlloc.md
+        - SdlCrc16: Reference/Neslib.Sdl3.Additional/routines/SdlCrc16.md
+        - SdlCrc32: Reference/Neslib.Sdl3.Additional/routines/SdlCrc32.md
+        - SdlFillChar4: Reference/Neslib.Sdl3.Additional/routines/SdlFillChar4.md
+        - SdlFree: Reference/Neslib.Sdl3.Additional/routines/SdlFree.md
+        - SdlGetDirect3D9AdapterIndex: Reference/Neslib.Sdl3.Additional/routines/SdlGetDirect3D9AdapterIndex.md
+        - SdlGetDxgiOutputInfo: Reference/Neslib.Sdl3.Additional/routines/SdlGetDxgiOutputInfo.md
+        - SdlGetPowerInfo: Reference/Neslib.Sdl3.Additional/routines/SdlGetPowerInfo.md
+        - SdlGetSandbox: Reference/Neslib.Sdl3.Additional/routines/SdlGetSandbox.md
+        - SdlIsTablet: Reference/Neslib.Sdl3.Additional/routines/SdlIsTablet.md
+        - SdlIsTV: Reference/Neslib.Sdl3.Additional/routines/SdlIsTV.md
+        - SdlMAlloc: Reference/Neslib.Sdl3.Additional/routines/SdlMAlloc.md
+        - SdlMurmur3: Reference/Neslib.Sdl3.Additional/routines/SdlMurmur3.md
+        - SdlNumAllocations: Reference/Neslib.Sdl3.Additional/routines/SdlNumAllocations.md
+        - SdlOpenUrl: Reference/Neslib.Sdl3.Additional/routines/SdlOpenUrl.md
+        - SdlRealloc: Reference/Neslib.Sdl3.Additional/routines/SdlRealloc.md
+        - SdlShowMessageBox: Reference/Neslib.Sdl3.Additional/routines/SdlShowMessageBox.md
+        - SdlShowSimpleMessageBox(TSdlMessageBoxFlags, String, String, TSdlWindow): Reference/Neslib.Sdl3.Additional/routines/SdlShowSimpleMessageBox_0.md
+        - SdlShowSimpleMessageBox(TSdlMessageBoxFlags, String, String): Reference/Neslib.Sdl3.Additional/routines/SdlShowSimpleMessageBox_1.md
+      - Constants:
+        - SDL_CACHELINE_SIZE: Reference/Neslib.Sdl3.Additional/constants/SDL_CACHELINE_SIZE.md
+        - SDL_SINGLE_EPSILON: Reference/Neslib.Sdl3.Additional/constants/SDL_SINGLE_EPSILON.md
+    - Neslib.Sdl3.Audio:
+      - Reference/Neslib.Sdl3.Audio/index.md
+      - Classes & Records:
+        - TSdlAudioBuffer: Reference/Neslib.Sdl3.Audio/classes/TSdlAudioBuffer.md
+        - TSdlAudioDevice: Reference/Neslib.Sdl3.Audio/classes/TSdlAudioDevice.md
+        - TSdlAudioDeviceID: Reference/Neslib.Sdl3.Audio/classes/TSdlAudioDeviceID.md
+        - TSdlAudioDriver: Reference/Neslib.Sdl3.Audio/classes/TSdlAudioDriver.md
+        - TSdlAudioSpec: Reference/Neslib.Sdl3.Audio/classes/TSdlAudioSpec.md
+        - TSdlAudioStream: Reference/Neslib.Sdl3.Audio/classes/TSdlAudioStream.md
+      - Types:
+        - PSdlAudioSpec: Reference/Neslib.Sdl3.Audio/types/PSdlAudioSpec.md
+        - TSdlAudioFormat: Reference/Neslib.Sdl3.Audio/types/TSdlAudioFormat.md
+        - TSdlAudioPostmixCallback: Reference/Neslib.Sdl3.Audio/types/TSdlAudioPostmixCallback.md
+        - TSdlAudioStreamCallback: Reference/Neslib.Sdl3.Audio/types/TSdlAudioStreamCallback.md
+    - Neslib.Sdl3.Basics:
+      - Reference/Neslib.Sdl3.Basics/index.md
+      - Classes & Records:
+        - ESdlError: Reference/Neslib.Sdl3.Basics/classes/ESdlError.md
+        - TSdlHints: Reference/Neslib.Sdl3.Basics/classes/TSdlHints.md
+        - TSdlLog: Reference/Neslib.Sdl3.Basics/classes/TSdlLog.md
+        - TSdlProperties: Reference/Neslib.Sdl3.Basics/classes/TSdlProperties.md
+        - TSdlProperty: Reference/Neslib.Sdl3.Basics/classes/TSdlProperty.md
+        - TSdlVersion: Reference/Neslib.Sdl3.Basics/classes/TSdlVersion.md
+      - Types:
+        - TSdlEnumeratePropertiesCallback: Reference/Neslib.Sdl3.Basics/types/TSdlEnumeratePropertiesCallback.md
+        - TSdlHintCallback: Reference/Neslib.Sdl3.Basics/types/TSdlHintCallback.md
+        - TSdlHintPriority: Reference/Neslib.Sdl3.Basics/types/TSdlHintPriority.md
+        - TSdlInitFlag: Reference/Neslib.Sdl3.Basics/types/TSdlInitFlag.md
+        - TSdlInitFlags: Reference/Neslib.Sdl3.Basics/types/TSdlInitFlags.md
+        - TSdlLogCategory: Reference/Neslib.Sdl3.Basics/types/TSdlLogCategory.md
+        - TSdlLogOutputFunction: Reference/Neslib.Sdl3.Basics/types/TSdlLogOutputFunction.md
+        - TSdlLogPriority: Reference/Neslib.Sdl3.Basics/types/TSdlLogPriority.md
+        - TSdlMainThreadCallback: Reference/Neslib.Sdl3.Basics/types/TSdlMainThreadCallback.md
+        - TSdlPropertyCleanupCallback: Reference/Neslib.Sdl3.Basics/types/TSdlPropertyCleanupCallback.md
+        - TSdlPropertyType: Reference/Neslib.Sdl3.Basics/types/TSdlPropertyType.md
+      - Routines:
+        - SdlCheck(THandle): Reference/Neslib.Sdl3.Basics/routines/SdlCheck_0.md
+        - SdlCheck(Boolean): Reference/Neslib.Sdl3.Basics/routines/SdlCheck_1.md
+        - SdlCheck(Pointer): Reference/Neslib.Sdl3.Basics/routines/SdlCheck_2.md
+        - SdlFailed(THandle): Reference/Neslib.Sdl3.Basics/routines/SdlFailed_0.md
+        - SdlFailed(Pointer): Reference/Neslib.Sdl3.Basics/routines/SdlFailed_1.md
+        - SdlFailed(Boolean): Reference/Neslib.Sdl3.Basics/routines/SdlFailed_2.md
+        - SdlGetAppMetadata: Reference/Neslib.Sdl3.Basics/routines/SdlGetAppMetadata.md
+        - SdlInit: Reference/Neslib.Sdl3.Basics/routines/SdlInit.md
+        - SdlInitSubSystem: Reference/Neslib.Sdl3.Basics/routines/SdlInitSubSystem.md
+        - SdlIsMainThread: Reference/Neslib.Sdl3.Basics/routines/SdlIsMainThread.md
+        - SdlQuit: Reference/Neslib.Sdl3.Basics/routines/SdlQuit.md
+        - SdlQuitSubSystem: Reference/Neslib.Sdl3.Basics/routines/SdlQuitSubSystem.md
+        - SdlRunOnMainThread: Reference/Neslib.Sdl3.Basics/routines/SdlRunOnMainThread.md
+        - SdlSetAppMetadata(String, String, String): Reference/Neslib.Sdl3.Basics/routines/SdlSetAppMetadata_0.md
+        - SdlSetAppMetadata(String, String): Reference/Neslib.Sdl3.Basics/routines/SdlSetAppMetadata_1.md
+        - SdlSucceeded(Pointer): Reference/Neslib.Sdl3.Basics/routines/SdlSucceeded_0.md
+        - SdlSucceeded(Boolean): Reference/Neslib.Sdl3.Basics/routines/SdlSucceeded_1.md
+        - SdlSucceeded(THandle): Reference/Neslib.Sdl3.Basics/routines/SdlSucceeded_2.md
+        - SdlWasInit: Reference/Neslib.Sdl3.Basics/routines/SdlWasInit.md
+    - Neslib.Sdl3.Events:
+      - Reference/Neslib.Sdl3.Events/index.md
+      - Classes & Records:
+        - TSdlAudioDeviceEvent: Reference/Neslib.Sdl3.Events/classes/TSdlAudioDeviceEvent.md
+        - TSdlCameraDeviceEvent: Reference/Neslib.Sdl3.Events/classes/TSdlCameraDeviceEvent.md
+        - TSdlClipboardEvent: Reference/Neslib.Sdl3.Events/classes/TSdlClipboardEvent.md
+        - TSdlCommonEvent: Reference/Neslib.Sdl3.Events/classes/TSdlCommonEvent.md
+        - TSdlDisplayEvent: Reference/Neslib.Sdl3.Events/classes/TSdlDisplayEvent.md
+        - TSdlDropEvent: Reference/Neslib.Sdl3.Events/classes/TSdlDropEvent.md
+        - TSdlEvent: Reference/Neslib.Sdl3.Events/classes/TSdlEvent.md
+        - TSdlEvents: Reference/Neslib.Sdl3.Events/classes/TSdlEvents.md
+        - TSdlGamepadAxisEvent: Reference/Neslib.Sdl3.Events/classes/TSdlGamepadAxisEvent.md
+        - TSdlGamepadButtonEvent: Reference/Neslib.Sdl3.Events/classes/TSdlGamepadButtonEvent.md
+        - TSdlGamepadDeviceEvent: Reference/Neslib.Sdl3.Events/classes/TSdlGamepadDeviceEvent.md
+        - TSdlGamepadSensorEvent: Reference/Neslib.Sdl3.Events/classes/TSdlGamepadSensorEvent.md
+        - TSdlGamepadTouchpadEvent: Reference/Neslib.Sdl3.Events/classes/TSdlGamepadTouchpadEvent.md
+        - TSdlJoyAxisEvent: Reference/Neslib.Sdl3.Events/classes/TSdlJoyAxisEvent.md
+        - TSdlJoyBallEvent: Reference/Neslib.Sdl3.Events/classes/TSdlJoyBallEvent.md
+        - TSdlJoyBatteryEvent: Reference/Neslib.Sdl3.Events/classes/TSdlJoyBatteryEvent.md
+        - TSdlJoyButtonEvent: Reference/Neslib.Sdl3.Events/classes/TSdlJoyButtonEvent.md
+        - TSdlJoyDeviceEvent: Reference/Neslib.Sdl3.Events/classes/TSdlJoyDeviceEvent.md
+        - TSdlJoyHatEvent: Reference/Neslib.Sdl3.Events/classes/TSdlJoyHatEvent.md
+        - TSdlKeyboardDeviceEvent: Reference/Neslib.Sdl3.Events/classes/TSdlKeyboardDeviceEvent.md
+        - TSdlKeyboardEvent: Reference/Neslib.Sdl3.Events/classes/TSdlKeyboardEvent.md
+        - TSdlMouseButtonEvent: Reference/Neslib.Sdl3.Events/classes/TSdlMouseButtonEvent.md
+        - TSdlMouseDeviceEvent: Reference/Neslib.Sdl3.Events/classes/TSdlMouseDeviceEvent.md
+        - TSdlMouseMotionEvent: Reference/Neslib.Sdl3.Events/classes/TSdlMouseMotionEvent.md
+        - TSdlMouseWheelEvent: Reference/Neslib.Sdl3.Events/classes/TSdlMouseWheelEvent.md
+        - TSdlPenAxisEvent: Reference/Neslib.Sdl3.Events/classes/TSdlPenAxisEvent.md
+        - TSdlPenButtonEvent: Reference/Neslib.Sdl3.Events/classes/TSdlPenButtonEvent.md
+        - TSdlPenMotionEvent: Reference/Neslib.Sdl3.Events/classes/TSdlPenMotionEvent.md
+        - TSdlPenProximityEvent: Reference/Neslib.Sdl3.Events/classes/TSdlPenProximityEvent.md
+        - TSdlPenTouchEvent: Reference/Neslib.Sdl3.Events/classes/TSdlPenTouchEvent.md
+        - TSdlQuitEvent: Reference/Neslib.Sdl3.Events/classes/TSdlQuitEvent.md
+        - TSdlRenderEvent: Reference/Neslib.Sdl3.Events/classes/TSdlRenderEvent.md
+        - TSdlSensorEvent: Reference/Neslib.Sdl3.Events/classes/TSdlSensorEvent.md
+        - TSdlTextEditingCandidatesEvent: Reference/Neslib.Sdl3.Events/classes/TSdlTextEditingCandidatesEvent.md
+        - TSdlTextEditingEvent: Reference/Neslib.Sdl3.Events/classes/TSdlTextEditingEvent.md
+        - TSdlTextInputEvent: Reference/Neslib.Sdl3.Events/classes/TSdlTextInputEvent.md
+        - TSdlTouchFingerEvent: Reference/Neslib.Sdl3.Events/classes/TSdlTouchFingerEvent.md
+        - TSdlUserEvent: Reference/Neslib.Sdl3.Events/classes/TSdlUserEvent.md
+        - TSdlWindowEvent: Reference/Neslib.Sdl3.Events/classes/TSdlWindowEvent.md
+      - Types:
+        - PSdlEvent: Reference/Neslib.Sdl3.Events/types/PSdlEvent.md
+        - TSdlEventAction: Reference/Neslib.Sdl3.Events/types/TSdlEventAction.md
+        - TSdlEventFilter: Reference/Neslib.Sdl3.Events/types/TSdlEventFilter.md
+        - TSdlEventKind: Reference/Neslib.Sdl3.Events/types/TSdlEventKind.md
+    - Neslib.Sdl3.Gpu:
+      - Reference/Neslib.Sdl3.Gpu/index.md
+      - Classes & Records:
+        - TSdlGpuBlitInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuBlitInfo.md
+        - TSdlGpuBlitRegion: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuBlitRegion.md
+        - TSdlGpuBuffer: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuBuffer.md
+        - TSdlGpuBufferBinding: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuBufferBinding.md
+        - TSdlGpuBufferCreateInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuBufferCreateInfo.md
+        - TSdlGpuBufferLocation: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuBufferLocation.md
+        - TSdlGpuBufferRegion: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuBufferRegion.md
+        - TSdlGpuColorTargetBlendState: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuColorTargetBlendState.md
+        - TSdlGpuColorTargetDescription: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuColorTargetDescription.md
+        - TSdlGpuColorTargetInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuColorTargetInfo.md
+        - TSdlGpuCommandBuffer: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuCommandBuffer.md
+        - TSdlGpuComputePass: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuComputePass.md
+        - TSdlGpuComputePipeline: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuComputePipeline.md
+        - TSdlGpuComputePipelineCreateInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuComputePipelineCreateInfo.md
+        - TSdlGpuCopyPass: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuCopyPass.md
+        - TSdlGpuDepthStencilState: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuDepthStencilState.md
+        - TSdlGpuDepthStencilTargetInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuDepthStencilTargetInfo.md
+        - TSdlGpuDevice: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuDevice.md
+        - TSdlGpuDriver: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuDriver.md
+        - TSdlGpuFence: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuFence.md
+        - TSdlGpuGraphicsPipeline: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuGraphicsPipeline.md
+        - TSdlGpuGraphicsPipelineCreateInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuGraphicsPipelineCreateInfo.md
+        - TSdlGpuGraphicsPipelineTargetInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuGraphicsPipelineTargetInfo.md
+        - TSdlGpuIndexedIndirectDrawCommand: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuIndexedIndirectDrawCommand.md
+        - TSdlGpuIndirectDispatchCommand: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuIndirectDispatchCommand.md
+        - TSdlGpuIndirectDrawCommand: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuIndirectDrawCommand.md
+        - TSdlGpuMultisampleState: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuMultisampleState.md
+        - TSdlGpuRasterizerState: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuRasterizerState.md
+        - TSdlGpuRenderPass: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuRenderPass.md
+        - TSdlGpuSampler: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuSampler.md
+        - TSdlGpuSamplerCreateInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuSamplerCreateInfo.md
+        - TSdlGpuShader: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuShader.md
+        - TSdlGpuShaderCreateInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuShaderCreateInfo.md
+        - TSdlGpuStencilOpState: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuStencilOpState.md
+        - TSdlGpuStorageBufferReadWriteBinding: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuStorageBufferReadWriteBinding.md
+        - TSdlGpuStorageTextureReadWriteBinding: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuStorageTextureReadWriteBinding.md
+        - TSdlGpuTexture: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuTexture.md
+        - TSdlGpuTextureCreateInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuTextureCreateInfo.md
+        - TSdlGpuTextureLocation: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuTextureLocation.md
+        - TSdlGpuTextureRegion: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuTextureRegion.md
+        - TSdlGpuTextureSamplerBinding: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuTextureSamplerBinding.md
+        - TSdlGpuTextureTransferInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuTextureTransferInfo.md
+        - TSdlGpuTransferBuffer: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuTransferBuffer.md
+        - TSdlGpuTransferBufferCreateInfo: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuTransferBufferCreateInfo.md
+        - TSdlGpuTransferBufferLocation: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuTransferBufferLocation.md
+        - TSdlGpuVertexAttribute: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuVertexAttribute.md
+        - TSdlGpuVertexBufferDescription: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuVertexBufferDescription.md
+        - TSdlGpuVertexInputState: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuVertexInputState.md
+        - TSdlGpuViewport: Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuViewport.md
+      - Types:
+        - PSdlGpuBlitRegion: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuBlitRegion.md
+        - PSdlGpuColorTargetBlendState: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuColorTargetBlendState.md
+        - PSdlGpuDepthStencilState: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuDepthStencilState.md
+        - PSdlGpuMultisampleState: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuMultisampleState.md
+        - PSdlGpuRasterizerState: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuRasterizerState.md
+        - PSdlGpuStencilOpState: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuStencilOpState.md
+        - PSDL_GPUGraphicsPipelineCreateInfo: Reference/Neslib.Sdl3.Gpu/types/PSDL_GPUGraphicsPipelineCreateInfo.md
+        - TSdlGpuBlendFactor: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuBlendFactor.md
+        - TSdlGpuBlendOp: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuBlendOp.md
+        - TSdlGpuBufferUsageFlag: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuBufferUsageFlag.md
+        - TSdlGpuBufferUsageFlags: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuBufferUsageFlags.md
+        - TSdlGpuColorComponentFlag: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuColorComponentFlag.md
+        - TSdlGpuColorComponentFlags: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuColorComponentFlags.md
+        - TSdlGpuCompareOp: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuCompareOp.md
+        - TSdlGpuCubeMapFace: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuCubeMapFace.md
+        - TSdlGpuCullMode: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuCullMode.md
+        - TSdlGpuFillMode: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuFillMode.md
+        - TSdlGpuFilter: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuFilter.md
+        - TSdlGpuFrontFace: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuFrontFace.md
+        - TSdlGpuIndexElementSize: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuIndexElementSize.md
+        - TSdlGpuLoadOp: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuLoadOp.md
+        - TSdlGpuPresentMode: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuPresentMode.md
+        - TSdlGpuPrimitiveType: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuPrimitiveType.md
+        - TSdlGpuSampleCount: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuSampleCount.md
+        - TSdlGpuSamplerAddressMode: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuSamplerAddressMode.md
+        - TSdlGpuSamplerMipmapMode: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuSamplerMipmapMode.md
+        - TSdlGpuShaderFormat: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuShaderFormat.md
+        - TSdlGpuShaderFormats: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuShaderFormats.md
+        - TSdlGpuShaderStage: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuShaderStage.md
+        - TSdlGpuStencilOp: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuStencilOp.md
+        - TSdlGpuStoreOp: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuStoreOp.md
+        - TSdlGpuSwapchainComposition: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuSwapchainComposition.md
+        - TSdlGpuTextureFormat: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuTextureFormat.md
+        - TSdlGpuTextureKind: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuTextureKind.md
+        - TSdlGpuTextureUsageFlag: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuTextureUsageFlag.md
+        - TSdlGpuTextureUsageFlags: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuTextureUsageFlags.md
+        - TSdlGpuTransferBufferUsage: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuTransferBufferUsage.md
+        - TSdlGpuVertexElementFormat: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuVertexElementFormat.md
+        - TSdlGpuVertexInputRate: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuVertexInputRate.md
+    - Neslib.Sdl3.Haptic:
+      - Reference/Neslib.Sdl3.Haptic/index.md
+      - Classes & Records:
+        - TSdlHaptic: Reference/Neslib.Sdl3.Haptic/classes/TSdlHaptic.md
+        - TSdlHapticCondition: Reference/Neslib.Sdl3.Haptic/classes/TSdlHapticCondition.md
+        - TSdlHapticConstant: Reference/Neslib.Sdl3.Haptic/classes/TSdlHapticConstant.md
+        - TSdlHapticCustom: Reference/Neslib.Sdl3.Haptic/classes/TSdlHapticCustom.md
+        - TSdlHapticDirection: Reference/Neslib.Sdl3.Haptic/classes/TSdlHapticDirection.md
+        - TSdlHapticEffect: Reference/Neslib.Sdl3.Haptic/classes/TSdlHapticEffect.md
+        - TSdlHapticID: Reference/Neslib.Sdl3.Haptic/classes/TSdlHapticID.md
+        - TSdlHapticLeftRight: Reference/Neslib.Sdl3.Haptic/classes/TSdlHapticLeftRight.md
+        - TSdlHapticPeriodic: Reference/Neslib.Sdl3.Haptic/classes/TSdlHapticPeriodic.md
+        - TSdlHapticRamp: Reference/Neslib.Sdl3.Haptic/classes/TSdlHapticRamp.md
+      - Types:
+        - PSdlHapticDirection: Reference/Neslib.Sdl3.Haptic/types/PSdlHapticDirection.md
+        - TSdlHapticDirectionKind: Reference/Neslib.Sdl3.Haptic/types/TSdlHapticDirectionKind.md
+        - TSdlHapticEffectID: Reference/Neslib.Sdl3.Haptic/types/TSdlHapticEffectID.md
+        - TSdlHapticFeature: Reference/Neslib.Sdl3.Haptic/types/TSdlHapticFeature.md
+        - TSdlHapticFeatures: Reference/Neslib.Sdl3.Haptic/types/TSdlHapticFeatures.md
+        - TSdlHapticKind: Reference/Neslib.Sdl3.Haptic/types/TSdlHapticKind.md
+      - Routines:
+        - SdlIsJoystickHaptic: Reference/Neslib.Sdl3.Haptic/routines/SdlIsJoystickHaptic.md
+        - SdlIsMouseHaptic: Reference/Neslib.Sdl3.Haptic/routines/SdlIsMouseHaptic.md
+      - Constants:
+        - SDL_HAPTIC_INFINITY: Reference/Neslib.Sdl3.Haptic/constants/SDL_HAPTIC_INFINITY.md
+    - Neslib.Sdl3.Input:
+      - Reference/Neslib.Sdl3.Input/index.md
+      - Classes & Records:
+        - TSdlCursor: Reference/Neslib.Sdl3.Input/classes/TSdlCursor.md
+        - TSdlFinger: Reference/Neslib.Sdl3.Input/classes/TSdlFinger.md
+        - TSdlGamepad: Reference/Neslib.Sdl3.Input/classes/TSdlGamepad.md
+        - TSdlGamepadBinding: Reference/Neslib.Sdl3.Input/classes/TSdlGamepadBinding.md
+        - TSdlGamepadID: Reference/Neslib.Sdl3.Input/classes/TSdlGamepadID.md
+        - TSdlJoystick: Reference/Neslib.Sdl3.Input/classes/TSdlJoystick.md
+        - TSdlJoystickID: Reference/Neslib.Sdl3.Input/classes/TSdlJoystickID.md
+        - TSdlKeyboard: Reference/Neslib.Sdl3.Input/classes/TSdlKeyboard.md
+        - TSdlKeyboardState: Reference/Neslib.Sdl3.Input/classes/TSdlKeyboardState.md
+        - TSdlMouse: Reference/Neslib.Sdl3.Input/classes/TSdlMouse.md
+        - TSdlSensor: Reference/Neslib.Sdl3.Input/classes/TSdlSensor.md
+        - TSdlSensorID: Reference/Neslib.Sdl3.Input/classes/TSdlSensorID.md
+        - TSdlTouch: Reference/Neslib.Sdl3.Input/classes/TSdlTouch.md
+        - TSdlVirtualJoystickDesc: Reference/Neslib.Sdl3.Input/classes/TSdlVirtualJoystickDesc.md
+        - TSdlVirtualJoystickSensorDesc: Reference/Neslib.Sdl3.Input/classes/TSdlVirtualJoystickSensorDesc.md
+        - TSdlVirtualJoystickTouchpadDesc: Reference/Neslib.Sdl3.Input/classes/TSdlVirtualJoystickTouchpadDesc.md
+      - Types:
+        - TSdlBasicGamepadAxis: Reference/Neslib.Sdl3.Input/types/TSdlBasicGamepadAxis.md
+        - TSdlBasicGamepadButton: Reference/Neslib.Sdl3.Input/types/TSdlBasicGamepadButton.md
+        - TSdlFingerID: Reference/Neslib.Sdl3.Input/types/TSdlFingerID.md
+        - TSdlGamepadAxes: Reference/Neslib.Sdl3.Input/types/TSdlGamepadAxes.md
+        - TSdlGamepadAxis: Reference/Neslib.Sdl3.Input/types/TSdlGamepadAxis.md
+        - TSdlGamepadBindingType: Reference/Neslib.Sdl3.Input/types/TSdlGamepadBindingType.md
+        - TSdlGamepadButton: Reference/Neslib.Sdl3.Input/types/TSdlGamepadButton.md
+        - TSdlGamepadButtonLabel: Reference/Neslib.Sdl3.Input/types/TSdlGamepadButtonLabel.md
+        - TSdlGamepadButtons: Reference/Neslib.Sdl3.Input/types/TSdlGamepadButtons.md
+        - TSdlGamepadConnectionState: Reference/Neslib.Sdl3.Input/types/TSdlGamepadConnectionState.md
+        - TSdlGamepadKind: Reference/Neslib.Sdl3.Input/types/TSdlGamepadKind.md
+        - TSdlHat: Reference/Neslib.Sdl3.Input/types/TSdlHat.md
+        - TSdlJoystickConnectionState: Reference/Neslib.Sdl3.Input/types/TSdlJoystickConnectionState.md
+        - TSdlJoystickKind: Reference/Neslib.Sdl3.Input/types/TSdlJoystickKind.md
+        - TSdlKeycode: Reference/Neslib.Sdl3.Input/types/TSdlKeycode.md
+        - TSdlKeyMod: Reference/Neslib.Sdl3.Input/types/TSdlKeyMod.md
+        - TSdlKeyMods: Reference/Neslib.Sdl3.Input/types/TSdlKeyMods.md
+        - TSdlMouseButton: Reference/Neslib.Sdl3.Input/types/TSdlMouseButton.md
+        - TSdlMouseButtons: Reference/Neslib.Sdl3.Input/types/TSdlMouseButtons.md
+        - TSdlMouseWheelDirection: Reference/Neslib.Sdl3.Input/types/TSdlMouseWheelDirection.md
+        - TSdlPenAxis: Reference/Neslib.Sdl3.Input/types/TSdlPenAxis.md
+        - TSdlPenID: Reference/Neslib.Sdl3.Input/types/TSdlPenID.md
+        - TSdlPenInputFlag: Reference/Neslib.Sdl3.Input/types/TSdlPenInputFlag.md
+        - TSdlPenInputFlags: Reference/Neslib.Sdl3.Input/types/TSdlPenInputFlags.md
+        - TSdlScancode: Reference/Neslib.Sdl3.Input/types/TSdlScancode.md
+        - TSdlSensorKind: Reference/Neslib.Sdl3.Input/types/TSdlSensorKind.md
+        - TSdlSystemCursor: Reference/Neslib.Sdl3.Input/types/TSdlSystemCursor.md
+        - TSdlTouchDeviceType: Reference/Neslib.Sdl3.Input/types/TSdlTouchDeviceType.md
+        - TSdlVirtualJoystickCleanup: Reference/Neslib.Sdl3.Input/types/TSdlVirtualJoystickCleanup.md
+        - TSdlVirtualJoystickRumble: Reference/Neslib.Sdl3.Input/types/TSdlVirtualJoystickRumble.md
+        - TSdlVirtualJoystickRumbleTriggers: Reference/Neslib.Sdl3.Input/types/TSdlVirtualJoystickRumbleTriggers.md
+        - TSdlVirtualJoystickSendEffect: Reference/Neslib.Sdl3.Input/types/TSdlVirtualJoystickSendEffect.md
+        - TSdlVirtualJoystickSetLed: Reference/Neslib.Sdl3.Input/types/TSdlVirtualJoystickSetLed.md
+        - TSdlVirtualJoystickSetPlayerIndex: Reference/Neslib.Sdl3.Input/types/TSdlVirtualJoystickSetPlayerIndex.md
+        - TSdlVirtualJoystickSetSensorsEnabled: Reference/Neslib.Sdl3.Input/types/TSdlVirtualJoystickSetSensorsEnabled.md
+        - TSdlVirtualJoystickUpdate: Reference/Neslib.Sdl3.Input/types/TSdlVirtualJoystickUpdate.md
+      - Constants:
+        - SDL_JOYSTICK_AXIS_MAX: Reference/Neslib.Sdl3.Input/constants/SDL_JOYSTICK_AXIS_MAX.md
+        - SDL_JOYSTICK_AXIS_MIN: Reference/Neslib.Sdl3.Input/constants/SDL_JOYSTICK_AXIS_MIN.md
+        - SDL_STANDARD_GRAVITY: Reference/Neslib.Sdl3.Input/constants/SDL_STANDARD_GRAVITY.md
+    - Neslib.Sdl3.IO:
+      - Reference/Neslib.Sdl3.IO/index.md
+      - Classes & Records:
+        - TSdlAsyncIO: Reference/Neslib.Sdl3.IO/classes/TSdlAsyncIO.md
+        - TSdlAsyncIOOutcome: Reference/Neslib.Sdl3.IO/classes/TSdlAsyncIOOutcome.md
+        - TSdlAsyncIOQueue: Reference/Neslib.Sdl3.IO/classes/TSdlAsyncIOQueue.md
+        - TSdlDirectoryEntry: Reference/Neslib.Sdl3.IO/classes/TSdlDirectoryEntry.md
+        - TSdlIOStream: Reference/Neslib.Sdl3.IO/classes/TSdlIOStream.md
+        - TSdlIOStreamInterface: Reference/Neslib.Sdl3.IO/classes/TSdlIOStreamInterface.md
+        - TSdlPathInfo: Reference/Neslib.Sdl3.IO/classes/TSdlPathInfo.md
+        - TSdlStorage: Reference/Neslib.Sdl3.IO/classes/TSdlStorage.md
+        - TSdlStorageInterface: Reference/Neslib.Sdl3.IO/classes/TSdlStorageInterface.md
+      - Types:
+        - TSdlAsyncIOResult: Reference/Neslib.Sdl3.IO/types/TSdlAsyncIOResult.md
+        - TSdlAsyncIOTaskKind: Reference/Neslib.Sdl3.IO/types/TSdlAsyncIOTaskKind.md
+        - TSdlIOStatus: Reference/Neslib.Sdl3.IO/types/TSdlIOStatus.md
+        - TSdlIOWhence: Reference/Neslib.Sdl3.IO/types/TSdlIOWhence.md
+        - TSdlPathKind: Reference/Neslib.Sdl3.IO/types/TSdlPathKind.md
+      - Routines:
+        - SdlLoad(String): Reference/Neslib.Sdl3.IO/routines/SdlLoad_0.md
+        - SdlLoad(String, NativeInt): Reference/Neslib.Sdl3.IO/routines/SdlLoad_1.md
+        - SdlLoadAsync: Reference/Neslib.Sdl3.IO/routines/SdlLoadAsync.md
+        - SdlSave: Reference/Neslib.Sdl3.IO/routines/SdlSave.md
+    - Neslib.Sdl3.Time:
+      - Reference/Neslib.Sdl3.Time/index.md
+      - Types:
+        - TSdlTimerCallback: Reference/Neslib.Sdl3.Time/types/TSdlTimerCallback.md
+        - TSdlTimerID: Reference/Neslib.Sdl3.Time/types/TSdlTimerID.md
+        - TSdlTimerNSCallback: Reference/Neslib.Sdl3.Time/types/TSdlTimerNSCallback.md
+      - Routines:
+        - SdlAddTimer: Reference/Neslib.Sdl3.Time/routines/SdlAddTimer.md
+        - SdlAddTimerNS: Reference/Neslib.Sdl3.Time/routines/SdlAddTimerNS.md
+        - SdlDelay: Reference/Neslib.Sdl3.Time/routines/SdlDelay.md
+        - SdlDelayNS: Reference/Neslib.Sdl3.Time/routines/SdlDelayNS.md
+        - SdlDelayPrecise: Reference/Neslib.Sdl3.Time/routines/SdlDelayPrecise.md
+        - SdlGetPerformanceCounter: Reference/Neslib.Sdl3.Time/routines/SdlGetPerformanceCounter.md
+        - SdlGetPerformanceFrequency: Reference/Neslib.Sdl3.Time/routines/SdlGetPerformanceFrequency.md
+        - SdlGetTicks: Reference/Neslib.Sdl3.Time/routines/SdlGetTicks.md
+        - SdlMSToNS: Reference/Neslib.Sdl3.Time/routines/SdlMSToNS.md
+        - SdlNSToMS: Reference/Neslib.Sdl3.Time/routines/SdlNSToMS.md
+        - SdlNSToSeconds: Reference/Neslib.Sdl3.Time/routines/SdlNSToSeconds.md
+        - SdlNSToUS: Reference/Neslib.Sdl3.Time/routines/SdlNSToUS.md
+        - SdlRemoveTimer: Reference/Neslib.Sdl3.Time/routines/SdlRemoveTimer.md
+        - SdlSecondsToNS: Reference/Neslib.Sdl3.Time/routines/SdlSecondsToNS.md
+        - SdlUSToNS: Reference/Neslib.Sdl3.Time/routines/SdlUSToNS.md
+      - Constants:
+        - SDL_MS_PER_SECOND: Reference/Neslib.Sdl3.Time/constants/SDL_MS_PER_SECOND.md
+        - SDL_NS_PER_MS: Reference/Neslib.Sdl3.Time/constants/SDL_NS_PER_MS.md
+        - SDL_NS_PER_SECOND: Reference/Neslib.Sdl3.Time/constants/SDL_NS_PER_SECOND.md
+        - SDL_NS_PER_US: Reference/Neslib.Sdl3.Time/constants/SDL_NS_PER_US.md
+        - SDL_US_PER_SECOND: Reference/Neslib.Sdl3.Time/constants/SDL_US_PER_SECOND.md
+    - Neslib.Sdl3.Video:
+      - Reference/Neslib.Sdl3.Video/index.md
+      - Classes & Records:
+        - TSdlCamera: Reference/Neslib.Sdl3.Video/classes/TSdlCamera.md
+        - TSdlCameraDriver: Reference/Neslib.Sdl3.Video/classes/TSdlCameraDriver.md
+        - TSdlCameraID: Reference/Neslib.Sdl3.Video/classes/TSdlCameraID.md
+        - TSdlCameraSpec: Reference/Neslib.Sdl3.Video/classes/TSdlCameraSpec.md
+        - TSdlColor: Reference/Neslib.Sdl3.Video/classes/TSdlColor.md
+        - TSdlColorF: Reference/Neslib.Sdl3.Video/classes/TSdlColorF.md
+        - TSdlDisplay: Reference/Neslib.Sdl3.Video/classes/TSdlDisplay.md
+        - TSdlDisplayMode: Reference/Neslib.Sdl3.Video/classes/TSdlDisplayMode.md
+        - TSdlEgl: Reference/Neslib.Sdl3.Video/classes/TSdlEgl.md
+        - TSdlEglConfig: Reference/Neslib.Sdl3.Video/classes/TSdlEglConfig.md
+        - TSdlEglDisplay: Reference/Neslib.Sdl3.Video/classes/TSdlEglDisplay.md
+        - TSdlEglSurface: Reference/Neslib.Sdl3.Video/classes/TSdlEglSurface.md
+        - TSdlGL: Reference/Neslib.Sdl3.Video/classes/TSdlGL.md
+        - TSdlGLContext: Reference/Neslib.Sdl3.Video/classes/TSdlGLContext.md
+        - TSdlMetalView: Reference/Neslib.Sdl3.Video/classes/TSdlMetalView.md
+        - TSdlPalette: Reference/Neslib.Sdl3.Video/classes/TSdlPalette.md
+        - TSdlPixelFormatDetails: Reference/Neslib.Sdl3.Video/classes/TSdlPixelFormatDetails.md
+        - TSdlPoint: Reference/Neslib.Sdl3.Video/classes/TSdlPoint.md
+        - TSdlPointF: Reference/Neslib.Sdl3.Video/classes/TSdlPointF.md
+        - TSdlRect: Reference/Neslib.Sdl3.Video/classes/TSdlRect.md
+        - TSdlRectF: Reference/Neslib.Sdl3.Video/classes/TSdlRectF.md
+        - TSdlRenderer: Reference/Neslib.Sdl3.Video/classes/TSdlRenderer.md
+        - TSdlScreenSaver: Reference/Neslib.Sdl3.Video/classes/TSdlScreenSaver.md
+        - TSdlSize: Reference/Neslib.Sdl3.Video/classes/TSdlSize.md
+        - TSdlSizeF: Reference/Neslib.Sdl3.Video/classes/TSdlSizeF.md
+        - TSdlSurface: Reference/Neslib.Sdl3.Video/classes/TSdlSurface.md
+        - TSdlTexture: Reference/Neslib.Sdl3.Video/classes/TSdlTexture.md
+        - TSdlVertex: Reference/Neslib.Sdl3.Video/classes/TSdlVertex.md
+        - TSdlVideoDriver: Reference/Neslib.Sdl3.Video/classes/TSdlVideoDriver.md
+        - TSdlWindow: Reference/Neslib.Sdl3.Video/classes/TSdlWindow.md
+      - Types:
+        - PSdlColor: Reference/Neslib.Sdl3.Video/types/PSdlColor.md
+        - PSdlColorF: Reference/Neslib.Sdl3.Video/types/PSdlColorF.md
+        - PSdlDisplayMode: Reference/Neslib.Sdl3.Video/types/PSdlDisplayMode.md
+        - PSdlPoint: Reference/Neslib.Sdl3.Video/types/PSdlPoint.md
+        - PSdlPointF: Reference/Neslib.Sdl3.Video/types/PSdlPointF.md
+        - PSdlRect: Reference/Neslib.Sdl3.Video/types/PSdlRect.md
+        - PSdlRectF: Reference/Neslib.Sdl3.Video/types/PSdlRectF.md
+        - PSdlSize: Reference/Neslib.Sdl3.Video/types/PSdlSize.md
+        - PSdlSizeF: Reference/Neslib.Sdl3.Video/types/PSdlSizeF.md
+        - PSdlVertex: Reference/Neslib.Sdl3.Video/types/PSdlVertex.md
+        - PVkAllocationCallbacks: Reference/Neslib.Sdl3.Video/types/PVkAllocationCallbacks.md
+        - TSdlArrayOrder: Reference/Neslib.Sdl3.Video/types/TSdlArrayOrder.md
+        - TSdlBitmapOrder: Reference/Neslib.Sdl3.Video/types/TSdlBitmapOrder.md
+        - TSdlBlendFactor: Reference/Neslib.Sdl3.Video/types/TSdlBlendFactor.md
+        - TSdlBlendMode: Reference/Neslib.Sdl3.Video/types/TSdlBlendMode.md
+        - TSdlBlendOperation: Reference/Neslib.Sdl3.Video/types/TSdlBlendOperation.md
+        - TSdlCameraPermissionState: Reference/Neslib.Sdl3.Video/types/TSdlCameraPermissionState.md
+        - TSdlCameraPosition: Reference/Neslib.Sdl3.Video/types/TSdlCameraPosition.md
+        - TSdlCapitalization: Reference/Neslib.Sdl3.Video/types/TSdlCapitalization.md
+        - TSdlChromaLocation: Reference/Neslib.Sdl3.Video/types/TSdlChromaLocation.md
+        - TSdlColorPrimaries: Reference/Neslib.Sdl3.Video/types/TSdlColorPrimaries.md
+        - TSdlColorRange: Reference/Neslib.Sdl3.Video/types/TSdlColorRange.md
+        - TSdlColorspace: Reference/Neslib.Sdl3.Video/types/TSdlColorspace.md
+        - TSdlColorType: Reference/Neslib.Sdl3.Video/types/TSdlColorType.md
+        - TSdlDisplayID: Reference/Neslib.Sdl3.Video/types/TSdlDisplayID.md
+        - TSdlDisplayOrientation: Reference/Neslib.Sdl3.Video/types/TSdlDisplayOrientation.md
+        - TSdlEglAttrib: Reference/Neslib.Sdl3.Video/types/TSdlEglAttrib.md
+        - TSdlEglAttribArrayCallback: Reference/Neslib.Sdl3.Video/types/TSdlEglAttribArrayCallback.md
+        - TSdlEglInt: Reference/Neslib.Sdl3.Video/types/TSdlEglInt.md
+        - TSdlEglIntArrayCallback: Reference/Neslib.Sdl3.Video/types/TSdlEglIntArrayCallback.md
+        - TSdlFlashOperation: Reference/Neslib.Sdl3.Video/types/TSdlFlashOperation.md
+        - TSdlFlipMode: Reference/Neslib.Sdl3.Video/types/TSdlFlipMode.md
+        - TSdlFlipModes: Reference/Neslib.Sdl3.Video/types/TSdlFlipModes.md
+        - TSdlGLAttr: Reference/Neslib.Sdl3.Video/types/TSdlGLAttr.md
+        - TSdlGLContextFlag: Reference/Neslib.Sdl3.Video/types/TSdlGLContextFlag.md
+        - TSdlGLContextFlags: Reference/Neslib.Sdl3.Video/types/TSdlGLContextFlags.md
+        - TSdlGLContextReleaseFlag: Reference/Neslib.Sdl3.Video/types/TSdlGLContextReleaseFlag.md
+        - TSdlGLContextReleaseFlags: Reference/Neslib.Sdl3.Video/types/TSdlGLContextReleaseFlags.md
+        - TSdlGLContextResetNotification: Reference/Neslib.Sdl3.Video/types/TSdlGLContextResetNotification.md
+        - TSdlGLProfile: Reference/Neslib.Sdl3.Video/types/TSdlGLProfile.md
+        - TSdlHitTestCallback: Reference/Neslib.Sdl3.Video/types/TSdlHitTestCallback.md
+        - TSdlHitTestResult: Reference/Neslib.Sdl3.Video/types/TSdlHitTestResult.md
+        - TSdlIndexType: Reference/Neslib.Sdl3.Video/types/TSdlIndexType.md
+        - TSdlMatrixCoefficients: Reference/Neslib.Sdl3.Video/types/TSdlMatrixCoefficients.md
+        - TSdlPackedLayout: Reference/Neslib.Sdl3.Video/types/TSdlPackedLayout.md
+        - TSdlPackedOrder: Reference/Neslib.Sdl3.Video/types/TSdlPackedOrder.md
+        - TSdlPixelFormat: Reference/Neslib.Sdl3.Video/types/TSdlPixelFormat.md
+        - TSdlPixelType: Reference/Neslib.Sdl3.Video/types/TSdlPixelType.md
+        - TSdlRendererLogicalPresentation: Reference/Neslib.Sdl3.Video/types/TSdlRendererLogicalPresentation.md
+        - TSdlRendererVsync: Reference/Neslib.Sdl3.Video/types/TSdlRendererVsync.md
+        - TSdlScaleMode: Reference/Neslib.Sdl3.Video/types/TSdlScaleMode.md
+        - TSdlSurfaceFlag: Reference/Neslib.Sdl3.Video/types/TSdlSurfaceFlag.md
+        - TSdlSurfaceFlags: Reference/Neslib.Sdl3.Video/types/TSdlSurfaceFlags.md
+        - TSdlSystemTheme: Reference/Neslib.Sdl3.Video/types/TSdlSystemTheme.md
+        - TSdlTextInputType: Reference/Neslib.Sdl3.Video/types/TSdlTextInputType.md
+        - TSdlTextureAccess: Reference/Neslib.Sdl3.Video/types/TSdlTextureAccess.md
+        - TSdlTransferCharacteristics: Reference/Neslib.Sdl3.Video/types/TSdlTransferCharacteristics.md
+        - TSdlWindowFlag: Reference/Neslib.Sdl3.Video/types/TSdlWindowFlag.md
+        - TSdlWindowFlags: Reference/Neslib.Sdl3.Video/types/TSdlWindowFlags.md
+        - TSdlWindowID: Reference/Neslib.Sdl3.Video/types/TSdlWindowID.md
+        - TSdlWindowPos: Reference/Neslib.Sdl3.Video/types/TSdlWindowPos.md
+        - TSdlWindowSurfaceVsync: Reference/Neslib.Sdl3.Video/types/TSdlWindowSurfaceVsync.md
+        - VkInstance: Reference/Neslib.Sdl3.Video/types/VkInstance.md
+        - VkPhysicalDevice: Reference/Neslib.Sdl3.Video/types/VkPhysicalDevice.md
+        - VkSurfaceKHR: Reference/Neslib.Sdl3.Video/types/VkSurfaceKHR.md
+      - Routines:
+        - PremultiplyAlpha: Reference/Neslib.Sdl3.Video/routines/PremultiplyAlpha.md
+        - SdlColor: Reference/Neslib.Sdl3.Video/routines/SdlColor.md
+        - SdlColorF: Reference/Neslib.Sdl3.Video/routines/SdlColorF.md
+        - SdlConvert(Integer, Integer, TSdlPixelFormat, TSdlColorspace, TSdlProperties, Pointer, Integer, TSdlPixelFormat, TSdlColorspace, TSdlProperties, Pointer, Integer): Reference/Neslib.Sdl3.Video/routines/SdlConvert_0.md
+        - SdlConvert(Integer, Integer, TSdlPixelFormat, TSdlColorspace, Pointer, Integer, TSdlPixelFormat, TSdlColorspace, Pointer, Integer): Reference/Neslib.Sdl3.Video/routines/SdlConvert_1.md
+        - SdlConvert(Integer, Integer, TSdlPixelFormat, Pointer, Integer, TSdlPixelFormat, Pointer, Integer): Reference/Neslib.Sdl3.Video/routines/SdlConvert_2.md
+        - SdlPoint(Integer, Integer): Reference/Neslib.Sdl3.Video/routines/SdlPoint_0.md
+        - SdlPoint(TPoint): Reference/Neslib.Sdl3.Video/routines/SdlPoint_1.md
+        - SdlPointF(Single, Single): Reference/Neslib.Sdl3.Video/routines/SdlPointF_0.md
+        - SdlPointF(TSdlPoint): Reference/Neslib.Sdl3.Video/routines/SdlPointF_1.md
+        - SdlPointF(TPoint): Reference/Neslib.Sdl3.Video/routines/SdlPointF_2.md
+        - SdlPointF(TPointF): Reference/Neslib.Sdl3.Video/routines/SdlPointF_3.md
+        - SdlRect(TRect): Reference/Neslib.Sdl3.Video/routines/SdlRect_0.md
+        - SdlRect(Integer, Integer, Integer, Integer): Reference/Neslib.Sdl3.Video/routines/SdlRect_1.md
+        - SdlRectF(TRectF): Reference/Neslib.Sdl3.Video/routines/SdlRectF_0.md
+        - SdlRectF(Single, Single, Single, Single): Reference/Neslib.Sdl3.Video/routines/SdlRectF_1.md
+        - SdlRectF(TSdlRect): Reference/Neslib.Sdl3.Video/routines/SdlRectF_2.md
+        - SdlRectF(TRect): Reference/Neslib.Sdl3.Video/routines/SdlRectF_3.md
+        - SdlSize: Reference/Neslib.Sdl3.Video/routines/SdlSize.md
+        - SdlSizeF(TSdlSize): Reference/Neslib.Sdl3.Video/routines/SdlSizeF_0.md
+        - SdlSizeF(Single, Single): Reference/Neslib.Sdl3.Video/routines/SdlSizeF_1.md
+        - SdlVulkanCreateSurface: Reference/Neslib.Sdl3.Video/routines/SdlVulkanCreateSurface.md
+        - SdlVulkanDestroySurface: Reference/Neslib.Sdl3.Video/routines/SdlVulkanDestroySurface.md
+        - SdlVulkanGetInstanceExtensions: Reference/Neslib.Sdl3.Video/routines/SdlVulkanGetInstanceExtensions.md
+        - SdlVulkanGetPresentationSupport: Reference/Neslib.Sdl3.Video/routines/SdlVulkanGetPresentationSupport.md
+        - SdlVulkanGetVkGetInstanceProcAddr: Reference/Neslib.Sdl3.Video/routines/SdlVulkanGetVkGetInstanceProcAddr.md
+        - SdlVulkanLoadLibrary: Reference/Neslib.Sdl3.Video/routines/SdlVulkanLoadLibrary.md
+        - SdlVulkanUnloadLibrary: Reference/Neslib.Sdl3.Video/routines/SdlVulkanUnloadLibrary.md
+      - Constants:
+        - SDL_ALPHA_OPAQUE: Reference/Neslib.Sdl3.Video/constants/SDL_ALPHA_OPAQUE.md
+        - SDL_ALPHA_OPAQUE_FLOAT: Reference/Neslib.Sdl3.Video/constants/SDL_ALPHA_OPAQUE_FLOAT.md
+        - SDL_ALPHA_TRANSPARENT: Reference/Neslib.Sdl3.Video/constants/SDL_ALPHA_TRANSPARENT.md
+        - SDL_ALPHA_TRANSPARENT_FLOAT: Reference/Neslib.Sdl3.Video/constants/SDL_ALPHA_TRANSPARENT_FLOAT.md
+        - SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE: Reference/Neslib.Sdl3.Video/constants/SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE.md
+        - SDL_NO_COLOR_KEY: Reference/Neslib.Sdl3.Video/constants/SDL_NO_COLOR_KEY.md
+        - SDL_SOFTWARE_RENDERER: Reference/Neslib.Sdl3.Video/constants/SDL_SOFTWARE_RENDERER.md
+    - Neslib.Sdl3:
+      - Reference/Neslib.Sdl3/index.md
+      - Classes & Records:
+        - TSdlApp: Reference/Neslib.Sdl3/classes/TSdlApp.md
+      - Types:
+        - TSdlAppClass: Reference/Neslib.Sdl3/types/TSdlAppClass.md
+        - TSdlAppResult: Reference/Neslib.Sdl3/types/TSdlAppResult.md
+      - Routines:
+        - RunApp: Reference/Neslib.Sdl3/routines/RunApp.md
+theme:
+  name: material
+#  logo: assets/logo.png # shows in toolbar
+#  favicon: assets/logo.png
+#  icon:
+#    annotation: material/arrow-right-circle 
+  features:
+    - content.code.copy
+#    - content.code.annotate
+#    - content.tooltips  
+    # - header.autohide # auto-hide header after certain scroll threshold
+    - navigation.instant # intercept internal links without full reloading
+    - navigation.instant.progress # show progress on slow connections
+    - navigation.tabs # show top-level menu as (auto-hide) tabs
+    # - navigation.tabs.sticky # don't auto-hide tabs
+    # - navigation.sections # show top-level menu in navbar (unless also navigation.tabs, then 2nd level menu)
+    # - navigation.expand # expand all sidebar menus
+    - navigation.prune # reduce size by including only visible nav items
+    - navigation.top # show "Back to top" button when scrolling upwards
+    - navigation.footer # show footer with previous and next buttons and social links (if enabled with extra | social)
+    - navigation.indexes # attach documents to sections
+    # - toc.integrate # integrate TOC in left sidebar instead of separate to the right
+    - search.suggest # Enable search suggestions (auto-complete)
+#    - search.highlight # Highlight all found occurences
+    - search.share # Show share button in search bar
+  palette: 
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple # primary color for toolbars, focused links etc.
+      #accent: green   # accent color for hovered links etc. 
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      #accent: green
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+plugins:
+  - search
+markdown_extensions:
+#  - abbr
+  - admonition
+  - attr_list
+#  - def_list
+#  - footnotes
+#  - md_in_html
+#  - pymdownx.blocks.caption
+#  - pymdownx.caret
+#  - pymdownx.critic
+  - pymdownx.details
+#  - pymdownx.keys
+  - pymdownx.inlinehilite
+#  - pymdownx.mark
+  - pymdownx.snippets
+#  - pymdownx.tilde
+#  - pymdownx.arithmatex:
+#      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences:
+#      custom_fences:
+#        - name: mermaid
+#          class: mermaid
+#          format: !!python/name:pymdownx.superfences.fence_code_format
+#  - pymdownx.tabbed:
+#      alternate_style: true
+#  - pymdownx.tasklist:
+#      custom_checkbox: true
+#  - tables
+  - toc:
+      toc_depth: 2
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/neslib/Neslib.Sdl3
+      name: GitHub neslib
+    - icon: /fontawesome/brands/wordpress
+      link: https://blog.grijjy.com/author/erikvanbilsen/
+      name: Blog
+  # generator: false # hide the "Made with Material for MkDocs" notice
+copyright: Copyright &copy; 2025 Erik van Bilsen
+repo_url: https://github.com/neslib/Neslib.Sdl3
+repo_name: Neslib.Sdl3
+#extra_css:
+#  - stylesheets/extra.css
+#  - https://unpkg.com/katex@0/dist/katex.min.css
+#extra_javascript:
+#  - javascripts/katex.js
+#  - https://unpkg.com/katex@0/dist/katex.min.js
+#  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js

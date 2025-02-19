@@ -13,6 +13,7 @@ LaunchScreen.TemplateiOS/
 OSX64/
 Win32/
 Win64/
+Docs/Docs/Reference/
 !Deploy/Win32/
 !Deploy/Win64/
 #ignore Delphi build files
@@ -24,6 +25,7 @@ Win64/
 *.rsm
 *.dSYM
 *.xml
+*.bak
 #ignore Delphi temp and backup files
 *.~*
 #ignore Delphi local files

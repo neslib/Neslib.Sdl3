@@ -1,6 +1,6 @@
 # Neslib.Sdl3
 
-Delphi bindings and OOP-like wrappers for [SDL3](https://libsdl.org/index.php) version [3.2.0](https://github.com/libsdl-org/SDL/releases/tag/release-3.2.0).
+Delphi bindings and OOP-like wrappers for [SDL3](https://libsdl.org/index.php).
 
 ## Supported Platforms
 
@@ -8,7 +8,7 @@ Neslib.Sdl3 is supported on these platforms:
 
 * Windows (32-bit and 64-bit).
 * macOS (currently 64-bit Intel only. ARM support will be added later).
-* iOS (64-bit device only. Currently no support for iOS simulator).
+* iOS (64-bit device only).
 * Android (32-bit and 64-bit)/
 
 We provide the static and dynamic libraries for these platforms, so everything you need is contained in this repository. For Windows, you need to deploy the SDL3.dll file with your application. You can find this is the "Deploy\Win32" or "Deploy\Win64" directory. For the other platforms, a static library is used that is linked directly into the application, so there is no need to deploy anything.
@@ -26,11 +26,11 @@ Like SDL3 itself, Neslib.Sdl3 is very well documented.
 
 If you plan to use the C API, you can use the official [SDL3 Wiki documentation](https://wiki.libsdl.org/SDL3/FrontPage).
 
-For the OOP-like API, see the [documentation on github.io](https://neslib.github.io/Neslib.Sdl3/). use the [API by category](https://neslib.github.io/Neslib.Sdl3/APIByCategory/) page as a starting point, or the [API Reference](https://neslib.github.io/Neslib.Sdl3/Reference/Neslib.Sdl3/) pages for complete documentation by unit. This documentation is extracted from the source code, so you can use the (XML) documentation in the source code as well. Delphi's CodeInsight will also show this documentation when you hover the mouse over an SDL declaration.
+For the OOP-like API, use the [API by category](APIByCategory/index.md) page as a starting point, or the [API Reference](Reference/Neslib.Sdl3/index.md) pages for complete documentation by unit. This documentation is extracted from the source code, so you can use the (XML) documentation in the source code as well. Delphi's CodeInsight will also show this documentation when you hover the mouse over an SDL declaration.
 
 ## Examples
 
-The Examples directory contains Delphi versions of some SDL3 examples. These all use the OOP-like Delphi API instead of the C API. I will add more examples in the future.
+The Examples directory contains Delphi versions of some SDL3 examples. These all use the OOP-like Delphi API instead of the C API. 
 
 These examples should give you a good head start. The easiest way to create your own SDL3 application is to copy and rename one of these examples and work from there.
 
@@ -68,7 +68,7 @@ To add these in Delphi:
 
 ### iOS
 
-Only deploying to an actual iOS device is currently supported. The simulator is currently not supported since it requires an ARM Mac, which I currently do not have.
+Only deploying to an actual iOS device is supported. The simulator is not supported since it is not supported by the underlying SDL library.
 
 You don't need to deploy any files. The SDL library is linked into the application.
 

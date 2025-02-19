@@ -1838,8 +1838,8 @@ type
   ///  | Render*                    | TSdlRenderEvent                | Render          |
   ///  | Drop*                      | TSdlDropEvent                  | Drop            |
   ///  | ClipboardUpdate            | TSdlClipboardEvent             | Clipboard       |
-  ///  | <registered user event>    | TSdlUserEvent                  | User            |
-  ///  | <other events>             | TSdlCommonEvent                | Common          |
+  ///  | (registered user event)    | TSdlUserEvent                  | User            |
+  ///  | (other events)             | TSdlCommonEvent                | Common          |
   /// </summary>
   TSdlEvent = record
   public
@@ -2047,7 +2047,7 @@ type
   ///  put events onto the queue for later retrieval; Register can guarantee
   ///  that these events have a kind that isn't in use by other parts of the system.
   /// </summary>
-  TSdlEvents = record // static
+  TSdlEvents = record
   {$REGION 'Internal Declarations'}
   private const
     MAX_WATCHES = 16;
@@ -2282,8 +2282,8 @@ type
     /// <param name="AEvent">(Optional) Event record to be filled in with the
     ///  next event from the queue.</param>
     /// <exception name="ESdlError">If there was an error while waiting for events.</exception>
-    /// <seealso cref="SDL_Poll"/>
-    /// <seealso cref="SDL_Push"/>
+    /// <seealso cref="Poll"/>
+    /// <seealso cref="Push"/>
     /// <remarks>
     ///  This function should only be called on the main thread.
     /// </remarks>

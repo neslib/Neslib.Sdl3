@@ -517,7 +517,7 @@ type
 /// <summary>
 ///  Calculate a CRC-16 value.
 ///
-///  https://en.wikipedia.org/wiki/Cyclic_redundancy_check
+///  See <see href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">Cyclic Redundancy Check</see>.
 ///
 ///  This function can be called multiple times, to stream data to be
 ///  checksummed in blocks. Each call must provide the previous CRC-16 return
@@ -536,7 +536,7 @@ function SdlCrc16(const ACrc: Word; const AData: Pointer; const ASize: NativeInt
 /// <summary>
 ///  Calculate a CRC-32 value.
 ///
-///  https://en.wikipedia.org/wiki/Cyclic_redundancy_check
+///  See <see href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">Cyclic Redundancy Check</see>.
 ///
 ///  This function can be called multiple times, to stream data to be
 ///  checksummed in blocks. Each call must provide the previous CRC-32 return
@@ -555,7 +555,7 @@ function SdlCrc32(const ACrc: Cardinal; const AData: Pointer; const ASize: Nativ
 /// <summary>
 ///  Calculate a 32-bit MurmurHash3 value for a block of data.
 ///
-///  https://en.wikipedia.org/wiki/MurmurHash
+///  See <see href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</see>.
 ///
 ///  A seed may be specified, which changes the final results consistently, but
 ///  this does not work like SdlCrc16 and SdlCrc32: you can't feed a previous
@@ -670,7 +670,7 @@ type
   ///  doesn't have to encode it to either of those unless and until something
   ///  tries to paste it.
   /// </summary>
-  TSdlClipboard = record // static
+  TSdlClipboard = record
   {$REGION 'Internal Declarations'}
   private class var
     FProviders: TDictionary<String, ISdlClipboardDataProvider>;
@@ -799,7 +799,7 @@ type
   ///  have SSE and an x86 processor will never have NEON, for example, but
   ///  these properties still exist and will simply return False in these).
   /// </summary>
-  TSdlCpu = record // static
+  TSdlCpu = record
   {$REGION 'Internal Declarations'}
   private
     class function GetNumLogicalCores: Integer; inline; static;
@@ -1068,22 +1068,34 @@ type
   ///  These are results returned by SdlGetPowerInfo.
   /// </summary>
   TSdlPowerState = (
-    /// <summary>error determining power status</summary>
+    /// <summary>
+    ///  Error determining power status
+    /// </summary>
     Error     = SDL_POWERSTATE_ERROR,
 
-    /// <summary>cannot determine power status</summary>
+    /// <summary>
+    ///  Cannot determine power status
+    /// </summary>
     Unknown   = SDL_POWERSTATE_UNKNOWN,
 
-    /// <summary>Not plugged in, running on the battery</summary>
+    /// <summary>
+    ///  Not plugged in, running on the battery
+    /// </summary>
     OnBattery = SDL_POWERSTATE_ON_BATTERY,
 
-    /// <summary>Plugged in, no battery available</summary>
+    /// <summary>
+    ///  Plugged in, no battery available
+    /// </summary>
     NoBattery = SDL_POWERSTATE_NO_BATTERY,
 
-    /// <summary>Plugged in, charging battery</summary>
+    /// <summary>
+    ///  Plugged in, charging battery
+    /// </summary>
     Charging  = SDL_POWERSTATE_CHARGING,
 
-    /// <summary>Plugged in, battery charged</summary>
+    /// <summary>
+    ///  Plugged in, battery charged
+    /// </summary>
     Charged   = SDL_POWERSTATE_CHARGED);
 
 /// <summary>
@@ -1489,7 +1501,7 @@ type
   /// <summary>
   ///  Provides (file) dialog functionality
   /// </summary>
-  TSdlDialog = record // static
+  TSdlDialog = record
   {$REGION 'Internal Declarations'}
   private const
     MAX_SIMULTANEOUS_DIALOGS = 8;
@@ -1542,8 +1554,8 @@ type
     ///  this option.</param>
     /// <seealso cref="TSdlDialogFileCallback"/>
     /// <seealso cref="TSdlDialogFileFilter"/>
-    /// <seealso cref="TSdlDialog.ShowSaveFile"/>
-    /// <seealso cref="TSdlDialog.ShowOpenFolder"/>
+    /// <seealso cref="ShowSaveFile"/>
+    /// <seealso cref="ShowOpenFolder"/>
     /// <remarks>
     ///  This method should be called only from the main thread. The callback
     ///  may be invoked from the same thread or from a different one, depending
@@ -1579,8 +1591,8 @@ type
     /// start the dialog at. Not all platforms support this option.</param>
     /// <seealso cref="TSdlDialogFileCallback"/>
     /// <seealso cref="TSdlDialogFileFilter"/>
-    /// <seealso cref="TSdlDialog.ShowOpenFile"/>
-    /// <seealso cref="TSdlDialog.ShowOpenFolder"/>
+    /// <seealso cref="ShowOpenFile"/>
+    /// <seealso cref="ShowOpenFolder"/>
     /// <remarks>
     ///  This method should be called only from the main thread. The callback
     ///  may be invoked from the same thread or from a different one, depending
@@ -1616,8 +1628,8 @@ type
     ///  select multiple entries. Defaults to False. Not all platforms support
     ///  this option.</param>
     /// <seealso cref="TSdlDialogFileCallback"/>
-    /// <seealso cref="TSdlDialog.ShowOpenFile"/>
-    /// <seealso cref="TSdlDialog.ShowSaveFile"/>
+    /// <seealso cref="ShowOpenFile"/>
+    /// <seealso cref="ShowSaveFile"/>
     /// <remarks>
     ///  This method should be called only from the main thread. The callback
     ///  may be invoked from the same thread or from a different one, depending
@@ -2542,18 +2554,18 @@ type
   /// <summary>
   ///  The state of external storage.
   ///  See the official Android developer guide for more information:
-  ///  http://developer.android.com/guide/topics/data/data-storage.html
+  ///  <see href="http://developer.android.com/guide/topics/data/data-storage.html">Data and File Storage</see>
   /// </summary>
   TSdlAndroidExternalStorageState = (
     /// <summary>
     ///  See the official Android developer guide for more information:
-    ///  http://developer.android.com/guide/topics/data/data-storage.html
+    ///  <see href="http://developer.android.com/guide/topics/data/data-storage.html">Data and File Storage</see>
     /// </summary>
     Read  = 0,
 
     /// <summary>
     ///  See the official Android developer guide for more information:
-    ///  http://developer.android.com/guide/topics/data/data-storage.html
+    ///  <see href="http://developer.android.com/guide/topics/data/data-storage.html">Data and File Storage</see>
     /// </summary>
     Write = 1);
   TSdlAndroidExternalStorageStates = set of TSdlAndroidExternalStorageState;
@@ -2644,9 +2656,8 @@ procedure SdlSendAndroidBackButton; inline;
 ///  Your internal storage path is typically:
 ///  `/data/data/your.app.package/files`.
 ///
-///  This is a Delphi wrapper over `android.content.Context.getFilesDir()`:
-///
-///  https://developer.android.com/reference/android/content/Context#getFilesDir()
+///  This is a Delphi wrapper over
+///  <see href="https://developer.android.com/reference/android/content/Context#getFilesDir()">android.content.Context.getFilesDir()</see>.
 /// </summary>
 /// <returns>The path used for internal storage.</returns>
 /// <exception name="ESdlError">Raised on failure.</exception>
@@ -2673,9 +2684,8 @@ function SdlGetAndroidExternalStorageState: TSdlAndroidExternalStorageStates; in
 ///  Your external storage path is typically:
 ///  `/storage/sdcard0/Android/data/your.app.package/files`.
 ///
-///  This is a Delphi wrapper over `android.content.Context.getExternalFilesDir()`:
-///
-///  https://developer.android.com/reference/android/content/Context#getExternalFilesDir()
+///  This is a Delphi wrapper over
+///  <see href="https://developer.android.com/reference/android/content/Context#getExternalFilesDir()">android.content.Context.getExternalFilesDir()</see>.
 /// </summary>
 /// <returns>The path used for external storage for this application.</returns>
 /// <exception name="ESdlError">Raised on failure.</exception>
@@ -2692,9 +2702,8 @@ function SdlGetAndroidExternalStoragePath: String; inline;
 ///
 ///  Your cache path is typically: `/data/data/your.app.package/cache/`.
 ///
-///  This is a Delphi wrapper over `android.content.Context.getCacheDir()`:
-///
-///  https://developer.android.com/reference/android/content/Context#getCacheDir()
+///  This is a Delphi wrapper over
+///  <see href="https://developer.android.com/reference/android/content/Context#getCacheDir()">android.content.Context.getCacheDir()</see>.
 /// </summary>
 /// <returns>The path used for caches for this application.</returns>
 /// <exception name="ESdlError">Raised on failure.</exception>
@@ -2721,8 +2730,7 @@ function SdlGetAndroidCachePath: String; inline;
 ///  Normally there will be a yes or no to the request through the callback.
 ///
 ///  For the `APermission` parameter, choose a value from here:
-///
-///  https://developer.android.com/reference/android/Manifest.permission
+///  <see href="https://developer.android.com/reference/android/Manifest.permission">Manifest.permission</see>.
 /// </summary>
 /// <param name="APermission">The permission to request.</param>
 /// <param name="ACallback">The callback to trigger when the request has a response.</param>
@@ -2738,14 +2746,14 @@ procedure SdlRequestAndroidPermission(const APermission: String;
 ///
 ///  Toasts are a sort of lightweight notification that are unique to Android.
 ///
-///  https://developer.android.com/guide/topics/ui/notifiers/toasts
+///  See <see href="https://developer.android.com/guide/topics/ui/notifiers/toasts">Toasts</see>.
 ///
 ///  Shows toast in UI thread.
 ///
 ///  For the `AGravity` parameter, choose a value from here, or -1 if you don't
 ///  have a preference:
 ///
-///  https://developer.android.com/reference/android/view/Gravity
+///  See <see href="https://developer.android.com/reference/android/view/Gravity">Gravity</see>.
 /// </summary>
 /// <param name="AMessage">Text message to be shown.</param>
 /// <param name="ADuration">0=short, 1=long.</param>

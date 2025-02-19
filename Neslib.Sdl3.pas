@@ -230,8 +230,9 @@ type
     ///  This method is called when an SDL API returned an error. It is called
     ///  from the thread that caused the error.
     ///
-    ///  Be default, this method raises an exception of type ESdlError, but you
-    ///  can override to perform some other action, such as logging it instead.
+    ///  By default, this method raises an exception of type ESdlError, but you
+    ///  can override this method perform some other action, such as logging
+    ///  the error instead.
     ///  However, if you choose to not raise an exception, then the flow of
     ///  execution will not be interrupted and you will have to use HasError and
     ///  ErrorMessage to check for errors. Also, when the construction of an
@@ -291,6 +292,11 @@ type
     /// </summary>
     class property Instance: TSdlApp read FInstance;
   end;
+
+type
+  /// <summary>
+  ///  A class reference to the TSdlApp class.
+  /// </summary>
   TSdlAppClass = class of TSdlApp;
 
 /// <summary>

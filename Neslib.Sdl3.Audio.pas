@@ -17,8 +17,8 @@
 ///  Audio streams can also use an app-provided callback to supply data
 ///  on-demand, which maps pretty closely to the SDL2 audio model.
 ///
-///  SDL also provides a simple .WAV loader in TSdlAudioSpec.LoadWav as a basic
-///  means to load sound data into your program.
+///  SDL also provides a simple .WAV loader in TSdlAudioBuffer.CreateFromWav as
+///  a basic means to load sound data into your program.
 ///
 ///  ## Logical audio devices
 ///

@@ -277,6 +277,7 @@ type
     /// <seealso cref="Seek"/>
     /// <seealso cref="Tell"/>
     /// <seealso cref="Write"/>
+    /// <remarks>
     ///  This function is not thread safe.
     /// </remarks>
     constructor Create(const AFilename, AMode: String); overload;

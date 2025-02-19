@@ -1,0 +1,9 @@
+[Source.0]
+PasDir=..\
+Exclude=Neslib.Sdl3.Android.pas,Neslib.Sdl3.Api
+
+[Options]
+MkDocs=mkdocs.yml
+RootNamespace=Sample
+FullNav=1
+MinVisibility=protected

@@ -881,7 +881,7 @@ function SdlRectF(const ARect: TRectF): TSdlRectF; overload; inline;
 ///  RGB colors consist of red, green, and blue channels of color that are added
 ///  together to represent the colors we see on the screen.
 ///
-///  https://en.wikipedia.org/wiki/RGB_color_model
+///  See <see href="https://en.wikipedia.org/wiki/RGB_color_model">RGB color model</see>.
 ///
 ///  YCbCr colors represent colors as a Y luma brightness component and red and
 ///  blue chroma color offsets. This color representation takes advantage of the
@@ -889,7 +889,7 @@ function SdlRectF(const ARect: TRectF): TSdlRectF; overload; inline;
 ///  an image. The Cb and Cr components are often compressed and have lower
 ///  resolution than the luma component.
 ///
-///  https://en.wikipedia.org/wiki/YCbCr
+///  See <see href="https://en.wikipedia.org/wiki/YCbCr">YCbCr</see>.
 ///
 ///  When the color information in YCbCr is compressed, the Y pixels are left at
 ///  full resolution and each Cr and Cb pixel represents an average of the color
@@ -905,13 +905,13 @@ function SdlRectF(const ARect: TRectF): TSdlRectF; overload; inline;
 ///  The color primaries and white point are a definition of the colors in the
 ///  color space relative to the standard XYZ color space.
 ///
-///  https://en.wikipedia.org/wiki/CIE_1931_color_space
+///  See <see href="https://en.wikipedia.org/wiki/CIE_1931_color_space">CIE 1931 color space</see>.
 ///
 ///  The transfer characteristic, or opto-electrical transfer function (OETF),
 ///  is the way a color is converted from mathematically linear space into a
 ///  non-linear output signals.
 ///
-///  https://en.wikipedia.org/wiki/Rec._709#Transfer_characteristics
+///  See <see href="https://en.wikipedia.org/wiki/Rec._709#Transfer_characteristics">Rec. 708</see>.
 ///
 ///  The matrix coefficients are used to convert between YCbCr and RGB colors.
 /// </summary>
@@ -1746,7 +1746,7 @@ type
 type
   /// <summary>
   ///  Colorspace color range, as described by
-  ///  https://www.itu.int/rec/R-REC-BT.2100-2-201807-I/en
+  ///  <see href="https://www.itu.int/rec/R-REC-BT.2100-2-201807-I/en">BT.2100</see>.
   /// </summary>
   TSdlColorRange = (
     Unknown = SDL_COLOR_RANGE_UNKNOWN,
@@ -1762,7 +1762,7 @@ type
 type
   /// <summary>
   ///  Colorspace color primaries, as described by
-  ///  https://www.itu.int/rec/T-REC-H.273-201612-S/en
+  ///  <see href="https://www.itu.int/rec/T-REC-H.273-201612-S/en">H.273</see>.
   /// </summary>
   TSdlColorPrimaries = (
     Unknown     = SDL_COLOR_PRIMARIES_UNKNOWN,
@@ -1808,7 +1808,7 @@ type
   /// <summary>
   ///  Colorspace transfer characteristics.
   ///
-  ///  These are as described by https://www.itu.int/rec/T-REC-H.273-201612-S/en
+  ///  These are as described by <see href="https://www.itu.int/rec/T-REC-H.273-201612-S/en">H.273</see>.
   /// </summary>
   TSdlTransferCharacteristics = (
     Unknown      = SDL_TRANSFER_CHARACTERISTICS_UNKNOWN,
@@ -1864,7 +1864,7 @@ type
   /// <summary>
   ///  Colorspace matrix coefficients.
   ///
-  ///  These are as described by https://www.itu.int/rec/T-REC-H.273-201612-S/en
+  ///  These are as described by <see href="https://www.itu.int/rec/T-REC-H.273-201612-S/en">H.273</see>.
   /// </summary>
   TSdlMatrixCoefficients = (
     Identity         = SDL_MATRIX_COEFFICIENTS_IDENTITY,
@@ -2376,9 +2376,7 @@ type
 ///  There is also a simple .bmp loader, TSdlSurface.LoadBmp. SDL itself does not
 ///  provide loaders for various other file formats, but there are several
 ///  excellent external libraries that do, including its own satellite library,
-///  SDL_image:
-///
-///  https://github.com/libsdl-org/SDL_image
+///  <see href="https://github.com/libsdl-org/SDL_image">SDL_image</see>.
 /// </summary>
 
 type
@@ -3521,7 +3519,7 @@ type
   /// <summary>
   ///  Screen saver functionality
   /// </summary>
-  TSdlScreenSaver = record // static
+  TSdlScreenSaver = record
   {$REGION 'Internal Declarations'}
   private
     class function GetEnabled: Boolean; inline; static;
@@ -5100,7 +5098,7 @@ type
     ///
     ///  - `TSdlProperty.TextInputAndroidInputType` - the text input type to
     ///    use, overriding other properties. This is documented at
-    ///    https://developer.android.com/reference/android/text/InputType
+    ///    <see href="https://developer.android.com/reference/android/text/InputType">InputType</see>.
     /// </summary>
     /// <param name="AProps">The properties to use.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
@@ -5784,9 +5782,10 @@ type
     /// </remarks>
     property Properties: TSdlProperties read GetProperties;
 
+    /// <summary>
     ///  A list of valid windows.
     /// </summary>
-    /// <exception name="ESdlError">Raised on failure.</exception>
+    /// <exception> name="ESdlError">Raised on failure.</exception>
     /// <remarks>
     ///  This property should only be used on the main thread.
     /// </remarks>
@@ -5945,8 +5944,9 @@ type
 ///  should use SDL's OpenGL/Direct3D support, the SDL3 GPU API, or one of the
 ///  many good 3D engines.
 ///
-///  These functions must be called from the main thread. See this bug for
-///  details: https://github.com/libsdl-org/SDL/issues/986
+///  These functions must be called from the main thread. 
+///  See <see href="https://github.com/libsdl-org/SDL/issues/986">this bug</see> 
+///  for details.
 /// </summary>
 
 const
@@ -7834,7 +7834,7 @@ type
     ///
     ///  The text is drawn in the color specified by DrawColor.
     /// </summary>
-    /// <param name="APosition">The top-left corner of the text will draw.</param>
+    /// <param name="APosition">The top-left corner of the text will draw.
     ///  will draw.</param>
     /// <param name="AStr">The string to render.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
@@ -8057,7 +8057,6 @@ type
     ///  If the blend mode is not supported, the closest supported mode is chosen.
     /// </summary>
     /// <returns>true on success or false on failure; call SDL_GetError() for more information.</returns>
-    /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <remarks>
     ///  This property should only be used on the main thread.
@@ -8493,7 +8492,7 @@ type
   /// <summary>
   ///  For working with OpenGL in SDL.
   /// </summary>
-  TSdlGL = record // static
+  TSdlGL = record
   {$REGION 'Internal Declarations'}
   private
     class function GetAttribute(const AAttr: TSdlGLAttr): Integer; inline; static;
@@ -8663,8 +8662,8 @@ type
     ///  If the system can't determine the swap interval, or there isn't a valid
     ///  current context, this property will return 0 as a safe default.
     ///
-    ///  Read more on the Khronos wiki:
-    ///  https://www.khronos.org/opengl/wiki/Swap_Interval#Adaptive_Vsync
+    ///  Read more on the
+    ///  <see href="https://www.khronos.org/opengl/wiki/Swap_Interval#Adaptive_Vsync">Khronos wiki</see>.
     /// </summary>
     /// <param name="AInterval">0 for immediate updates, 1 for updates
     ///  synchronized with the vertical retrace, -1 for adaptive vsync.</param>
@@ -8839,7 +8838,7 @@ type
   /// <summary>
   ///  For working with OpenGL in SDL.
   /// </summary>
-  TSdlEgl = record // static
+  TSdlEgl = record
   {$REGION 'Internal Declarations'}
   private class var
     FPlatformAttribCallback: TSdlEglAttribArrayCallback;

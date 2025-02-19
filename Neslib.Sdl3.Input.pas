@@ -38,10 +38,8 @@ uses
 /// <summary>
 ///  SDL keyboard management.
 ///
-///  Please refer to the Best Keyboard Practices document for details on how
-///  best to accept keyboard input in various types of programs:
-///
-///  https://wiki.libsdl.org/SDL3/BestKeyboardPractices
+///  Please refer to the <see href="https://wiki.libsdl.org/SDL3/BestKeyboardPractices">Best Keyboard Practices</see>
+///  document for details on how best to accept keyboard input in various types of programs.
 /// </summary>
 
 type
@@ -54,8 +52,8 @@ type
   ///  Values of this type are used to represent keyboard keys, among other places
   ///  in the `Scancode` property of TSdlKeyboardEvent.
   ///
-  ///  The values in this enumeration are based on the USB usage page standard:
-  ///  https://usb.org/sites/default/files/hut1_5.pdf
+  ///  The values in this enumeration are based on the 
+  ///  <see href="https://usb.org/sites/default/files/hut1_5.pdf">USB usage page standard</see>.
   /// </summary>
   TSdlScancode = (
     Unknown            = SDL_SCANCODE_UNKNOWN,
@@ -2117,9 +2115,8 @@ type
   ///
   ///  Additional sensors may be available, using platform dependent semantics.
   ///
-  ///  Here are the additional Android sensors:
-  ///
-  ///  https://developer.android.com/reference/android/hardware/SensorEvent.html#values
+  ///  Here are the additional 
+  ///  <see href="https://developer.android.com/reference/android/hardware/SensorEvent.html#values">Android sensors</see>.
   ///
   ///  Accelerometer sensor notes:
   ///
@@ -3394,8 +3391,8 @@ type
     /// <summary>
     ///  Get the Steam Input handle of this opened gamepad, or 0 if not available.
     ///
-    ///  Returns a handle for the gamepad that can be used with Steam Input
-    ///  API: https://partner.steamgames.com/doc/api/ISteamInput
+    ///  Returns a handle for the gamepad that can be used with 
+    ///  <see href="https://partner.steamgames.com/doc/api/ISteamInput">Steam Input API</see>.
     /// </summary>
     property SteamHandle: UInt64 read GetSteamHandle;
 
@@ -3428,7 +3425,7 @@ type
     /// <summary>
     ///  The current state of a button on the gamepad.
     ///
-    ///  Returns True if the button is pressed, False otherwise.</returns>
+    /// <returns>True if the button is pressed, False otherwise.</returns>
     /// </summary>
     /// <param name="AButton">The button.</param>
     /// <seealso cref="HasButton"/>

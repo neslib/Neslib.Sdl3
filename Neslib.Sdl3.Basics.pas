@@ -34,7 +34,7 @@ uses
 {$REGION 'Version Information'}
 type
   /// <summary>
-  ///  Information the version of SDL in use.
+  ///  Information about the version of SDL in use.
   ///
   ///  Represents the library's version as three levels: major revision
   ///  (increments with massive changes, additions, and enhancements), minor
@@ -192,7 +192,7 @@ function SdlSucceeded(const ASdlResult: Pointer): Boolean; overload; inline;
 ///  Checks if an SDL API succeeded.
 /// </summary>
 /// <param name="ASdlResult">The THandle result of an SDL API.</param>
-/// <returns>True of ASdlResult<>0, False if it is 0l.</returns>
+/// <returns>True of ASdlResult<>0, False if it is 0.</returns>
 /// <remarks>
 ///  If this method returns False, then TSdlApp.HandleError will be called.
 /// </remarks>
@@ -222,7 +222,7 @@ function SdlFailed(const ASdlResult: Pointer): Boolean; overload; inline;
 ///  Checks if an SDL API failed.
 /// </summary>
 /// <param name="ASdlResult">The THandle result of an SDL API.</param>
-/// <returns>True if ASdlResult=0, False if ASdlResult<>0l.</returns>
+/// <returns>True if ASdlResult=0, False if ASdlResult<>0.</returns>
 /// <remarks>
 ///  If this method returns True, then TSdlApp.HandleError will be called.
 /// </remarks>
@@ -681,7 +681,7 @@ type
   /// <summary>
   ///  Logging functionality.
   /// </summary>
-  TSdlLog = record // static
+  TSdlLog = record
   {$REGION 'Internal Declarations'}
   private class var
     FPriorities: array [TSdlLogCategory] of TSdlLogPriority;
@@ -996,7 +996,7 @@ type
   /// <summary>
   ///  Lists and manages hints.
   /// </summary>
-  TSdlHints = record // static
+  TSdlHints = record
   {$REGION 'Internal Declarations'}
   private type
     TCallback = class
@@ -1140,7 +1140,7 @@ type
     ///
     ///  More information about properly making use of controllers for the Apple TV
     ///  can be found here:
-    ///  https://developer.apple.com/tvos/human-interface-guidelines/remote-and-controllers/
+    ///  <see href="https://developer.apple.com/design/human-interface-guidelines/">Human Interface Guidelines</see>.
     ///
     ///  The variable can be set to the following values:
     ///
@@ -1220,8 +1220,7 @@ type
     ///    muted by the phone mute switch (default)
     ///  - 'playback': Use the AVAudioSessionCategoryPlayback category.
     ///
-    ///  For more information, see Apple's documentation:
-    ///  https://developer.apple.com/library/content/documentation/Audio/Conceptual/AudioSessionProgrammingGuide/AudioSessionCategoriesandModes/AudioSessionCategoriesandModes.html
+    ///  For more information, see <see href="https://developer.apple.com/library/content/documentation/Audio/Conceptual/AudioSessionProgrammingGuide/AudioSessionCategoriesandModes/AudioSessionCategoriesandModes.html">Apple's documentation</see>.
     ///
     ///  This hint should be set before an audio device is opened.
     /// </summary>
@@ -1251,9 +1250,9 @@ type
     ///
     ///  Setting this to '' or leaving it unset will have SDL use a reasonable
     ///  default, 'applications-games', which is likely to be installed. See
-    ///  https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html
+    ///  <see href="https://specifications.freedesktop.org/icon-theme-spec/latest/">Icon Theme Specification</see>
     ///  and
-    ///  https://specifications.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html
+    ///  <see href="https://specifications.freedesktop.org/icon-naming-spec/latest/">Icon Naming Specification</see>
     ///  for the relevant XDG icon specs.
     ///
     ///  This hint should be set before an audio device is opened.
@@ -1648,8 +1647,8 @@ type
     ///
     ///  At present, this is only an issue under MS Windows, which makes it nearly
     ///  impossible to programmatically move a window to the foreground, for
-    ///  'security' reasons. See http://stackoverflow.com/a/34414846 for a
-    ///  discussion.
+    ///  'security' reasons. See <see href="http://stackoverflow.com/a/34414846">Stack Overflow</see>
+    ///  for a discussion.
     ///
     ///  This hint can be set anytime.
     /// </summary>
@@ -2241,7 +2240,7 @@ type
     ///
     ///  For official Sony driver (sixaxis.sys) use
     ///  JoystickHidApiPS3SixAxisDriver. See
-    ///  https://github.com/ViGEm/DsHidMini for an alternative driver on Windows.
+    ///  <see href="https://github.com/ViGEm/DsHidMini">DsHidMini</see> for an alternative driver on Windows.
     ///
     ///  This hint should be set before initializing joysticks and gamepads.
     /// </summary>
@@ -3673,8 +3672,7 @@ type
     ///  interrupts, and the more precise delays are, but this takes up power and
     ///  CPU time. This hint is only used on Windows.
     ///
-    ///  See this blog post for more information:
-    ///  http://randomascii.wordpress.com/2013/07/08/windows-timer-resolution-megawatts-wasted/
+    ///  See <see href="http://randomascii.wordpress.com/2013/07/08/windows-timer-resolution-megawatts-wasted/">this blog post</see> for more information.
     ///
     ///  The default value is '1'.
     ///
@@ -4505,8 +4503,8 @@ type
     ///
     ///  For more information on Direct3D 9Ex, see:
     ///
-    ///  - https://docs.microsoft.com/en-us/windows/win32/direct3darticles/graphics-apis-in-windows-vista#direct3d-9ex
-    ///  - https://docs.microsoft.com/en-us/windows/win32/direct3darticles/direct3d-9ex-improvements
+    ///  - <see href="https://docs.microsoft.com/en-us/windows/win32/direct3darticles/graphics-apis-in-windows-vista#direct3d-9ex">Direct3D-9Ex</see>
+    ///  - <see href="https://docs.microsoft.com/en-us/windows/win32/direct3darticles/direct3d-9ex-improvements">Direct3D 9Ex improvements</see>
     ///
     ///  The variable can be set to the following values:
     ///
@@ -4821,7 +4819,7 @@ type
   /// <summary>
   ///  Standard SDL properties
   /// </summary>
-  TSdlProperty = record // static
+  TSdlProperty = record
   public const
     (** Application metadata **)
 
