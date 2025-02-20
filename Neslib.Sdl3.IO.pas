@@ -2167,10 +2167,10 @@ type
     ///  Enumerate a directory tree, filtered by pattern, and return a list.
     ///
     ///  Files are filtered out if they don't match the string in `APattern`, which
-    ///  may contain wildcard characters '*' (match everything) and '?' (match one
+    ///  may contain wildcard characters `*` (match everything) and `?` (match one
     ///  character). If APattern is empty, no filtering is done and all results are
     ///  returned. Subdirectories are permitted, and are specified with a path
-    ///  separator of '/'. Wildcard characters '*' and '?' never match a path
+    ///  separator of '/'. Wildcard characters `*` and `?` never match a path
     ///  separator.
     ///
     ///  If `APath` is empty, this is treated as a request to enumerate the root of

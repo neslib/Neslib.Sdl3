@@ -3006,14 +3006,31 @@ type
     /// <param name="ASrcRect">The rectangle to be copied.</param>
     /// <param name="ADst">The blit target surface.</param>
     /// <param name="ADstRect">The target rectangle in the destination surface.</param>
-    /// <param name="AScaleMode">the SDL_ScaleMode to be used.</param>
-    /// <returns>true on success or false on failure; call SDL_GetError() for more information.</returns>
+    /// <param name="AScaleMode">The TSdlScaleMode to be used.</param>
+    /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="BlitScaled"/>
     /// <remarks>
     ///  The same destination surface should not be used from two threads at
     ///  once. It is safe to use the same source surface from multiple threads.
     /// </remarks>
     procedure BlitScaledUnchecked(const ASrcRect: TSdlRect;
+      const ADst: TSdlSurface; const ADstRect: TSdlRect;
+      const AScaleMode: TSdlScaleMode); inline;
+
+    /// <summary>
+    ///  Perform a stretched pixel copy from this surface surface to another.
+    /// </summary>
+    /// <param name="ASrcRect">The rectangle to be copied.</param>
+    /// <param name="ADst">The blit target surface.</param>
+    /// <param name="ADstRect">The target rectangle in the destination surface.</param>
+    /// <param name="AScaleMode">The TSdlScaleMode to be used.</param>
+    /// <exception name="ESdlError">Raised on failure.</exception>
+    /// <seealso cref="BlitScaled"/>
+    /// <remarks>
+    ///  The same destination surface should not be used from two threads at
+    ///  once. It is safe to use the same source surface from multiple threads.
+    /// </remarks>
+    procedure Stretch(const ASrcRect: TSdlRect;
       const ADst: TSdlSurface; const ADstRect: TSdlRect;
       const AScaleMode: TSdlScaleMode); inline;
 
@@ -10924,6 +10941,13 @@ end;
 procedure TSdlSurface.SetUseRle(const AValue: Boolean);
 begin
   SdlCheck(SDL_SetSurfaceRLE(FHandle, AValue));
+end;
+
+procedure TSdlSurface.Stretch(const ASrcRect: TSdlRect; const ADst: TSdlSurface;
+  const ADstRect: TSdlRect; const AScaleMode: TSdlScaleMode);
+begin
+  SdlCheck(SDL_StretchSurface(FHandle, @ASrcRect, ADst.FHandle,
+    @ADstRect, Ord(AScaleMode)));
 end;
 
 procedure TSdlSurface.Unlock;

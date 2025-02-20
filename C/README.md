@@ -14,13 +14,14 @@ Download pre-compiled DLLs from GitHub releases.
   * Check SDL_STATIC
   * Uncheck SDL_SHARED
   * Make sure SDL_FRAMEWORK is unchecked
-* Configure again
-* Open project
+* Configure again.
+* Press Generate.
+* Open project.
 * Choose the SDL3-static project in the toolbar.
 * In Xcode, choose "Product | Scheme | Edit Scheme.."
 * Select the "Run" scheme and set Build Configuration to Release
 * Choose "Product | Build For | Running"
-* In the project view, expand the "Products" tab to locate the libSDL3.a file. Right click it and select "Show in Finder". Copy and rename this file to "libSdl3_macos_intel.a".
+* In the project view, expand the "Products" node to locate the libSDL3.a file. Right click it and select "Show in Finder". Copy and rename this file to "libSdl3_macos_intel.a".
 
 ## iOS
 
@@ -29,15 +30,18 @@ Download pre-compiled DLLs from GitHub releases.
 * When pressing "Configure", choose "Specify options for cross-compiling".
 * On the next page, set "Operating System" to "iOS" (case sensitive) and "Version" to "12.0"
 * After Configure, set:
-  * CMAKE_OSX_DEPLOYMENT_TARGET to 12.0
+  * CMAKE_OSX_DEPLOYMENT_TARGET to 12.0 (add if needed)
   * Check SDL_STATIC
   * Uncheck SDL_SHARED
   * Make sure SDL_FRAMEWORK is unchecked
-* Configure again
-* Open project
+  
+* Configure again.
+* Press Generate.
+* Open project.
 * Choose the SDL3-static project in the toolbar.
-* Choose the SDL3-static target in the side bar:
-  * Navigate to "Apple Clang - Custom Compiler Flags | Other C Flags"
+* Choose SDL3 in the side bar, and then the SDL3-static target in the nested side bar:
+  * Select the "Build Settings" tab.
+  * Navigate to "Apple Clang - Custom Compiler Flags | Other C Flags".
   * In the "Release" configuration, add the compiler options "-fno-objc-msgsend-selector-stubs". Without this option, Clang will create optimized msgsend calls, but Delphi does not understand these, resulting on a lot of "underfined _objc_msgSend$... symbol" error messages.
 * We need to disable HID support since Delphi does not support importing the CoreBluetooth framework:
   * Navigate to "Apple Clang - Preprocessing | Preprocessing macros"

@@ -733,6 +733,9 @@ type
     ///  This method unpauses audio processing for a given device that has
     ///  previously been paused. Once unpaused, any bound audio streams will begin
     ///  to progress again, and audio can be generated.
+    ///
+    ///  Remember, some constructors open the device in a paused state, so this
+    ///  method call is required for audio playback to begin on such device.
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="Pause"/>

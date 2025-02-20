@@ -115,7 +115,7 @@ const
    *
    * \since This macro is available since SDL 3.2.0.
    *)
-  SDL_MICRO_VERSION = 0;
+  SDL_MICRO_VERSION = 4;
 
 (**
  * This macro turns the version numbers into a numeric value.
@@ -8863,7 +8863,7 @@ function SDL_IsAudioDevicePlayback(devid: SDL_AudioDeviceID): Boolean; cdecl;
  * Physical devices can not be paused or unpaused, only logical devices
  * created through SDL_OpenAudioDevice() can be.
  *
- * \param dev a device opened by SDL_OpenAudioDevice().
+ * \param devid a device opened by SDL_OpenAudioDevice().
  * \returns true on success or false on failure; call SDL_GetError() for more
  *          information.
  *
@@ -8874,7 +8874,7 @@ function SDL_IsAudioDevicePlayback(devid: SDL_AudioDeviceID): Boolean; cdecl;
  * \sa SDL_ResumeAudioDevice
  * \sa SDL_AudioDevicePaused
  *)
-function SDL_PauseAudioDevice(dev: SDL_AudioDeviceID): Boolean; cdecl;
+function SDL_PauseAudioDevice(devid: SDL_AudioDeviceID): Boolean; cdecl;
   external LIB_SDL3 name _PU + 'SDL_PauseAudioDevice';
 
 (**
@@ -8892,7 +8892,7 @@ function SDL_PauseAudioDevice(dev: SDL_AudioDeviceID): Boolean; cdecl;
  * Physical devices can not be paused or unpaused, only logical devices
  * created through SDL_OpenAudioDevice() can be.
  *
- * \param dev a device opened by SDL_OpenAudioDevice().
+ * \param devid a device opened by SDL_OpenAudioDevice().
  * \returns true on success or false on failure; call SDL_GetError() for more
  *          information.
  *
@@ -8903,7 +8903,7 @@ function SDL_PauseAudioDevice(dev: SDL_AudioDeviceID): Boolean; cdecl;
  * \sa SDL_AudioDevicePaused
  * \sa SDL_PauseAudioDevice
  *)
-function SDL_ResumeAudioDevice(dev: SDL_AudioDeviceID): Boolean; cdecl;
+function SDL_ResumeAudioDevice(devid: SDL_AudioDeviceID): Boolean; cdecl;
   external LIB_SDL3 name _PU + 'SDL_ResumeAudioDevice';
 
 (**
@@ -8916,7 +8916,7 @@ function SDL_ResumeAudioDevice(dev: SDL_AudioDeviceID): Boolean; cdecl;
  * created through SDL_OpenAudioDevice() can be. Physical and invalid device
  * IDs will report themselves as unpaused here.
  *
- * \param dev a device opened by SDL_OpenAudioDevice().
+ * \param devid a device opened by SDL_OpenAudioDevice().
  * \returns true if device is valid and paused, false otherwise.
  *
  * \threadsafety It is safe to call this function from any thread.
@@ -8926,7 +8926,7 @@ function SDL_ResumeAudioDevice(dev: SDL_AudioDeviceID): Boolean; cdecl;
  * \sa SDL_PauseAudioDevice
  * \sa SDL_ResumeAudioDevice
  *)
-function SDL_AudioDevicePaused(dev: SDL_AudioDeviceID): Boolean; cdecl;
+function SDL_AudioDevicePaused(devid: SDL_AudioDeviceID): Boolean; cdecl;
   external LIB_SDL3 name _PU + 'SDL_AudioDevicePaused';
 
 (**
@@ -9692,6 +9692,9 @@ function SDL_PauseAudioStreamDevice(stream: SDL_AudioStream): Boolean; cdecl;
  * This function unpauses audio processing for a given device that has
  * previously been paused. Once unpaused, any bound audio streams will begin
  * to progress again, and audio can be generated.
+ *
+ * Remember, SDL_OpenAudioDeviceStream opens device in a paused state, so this
+ * function call is required for audio playback to begin on such device.
  *
  * \param stream the audio stream associated with the audio device to resume.
  * \returns true on success or false on failure; call SDL_GetError() for more
@@ -13449,6 +13452,30 @@ function SDL_BlitSurfaceUncheckedScaled(src: PSDL_Surface; const srcrect: PSDL_R
   external LIB_SDL3 name _PU + 'SDL_BlitSurfaceUncheckedScaled';
 
 (**
+ * Perform a stretched pixel copy from one surface to another.
+ *
+ * \param src the SDL_Surface structure to be copied from.
+ * \param srcrect the SDL_Rect structure representing the rectangle to be
+ *                copied, may not be NULL.
+ * \param dst the SDL_Surface structure that is the blit target.
+ * \param dstrect the SDL_Rect structure representing the target rectangle in
+ *                the destination surface, may not be NULL.
+ * \param scaleMode the SDL_ScaleMode to be used.
+ * \returns true on success or false on failure; call SDL_GetError() for more
+ *          information.
+ *
+ * \threadsafety The same destination surface should not be used from two
+ *               threads at once. It is safe to use the same source surface
+ *               from multiple threads.
+ *
+ * \since This function is available since SDL 3.4.0.
+ *
+ * \sa SDL_BlitSurfaceScaled
+ *)
+function SDL_StretchSurface(src: PSDL_Surface; const srcrect: PSDL_Rect; dst: PSDL_Surface; const dstrect: PSDL_Rect; scaleMode: SDL_ScaleMode): Boolean; cdecl;
+  external LIB_SDL3 name _PU + 'SDL_StretchSurface';
+
+(**
  * Perform a tiled blit to a destination surface, which may be of a different
  * format.
  *
@@ -13919,7 +13946,7 @@ function SDL_GetCameras(count: PInteger): PSDL_CameraID; cdecl;
  * there _is_ a camera until the user has given you permission to check
  * through a scary warning popup.
  *
- * \param devid the camera device instance ID to query.
+ * \param instance_id the camera device instance ID.
  * \param count a pointer filled in with the number of elements in the list,
  *              may be NULL.
  * \returns a NULL terminated array of pointers to SDL_CameraSpec or NULL on
@@ -13934,7 +13961,7 @@ function SDL_GetCameras(count: PInteger): PSDL_CameraID; cdecl;
  * \sa SDL_GetCameras
  * \sa SDL_OpenCamera
  *)
-function SDL_GetCameraSupportedFormats(devid: SDL_CameraID; count: PInteger): PPSDL_CameraSpec; cdecl;
+function SDL_GetCameraSupportedFormats(instance_id: SDL_CameraID; count: PInteger): PPSDL_CameraSpec; cdecl;
   external LIB_SDL3 name _PU + 'SDL_GetCameraSupportedFormats';
 
 (**
@@ -44574,7 +44601,7 @@ function SDL_GetTraySubmenu(entry: SDL_TrayEntry): SDL_TrayMenu; cdecl;
  * Returns a list of entries in the menu, in order.
  *
  * \param menu The menu to get entries from.
- * \param size An optional pointer to obtain the number of entries in the
+ * \param count An optional pointer to obtain the number of entries in the
  *             menu.
  * \returns a NULL-terminated list of entries within the given menu. The
  *          pointer becomes invalid when any function that inserts or deletes
@@ -44588,7 +44615,7 @@ function SDL_GetTraySubmenu(entry: SDL_TrayEntry): SDL_TrayMenu; cdecl;
  * \sa SDL_RemoveTrayEntry
  * \sa SDL_InsertTrayEntryAt
  *)
-function SDL_GetTrayEntries(menu: SDL_TrayMenu; size: PInteger): PSDL_TrayEntry; cdecl;
+function SDL_GetTrayEntries(menu: SDL_TrayMenu; count: PInteger): PSDL_TrayEntry; cdecl;
   external LIB_SDL3 name _PU + 'SDL_GetTrayEntries';
 
 (**

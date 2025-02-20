@@ -2307,13 +2307,13 @@ type
     ///    for standard input when `TSdlProperty.ProcessCreateStdIn` is set to
     ///    `TSdlProcessStdIO.Redirect`.
     ///  - `TSdlProperty.ProcessCreateStdOut`: a TSdlProcessIO value
-    ///    describing where standard output for the process goes go, defaults to
+    ///    describing where standard output for the process goes to, defaults to
     ///    `TSdlProcessStdIO.Inherited`.
     ///  - `TSdlProperty.ProcessCreateStdOutStream`: a TSdlIOStream pointer used
     ///    for standard output when `TSdlProperty.ProcessCreateStdOut` is set
     ///    `TSdlProcessStdIO.Redirect`.
     ///  - `TSdlProperty.ProcessCreateStdErr`: a TSdlProcessIO value
-    ///    describing where standard error for the process goes go, defaults to
+    ///    describing where standard error for the process goes to, defaults to
     ///    `TSdlProcessStdIO.Inherited`.
     ///  - `TSdlProperty.ProcessCreateStdErrStream`: a TSdlIOStream pointer used
     ///    for standard error when `TSdlProperty.ProcessCreateStdErr` is set to

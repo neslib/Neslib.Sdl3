@@ -139,7 +139,8 @@ uses
 ///  It is optimal for apps to pre-compile the shader formats they might use,
 ///  but for ease of use SDL provides a separate project,
 ///  [SDL_shadercross](https://github.com/libsdl-org/SDL_shadercross),
-///  for performing runtime shader cross-compilation.
+///  for performing runtime shader cross-compilation. It also has a CLI
+///  interface for offline precompilation as well.
 ///
 ///  This is an extremely quick overview that leaves out several important
 ///  details. Already, though, one can see that GPU programming can be quite
@@ -793,6 +794,10 @@ type
   ///
   ///  Unlike textures, [Read, Write] can be used for simultaneous read-write
   ///  usage. The same data synchronization concerns as textures apply.
+  ///
+  ///  If you use a Storage flag, the data in the buffer must respect std140
+  ///  layout conventions. In practical terms this means you must ensure that
+  ///  vec3 and vec4 fields are 16-byte aligned.
   /// </summary>
   /// <seealso cref="TSdlGpuBuffer"/>
   TSdlGpuBufferUsageFlag = (
@@ -1630,6 +1635,7 @@ type
   /// </summary>
   /// <seealso cref="TSdlGpuVertexBufferDescription"/>
   /// <seealso cref="TSdlGpuVertexInputState"/>
+  /// <seealso cref="TSdlGpuVertexElementFormat"/>
   TSdlGpuVertexAttribute = record
   {$REGION 'Internal Declarations'}
   private
@@ -2260,6 +2266,7 @@ type
   ///  A record specifying the parameters of a compute pipeline state.
   /// </summary>
   /// <seealso cref="TSdlGpuComputePipeline"/>
+  /// <seealso cref="TSdlGpuShaderFormat"/>
   /// <remarks>
   ///  This struct is available since SDL 3.2.0.
   /// </remarks>
@@ -2715,6 +2722,7 @@ type
   /// </summary>
   /// <seealso cref="TSdlGpuCopyPass.UploadToTexture"/>
   /// <seealso cref="TSdlGpuCopyPass.DownloadFromTexture"/>
+  /// <seealso cref="TSdlGpuTexture"/>
   TSdlGpuTextureRegion = record
   {$REGION 'Internal Declarations'}
   private
@@ -3218,6 +3226,7 @@ type
   ///  A record specifying the parameters of a graphics pipeline state.
   /// </summary>
   /// <seealso cref="TSdlGpuGraphicsPipeline"/>
+  /// <seealso cref="TSdlGpuShader"/>
   /// <seealso cref="TSdlGpuVertexInputState"/>
   /// <seealso cref="TSdlGpuPrimitiveType"/>
   /// <seealso cref="TSdlGpuRasterizerState"/>
@@ -3495,10 +3504,14 @@ type
     ///  Binds texture-sampler pairs for use on the vertex shader.
     ///
     ///  The textures must have been created with TSdlGpuTextureUsage.Sampler.
+    ///
+    ///  Be sure your shader is set up according to the requirements documented
+    ///  TSdlGpuShader.
     /// </summary>
     /// <param name="AFirstSlot">The vertex sampler slot to begin binding from.</param>
     /// <param name="ATextureSamplerBindings">An array of texture-sampler binding
     ///  records.</param>
+    /// <seealso cref="TSdlGpuShader"/>
     procedure BindVertexSamplers(const AFirstSlot: Integer;
       const ATextureSamplerBindings: TArray<TSdlGpuTextureSamplerBinding>); inline;
 
@@ -3507,9 +3520,13 @@ type
     ///
     ///  These textures must have been created with
     ///  TSdlGpuTextureUsage.GraphicsStorageRead.
+    ///
+    ///  Be sure your shader is set up according to the requirements documented
+    ///  TSdlGpuShader.
     /// </summary>
     /// <param name="AFirstSlot">The vertex storage texture slot to begin binding from.</param>
     /// <param name="AStorageTextures">An array of storage textures.</param>
+    /// <seealso cref="TSdlGpuShader"/>
     procedure BindVertexStorageTextures(const AFirstSlot: Integer;
       const AStorageTextures: TArray<TSdlGpuTexture>); inline;
 
@@ -3518,9 +3535,13 @@ type
     ///
     ///  These buffers must have been created with
     ///  TSdlGpuBufferUsage.GraphicsStorageRead.
+    ///
+    ///  Be sure your shader is set up according to the requirements documented
+    ///  TSdlGpuShader.
     /// </summary>
     /// <param name="AFirstSlot">The vertex storage buffer slot to begin binding from.</param>
     /// <param name="AStorageBuffers">An array of buffers.</param>
+    /// <seealso cref="TSdlGpuShader"/>
     procedure BindVertexStorageBuffers(const AFirstSlot: Integer;
       const AStorageBuffers: TArray<TSdlGpuBuffer>); inline;
 
@@ -3528,10 +3549,14 @@ type
     ///  Binds texture-sampler pairs for use on the fragment shader.
     ///
     ///  The textures must have been created with TSdlGpuTextureUsage.Sampler.
+    ///
+    ///  Be sure your shader is set up according to the requirements documented
+    ///  TSdlGpuShader.
     /// </summary>
     /// <param name="AFirstSlot">The fragment sampler slot to begin binding from.</param>
     /// <param name="ATextureSamplerBindings">An array of texture-sampler
     ///  binding records.</param>
+    /// <seealso cref="TSdlGpuShader"/>
     procedure BindFragmentSamplers(const AFirstSlot: Integer;
       const ATextureSamplerBindings: TArray<TSdlGpuTextureSamplerBinding>); inline;
 
@@ -3540,9 +3565,13 @@ type
     ///
     ///  These textures must have been created with
     ///  TSdlGpuTextureUsage.GraphicsStorageRead.
+    ///
+    ///  Be sure your shader is set up according to the requirements documented
+    ///  TSdlGpuShader.
     /// </summary>
     /// <param name="AFirstSlot">The fragment storage texture slot to begin binding from.</param>
     /// <param name="AStorageTextures">An array of storage textures.</param>
+    /// <seealso cref="TSdlGpuShader"/>
     procedure BindFragmentStorageTextures(const AFirstSlot: Integer;
       const AStorageTextures: TArray<TSdlGpuTexture>); inline;
 
@@ -3551,9 +3580,13 @@ type
     ///
     ///  These buffers must have been created with
     ///  TSdlGpuBufferUsage.GraphicsStorageRead.
+    ///
+    ///  Be sure your shader is set up according to the requirements documented
+    ///  TSdlGpuShader.
     /// </summary>
     /// <param name="AFirstSlot">The fragment storage buffer slot to begin binding from.</param>
     /// <param name="AStorageBuffers">An array of storage buffers.</param>
+    /// <seealso cref="TSdlGpuShader"/>
     procedure BindFragmentStorageBuffers(const AFirstSlot: Integer;
       const AStorageBuffers: TArray<TSdlGpuBuffer>); inline;
 
@@ -3679,10 +3712,14 @@ type
     ///  Binds texture-sampler pairs for use on the compute shader.
     ///
     ///  The textures must have been created with SDL_GPU_TEXTUREUSAGE_SAMPLER.
+    ///
+    ///  Be sure your shader is set up according to the requirements documented
+    ///  TSdlGpuShader.
     /// </summary>
     /// <param name="AFirstSlot">The compute sampler slot to begin binding from.</param>
     /// <param name="ATextureSamplerBindings">An array of texture-sampler
     ///  binding record.</param>
+    /// <seealso cref="TSdlGpuShader"/>
     procedure BindSamplers(const AFirstSlot: Integer;
       const ATextureSamplerBindings: TArray<TSdlGpuTextureSamplerBinding>); inline;
 
@@ -3691,9 +3728,13 @@ type
     ///
     ///  These textures must have been created with
     ///  TSdlGpuTextureUsage.ComputeStorageRead.
+    ///
+    ///  Be sure your shader is set up according to the requirements documented
+    ///  TSdlGpuShader.
     /// </summary>
     /// <param name="AFirstSlot">The compute storage texture slot to begin binding from.</param>
     /// <param name="AStorageTextures">An array of storage textures.</param>
+    /// <seealso cref="TSdlGpuShader"/>
     procedure BindStorageTextures(const AFirstSlot: Integer;
       const AStorageTextures: TArray<TSdlGpuTexture>); inline;
 
@@ -3702,9 +3743,13 @@ type
     ///
     ///  These buffers must have been created with
     ///  TSdlGpuBufferUsage.ComputeStorageRead.
+    ///
+    ///  Be sure your shader is set up according to the requirements documented
+    ///  TSdlGpuShader.
     /// </summary>
     /// <param name="AFirstSlot">The compute storage buffer slot to begin binding from.</param>
     /// <param name="AStorageBuffers">An array of storage buffer binding records.</param>
+    /// <seealso cref="TSdlGpuShader"/>
     procedure BindStorageBuffers(const AFirstSlot: Integer;
       const AStorageBuffers: TArray<TSdlGpuBuffer>); inline;
 
@@ -3971,6 +4016,10 @@ type
     ///  Pushes data to a vertex uniform slot on the command buffer.
     ///
     ///  Subsequent draw calls will use this uniform data.
+    ///
+    ///  The data being pushed must respect std140 layout conventions. In
+    ///  practical terms this means you must ensure that vec3 and vec4 fields
+    ///  are 16-byte aligned.
     /// </summary>
     /// <param name="ASlotIndex">The vertex uniform slot to push data to.</param>
     /// <param name="AData">Client data to write.</param>
@@ -3981,6 +4030,10 @@ type
     ///  Pushes data to a vertex uniform slot on the command buffer.
     ///
     ///  Subsequent draw calls will use this uniform data.
+    ///
+    ///  The data being pushed must respect std140 layout conventions. In
+    ///  practical terms this means you must ensure that vec3 and vec4 fields
+    ///  are 16-byte aligned.
     /// </summary>
     /// <param name="ASlotIndex">The vertex uniform slot to push data to.</param>
     /// <param name="AData">Pointer to client data to write.</param>
@@ -3992,6 +4045,10 @@ type
     ///  Pushes data to a fragment uniform slot on the command buffer.
     ///
     ///  Subsequent draw calls will use this uniform data.
+    ///
+    ///  The data being pushed must respect std140 layout conventions. In
+    ///  practical terms this means you must ensure that vec3 and vec4 fields
+    ///  are 16-byte aligned.
     /// </summary>
     /// <param name="ASlotIndex">The fragment uniform slot to push data to.</param>
     /// <param name="AData">Client data to write.</param>
@@ -4002,6 +4059,10 @@ type
     ///  Pushes data to a fragment uniform slot on the command buffer.
     ///
     ///  Subsequent draw calls will use this uniform data.
+    ///
+    ///  The data being pushed must respect std140 layout conventions. In
+    ///  practical terms this means you must ensure that vec3 and vec4 fields
+    ///  are 16-byte aligned.
     /// </summary>
     /// <param name="ASlotIndex">The fragment uniform slot to push data to.</param>
     /// <param name="AData">Pointer to client data to write.</param>
@@ -4013,6 +4074,10 @@ type
     ///  Pushes data to a uniform slot on the command buffer.
     ///
     ///  Subsequent draw calls will use this uniform data.
+    ///
+    ///  The data being pushed must respect std140 layout conventions. In
+    ///  practical terms this means you must ensure that vec3 and vec4 fields
+    ///  are 16-byte aligned.
     /// </summary>
     /// <param name="ASlotIndex">The uniform slot to push data to.</param>
     /// <param name="AData">Client data to write.</param>
@@ -4023,6 +4088,10 @@ type
     ///  Pushes data to a uniform slot on the command buffer.
     ///
     ///  Subsequent draw calls will use this uniform data.
+    ///
+    ///  The data being pushed must respect std140 layout conventions. In
+    ///  practical terms this means you must ensure that vec3 and vec4 fields
+    ///  are 16-byte aligned.
     /// </summary>
     /// <param name="ASlotIndex">The uniform slot to push data to.</param>
     /// <param name="AData">Pointer to client data to write.</param>
@@ -4631,6 +4700,10 @@ type
     ///  Note that certain combinations of usage flags are invalid. For example, a
     ///  buffer cannot have both the Vertex and Index flags.
     ///
+    ///  If you use a Storage flag, the data in the buffer must respect std140
+    ///  layout conventions. In practical terms this means you must ensure that
+    ///  vec3 and vec4 fields are 16-byte aligned.
+    ///
     ///  For better understanding of underlying concepts and memory management with
     ///  SDL GPU API, you may refer
     ///  [this blog post](https://moonside.games/posts/sdl-gpu-concepts-cycling/).
@@ -4741,6 +4814,8 @@ type
     ///  Maps a transfer buffer into application address space.
     ///
     ///  You must unmap the transfer buffer before encoding upload commands.
+    ///  The memory is owned by the graphics driver - do NOT call SdlFree on the
+    ///  returned pointer.
     /// </summary>
     /// <param name="ATransferBuffer">A transfer buffer.</param>
     /// <param name="ACycle">If True, cycles the transfer buffer if it is
@@ -4904,6 +4979,8 @@ type
 
     /// <summary>
     ///  Releases a fence obtained from TSdlGpuCommandBuffer.SubmitAndAcquireFence.
+    ///
+    ///  You must not reference the fence after calling this method.
     /// </summary>
     /// <param name="AFence">A fence.</param>
     /// <seealso cref="TSdlGpuCommandBuffer.SubmitAndAcquireFence"/>

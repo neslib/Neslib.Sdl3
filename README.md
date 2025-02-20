@@ -1,6 +1,6 @@
 # Neslib.Sdl3
 
-Delphi bindings and OOP-like wrappers for [SDL3](https://libsdl.org/index.php) version [3.2.0](https://github.com/libsdl-org/SDL/releases/tag/release-3.2.0).
+Delphi bindings and OOP-like wrappers for [SDL3](https://libsdl.org/index.php) version [3.2.4](https://github.com/libsdl-org/SDL/releases/tag/release-3.2.4).
 
 ## Supported Platforms
 
@@ -9,7 +9,7 @@ Neslib.Sdl3 is supported on these platforms:
 * Windows (32-bit and 64-bit).
 * macOS (currently 64-bit Intel only. ARM support will be added later).
 * iOS (64-bit device only. Currently no support for iOS simulator).
-* Android (32-bit and 64-bit)/
+* Android (32-bit and 64-bit).
 
 We provide the static and dynamic libraries for these platforms, so everything you need is contained in this repository. For Windows, you need to deploy the SDL3.dll file with your application. You can find this is the "Deploy\Win32" or "Deploy\Win64" directory. For the other platforms, a static library is used that is linked directly into the application, so there is no need to deploy anything.
 
