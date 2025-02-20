@@ -825,7 +825,7 @@ type
     /// <returns>The keycode, or `TSdlKeycode.Unknown` if the name wasn't
     ///  recognized.</returns>
     /// <seealso cref="FromScancode"/>
-    /// <seealso cref="KeyName"/>
+    /// <seealso cref="Name"/>
     /// <seealso cref="TSdlScancode.FromName"/>
     /// <remarks>
     ///  This method is not thread safe.
@@ -1125,8 +1125,8 @@ type
     /// <summary>
     ///  Whether the platform has screen keyboard support.
     /// </summary>
-    /// <seealso cref="TSdlWindow.TextInput"/>
-    /// <seealso cref="TSdlWindow.ScreenKeyboardShown"/>
+    /// <seealso cref="TSdlWindow.StartTextInput"/>
+    /// <seealso cref="TSdlWindow.IsScreenKeyboardShown"/>
     /// <remarks>
     ///  This property should only be used on the main thread.
     /// </remarks>
@@ -1398,7 +1398,7 @@ type
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="IsVisible"/>
-    /// <seealso cref="HideCursor"/>
+    /// <seealso cref="Hide"/>
     /// <remarks>
     ///  This method should only be called on the main thread.
     /// </remarks>
@@ -1464,9 +1464,9 @@ type
   ///  - Button 3: Side mouse button 1
   ///  - Button 4: Side mouse button 2
   /// </summary>
-  /// <seealso cref="TSdlMouse.GetPressedButtons"/>
-  /// <seealso cref="TSdlMouse.GetGlobalPressedButtons"/>
-  /// <seealso cref="TSdlMouse.GetRelativePressedButtons"/>
+  /// <seealso cref="TSdlMouse.GetState"/>
+  /// <seealso cref="TSdlMouse.GetGlobalState"/>
+  /// <seealso cref="TSdlMouse.GetRelativeState"/>
   TSdlMouseButton = (
     Left   = SDL_BUTTON_LEFT - 1,
     Middle = SDL_BUTTON_MIDDLE - 1,
@@ -1767,7 +1767,7 @@ type
     ///  This property returns an empty string if the mouse doesn't have a name.
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="GetMice"/>
+    /// <seealso cref="Mice"/>
     /// <remarks>
     ///  This property should only be used on the main thread.
     /// </remarks>
@@ -2586,7 +2586,7 @@ type
     /// </summary>
     /// <param name="AButton">The button.</param>
     /// <returns>The TSdlGamepadButtonLabel enum corresponding to the button label.</returns>
-    /// <seealso cref="TSdlGamepad.ButtonLabel"/>
+    /// <seealso cref="TSdlGamepad.GetButtonLabel"/>
     function GetButtonLabel(const AButton: TSdlGamepadButton): TSdlGamepadButtonLabel; inline;
   end;
 
@@ -3047,7 +3047,6 @@ type
     /// <seealso cref="MappingForGuid"/>
     /// <seealso cref="TSdlHints.GameControllerConfig"/>
     /// <seealso cref="TSdlHints.GameControllerConfigFile"/>
-    /// <seealso cref="TSdlEventKind.GamepadAdded"/>
     /// <remarks>
     ///  It is safe to call this method from any thread.
     /// </remarks>
@@ -3083,7 +3082,6 @@ type
     /// <seealso cref="MappingForGuid"/>
     /// <seealso cref="TSdlHints.GameControllerConfig"/>
     /// <seealso cref="TSdlHints.GameControllerConfigFile"/>
-    /// <seealso cref="TSdlEventKind.GamepadAdded"/>
     /// <remarks>
     ///  It is safe to call this method from any thread.
     /// </remarks>
@@ -3114,7 +3112,6 @@ type
     /// <seealso cref="MappingForGuid"/>
     /// <seealso cref="TSdlHints.GameControllerConfig"/>
     /// <seealso cref="TSdlHints.GameControllerConfigFile"/>
-    /// <seealso cref="TSdlEventKind.GamepadAdded"/>
     /// <remarks>
     ///  It is safe to call this method from any thread.
     /// </remarks>
@@ -3468,7 +3465,7 @@ type
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="AddMapping"/>
-    /// <seealso cref="TSdlJoystickID.Mapping"/>
+    /// <seealso cref="TSdlGamepadID.Mapping"/>
     /// <seealso cref="MappingForGuid"/>
     property Mapping: String read GetMapping write SetMapping;
 
@@ -3756,7 +3753,7 @@ type
     /// <summary>
     ///  Whether this joystick is supported by the gamepad interface.
     /// </summary>
-    /// <seealso cref="TSdlJoysticks.Joysticks"/>
+    /// <seealso cref="TSdlJoystick.Joysticks"/>
     /// <seealso cref="TSdlGamepad.Open"/>
     property IsGamepad: Boolean read GetIsGamepad;
 
@@ -4441,8 +4438,8 @@ type
   ///  This record should be initialized using Init.
   ///  All members of this record are optional.
   /// </summary>
-  /// <seealso cref="Attach"/>
-  /// <seealso cref="Init"/>
+  /// <seealso cref="TSdlVirtualJoystickDesc.Attach"/>
+  /// <seealso cref="TSdlVirtualJoystickDesc.Init"/>
   /// <seealso cref="TSdlVirtualJoystickSensorDesc"/>
   /// <seealso cref="TSdlVirtualJoystickTouchpadDesc"/>
   TSdlVirtualJoystickDesc = record

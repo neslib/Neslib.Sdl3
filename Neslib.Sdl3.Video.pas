@@ -1515,7 +1515,7 @@ type
     ///
     ///  For example, defining TSdlPixelFormat.YV12 looks like this:
     ///
-    ///  ```
+    ///  ```delphi
     ///  var PixelFormat := TSdlPixelFormat.From('Y', 'V', '1', '2')
     ///  ```
     /// </summary>
@@ -1534,7 +1534,7 @@ type
     ///
     ///  For example, defining TSdlPixelFormat.Rgba8888 looks like this:
     ///
-    ///  ```
+    ///  ```delphi
     ///  var PixelFormat := TSdlPixelFormat.From(TSdlPixelType.Packed32,
     ///    TSdlPackedOrder.Rgba, TSdlPackedLayout.Layout8888, 32, 4);
     ///  ```
@@ -2004,7 +2004,7 @@ type
     ///
     ///  For example, defining TSdlColorspace.Srgb looks like this:
     ///
-    ///  ```
+    ///  ```delphi
     ///  var Colorspace := TSdlColorspace.From(
     ///    TSdlColorType.Rgb,
     ///    TSdlColorRange.Full,
@@ -2291,7 +2291,7 @@ type
     ///
     ///  Expressed in pseudocode, it would look like this:
     ///
-    ///  ```
+    ///  ```delphi
     ///  DstRgb := ColorOperation(SrcRgb * SrcColorFactor, DstRgb * DstColorFactor);
     ///  DstA := AlphaOperation(SrcA * SrcAlphaFactor, DstA * DstAlphaFactor);
     ///  ```
@@ -2351,8 +2351,8 @@ type
     /// <param name="AAlphaOperation">The blend operation used to combine the
     ///  alpha component of the source and destination pixels.</param>
     /// <returns>A TSdlBlendMode that represents the chosen factors and operations.</returns>
-    /// <seealso cref="TSdlRenderer.DrawDrawBlendMode"/>
-    /// <seealso cref="TSdlTesture.BlendMode"/>
+    /// <seealso cref="TSdlRenderer.DrawBlendMode"/>
+    /// <seealso cref="TSdlTexture.BlendMode"/>
     /// <remarks>
     ///  It is safe to call this method from any thread.
     /// </remarks>
@@ -2634,7 +2634,7 @@ type
     ///  This function removes a reference from all the alternative versions,
     ///  destroying them if this is the last reference to them.
     /// </summary>
-    /// <seealso cref="AddlternateImage"/>
+    /// <seealso cref="AddAlternateImage"/>
     /// <seealso cref="Images"/>
     /// <seealso cref="HasAlternateImages"/>
     procedure RemoveAlternateImages; inline;
@@ -2871,7 +2871,7 @@ type
     /// <param name="ARects">An array rectangles to fill.</param>
     /// <param name="AColor">The color to fill with.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="SDL_FillRect"/>
+    /// <seealso cref="FillRect"/>
     procedure FillRects(const ARects: TArray<TSdlRect>; const AColor: Cardinal); overload; inline;
 
     /// <summary>
@@ -2889,7 +2889,7 @@ type
     /// <param name="ARects">An array rectangles to fill.</param>
     /// <param name="AColor">The color to fill with.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="SDL_FillRect"/>
+    /// <seealso cref="FillRect"/>
     procedure FillRects(const ARects: array of TSdlRect; const AColor: Cardinal); overload;
 
     /// <summary>
@@ -3209,7 +3209,7 @@ type
     ///  Whether the surface has alternate versions available.
     /// </summary>
     /// <returns>True if alternate versions are available or False otherwise.</returns>
-    /// <seealso cref="AddlternateImage"/>
+    /// <seealso cref="AddAlternateImage"/>
     /// <seealso cref="RemoveAlternateImages"/>
     /// <seealso cref="Images"/>
     property HasAlternateImages: Boolean read GetHasAlternateImages;
@@ -3746,6 +3746,7 @@ type
 type
   /// <summary>
   ///  Horizontal or vertical position of a window.
+  ///
   ///  This is a regular integer, but has additional functionality to create a
   ///  centered or undefined window position on a specific display.
   /// </summary>
@@ -4121,6 +4122,7 @@ type
 type
   /// <summary>
   ///  Window surface vsync values.
+  ///
   ///  Use the special value Disabled to disable vsync, or Adaptive for late
   ///  swap tearing (adaptive vsync). Other values represent a vsync interval,
   ///  e.g. 1 to synchronize present with every vertical refresh, 2 to
@@ -4791,7 +4793,7 @@ type
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="Hide"/>
-    /// <seealso cref="Raise"/>
+    /// <seealso cref="RaiseAndFocus"/>
     /// <remarks>
     ///  This method should only be called on the main thread.
     /// </remarks>
@@ -4802,7 +4804,6 @@ type
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="Show"/>
-    /// <seealso cref="TSdlWindowFlag.Hidden"/>
     /// <remarks>
     ///  This method should only be called on the main thread.
     /// </remarks>
@@ -5226,7 +5227,7 @@ type
     ///  these events to specific TSdlWindow objects.
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="SDL_GetWindowFromID"/>
+    /// <seealso cref="FromID"/>
     /// <remarks>
     ///  This property should only be used on the main thread.
     /// </remarks>
@@ -5366,7 +5367,6 @@ type
     /// <summary>
     ///  The title of the window.
     /// </summary>
-    /// <seealso cref="SDL_GetWindowTitle"/>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <remarks>
     ///  This property should only be used on the main thread.
@@ -5514,7 +5514,7 @@ type
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="FullscreenMode"/>
     /// <seealso cref="Sync"/>
-    /// <seealso cref="TSdlWindowFlag.Fullscreen"/>
+    /// <seealso cref="TSdlWindowFlag"/>
     /// <remarks>
     ///  This property should only be used on the main thread.
     /// </remarks>
@@ -5644,7 +5644,6 @@ type
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="Parent"/>
-    /// <seealso cref="TSdlWindowFlag.Modal"/>
     /// <remarks>
     ///  This property should only be used on the main thread.
     /// </remarks>
@@ -6597,6 +6596,7 @@ type
 type
   /// <summary>
   ///  Renderer vsync values.
+  ///
   ///  Use the special value Disabled to disable vsync, or Adaptive for late
   ///  swap tearing (adaptive vsync). Other values represent a vsync interval,
   ///  e.g. 1 to synchronize present with every vertical refresh, 2 to
@@ -6640,7 +6640,7 @@ type
     procedure SetDrawColorFloat(const AValue: TSdlColorF); overload; inline;
     function GetWindow: TSdlWindow; inline;
     function GetName: String; inline;
-    function GetOuputSize: TSdlSize; inline;
+    function GetOutputSize: TSdlSize; inline;
     function GetCurrentOutputSize: TSdlSize; inline;
     function GetLogicalPresentationRect: TSdlRect; inline;
     function GetTarget: TSdlTexture; inline;
@@ -6720,8 +6720,8 @@ type
     ///  or an empty string to let SDL choose one.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="Free"/>
-    /// <seealso cref="RenderDriverCount"/>
-    /// <seealso cref="RenderDrivers"/>
+    /// <seealso cref="DriverCount"/>
+    /// <seealso cref="Drivers"/>
     /// <seealso cref="Name"/>
     /// <remarks>
     ///  This constructor should only be called on the main thread.
@@ -6822,9 +6822,9 @@ type
     /// <param name="AW">The width of the texture in pixels.</param>
     /// <param name="AH">The height of the texture in pixels.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="Free"/>
-    /// <seealso cref="Size"/>
-    /// <seealso cref="Update"/>
+    /// <seealso cref="TSdlTexture.Free"/>
+    /// <seealso cref="TSdlTexture.Size"/>
+    /// <seealso cref="TSdlTexture.Update"/>
     /// <remarks>
     ///  This method should only be called on the main thread.
     /// </remarks>
@@ -6846,7 +6846,7 @@ type
     /// <param name="ASurface">The surface containing pixel data used to fill
     ///  the texture.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="Free"/>
+    /// <seealso cref="TSdlTexture.Free"/>
     /// <remarks>
     ///  This method should only be called on the main thread.
     /// </remarks>
@@ -6947,9 +6947,9 @@ type
     /// <param name="ARenderer">The rendering context.</param>
     /// <param name="AProps">The properties to use.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="Free"/>
-    /// <seealso cref="Size"/>
-    /// <seealso cref="Update"/>
+    /// <seealso cref="TSdlTexture.Free"/>
+    /// <seealso cref="TSdlTexture.Size"/>
+    /// <seealso cref="TSdlTexture.Update"/>
     /// <remarks>
     ///  This constructor should only be called on the main thread.
     /// </remarks>
@@ -7707,7 +7707,7 @@ type
     ///  **WARNING**: This is a very slow operation, and should not be used
     ///  frequently. If you're using this on the main rendering target, it should be
     ///  called after rendering and before Present.
-    /// <summary>
+    /// </summary>
     /// <param name="ARect">The area to read in pixels relative to the to
     ///  current viewport.</param>
     /// <returns>A new SDL surface</returns>
@@ -7898,7 +7898,7 @@ type
     /// <remarks>
     ///  This property should only be used on the main thread.
     /// </remarks>
-    property OuputSize: TSdlSize read GetOuputSize;
+    property OutputSize: TSdlSize read GetOutputSize;
 
     /// <summary>
     ///  The current output size in pixels of a rendering context.
@@ -8555,7 +8555,7 @@ type
     /// <param name="AProc">The name of an OpenGL function.</param>
     /// <returns>A pointer to the named OpenGL function. The returned pointer
     ///  should be cast to the appropriate function signature.</returns>
-    /// <seealso cref="ExtensionSupported"/>
+    /// <seealso cref="IsExtensionSupported"/>
     /// <seealso cref="LoadLibrary"/>
     /// <seealso cref="UnloadLibrary"/>
     /// <remarks>
@@ -8863,7 +8863,7 @@ type
     /// <param name="AProc">The name of an EGL function.</param>
     /// <returns>A pointer to the named EGL function. The returned pointer should
     ///  be cast to the appropriate function signature.</returns>
-    /// <seealso cref="CurrentDisplay"/>
+    /// <seealso cref="TSdlEglDisplay.Current"/>
     /// <remarks>
     ///  This method should only be called on the main thread.
     /// </remarks>
@@ -9256,7 +9256,7 @@ type
   /// <summary>
   ///  The position of camera in relation to system device.
   /// </summary>
-  /// <seealso cref="TSdlCamera.Position"/>
+  /// <seealso cref="TSdlCameraID.Position"/>
   TSdlCameraPosition = (
     Unknown     = SDL_CAMERA_POSITION_UNKNOWN,
     FrontFacing = SDL_CAMERA_POSITION_FRONT_FACING,
@@ -9271,7 +9271,7 @@ type
   ///
   ///  The value 0 is an invalid ID.
   /// </summary>
-  /// <seealso cref="TSdlCamera.GetCameras"/>
+  /// <seealso cref="TSdlCameraID.Cameras"/>
   TSdlCameraID = record
   {$REGION 'Internal Declarations'}
   private
@@ -9433,7 +9433,7 @@ type
     /// <param name="AInstanceID">The camera device instance ID.</param>
     /// <returns>The opened camera.</returns>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="TSdlCameraID.GetCameras"/>
+    /// <seealso cref="TSdlCameraID.Cameras"/>
     /// <seealso cref="Format"/>
     /// <remarks>
     ///  It is safe to call this method from any thread.
@@ -9470,7 +9470,7 @@ type
     /// <param name="ASpec">The desired format for data the device will provide.</param>
     /// <returns>The opened camera.</returns>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="TSdlCameraID.GetCameras"/>
+    /// <seealso cref="TSdlCameraID.Cameras"/>
     /// <seealso cref="Format"/>
     /// <remarks>
     ///  It is safe to call this method from any thread.
@@ -12257,7 +12257,7 @@ begin
   Result := __ToString(Name);
 end;
 
-function TSdlRenderer.GetOuputSize: TSdlSize;
+function TSdlRenderer.GetOutputSize: TSdlSize;
 begin
   SdlCheck(SDL_GetRenderOutputSize(FHandle, @Result.W, @Result.H));
 end;

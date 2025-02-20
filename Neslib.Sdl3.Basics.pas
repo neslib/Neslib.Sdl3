@@ -109,14 +109,17 @@ type
     property Patch: Byte read FPatch;
 
     /// <summary>
-    ///  The SDL version the program was compiled against. Note that if you
-    ///  dynamically linked the library, you might have a slightly newer or older
-    ///  version at runtime. That version can be determined with RuntimeVersion.
+    ///  The SDL version the program was compiled against.
+    ///
+    ///  Note that if you dynamically linked the library, you might have a
+    ///  slightly newer or older version at runtime. That version can be
+    ///  determined with RuntimeVersion.
     /// </summary>
     class property CompiledVersion: TSdlVersion read GetCompiledVersion;
 
     /// <summary>
     ///  The version of SDL that is linked against your program.
+    ///
     ///  If you are linking to SDL dynamically, then it is possible that the
     ///  current version will be different than the version you compiled
     ///  (see CompiledVersion) against.
@@ -268,7 +271,7 @@ type
   /// <seealso cref="SdlQuit"/>
   /// <seealso cref="SdlInitSubSystem"/>
   /// <seealso cref="SdlQuitSubSystem"/>
-  /// <seealso cref="SdlIsInitialized"/>
+  /// <seealso cref="SdlWasInit"/>
   TSdlInitFlag = (
     /// <summary>
     ///  The audio subsystem. Implies TSdlInitFlag.Events.
@@ -371,16 +374,14 @@ type
 ///  this call will increase the ref-count and return.
 ///
 ///  Consider reporting some basic metadata about your application before
-///  calling Init, using either SetAppMetadata or SetAppMetadataProperty.
+///  calling Init, using SdlSetAppMetadata.
 /// </summary>
 /// <param name="AFlags">Subsystem initialization flags.</param>
 /// <exception name="ESdlError">Raised on failure.</exception>
-/// <seealso cref="SetAppMetadata"/>
-/// <seealso cref="SetAppMetadataProperty"/>
-/// <seealso cref="InitSubSystem"/>
-/// <seealso cref="Quit"/>
-/// <seealso cref="SetMainReady"/>
-/// <seealso cref="Initialized"/>
+/// <seealso cref="SdlSetAppMetadata"/>
+/// <seealso cref="SdlInitSubSystem"/>
+/// <seealso cref="SdlQuit"/>
+/// <seealso cref="SdlWasInit"/>
 procedure SdlInit(const AFlags: TSdlInitFlags); inline;
 
 /// <summary>
@@ -503,7 +504,7 @@ procedure SdlRunOnMainThread(const ACallback: TSdlMainThreadCallback;
 /// <param name="AAppIdentifier">A unique string in reverse-domain format
 ///  that identifies this app ('com.example.mygame2').</param>
 /// <exception name="ESdlError">Raised on failure.</exception>
-/// <seealso cref="GetAppMetadata"/>
+/// <seealso cref="SdlGetAppMetadata"/>
 /// <remarks>
 ///  It is safe to call this routine from any thread.
 /// </remarks>
@@ -562,7 +563,7 @@ procedure SdlSetAppMetadata(const AAppName, AAppVersion, AAppIdentifier: String)
 /// <param name="AValue">The value of the property, or an empty string to remove
 ///  that property.</param>
 /// <exception name="ESdlError">Raised on failure.</exception>
-/// <seealso cref="GetAppMetadata"/>
+/// <seealso cref="SdlGetAppMetadata"/>
 /// <remarks>
 ///  It is safe to call this routine from any thread.
 /// </remarks>
@@ -2399,7 +2400,7 @@ type
     ///
     ///  The default is the value of JoystickHidApi.
     /// </summary>
-    JoystickHidApiSteamHori = 'SDL_JOYSTICK_HIDAPI_STEAM_HORI';
+    JoystickHidApiSteamHori = SDL_HINT_JOYSTICK_HIDAPI_STEAM_HORI;
 
     /// <summary>
     ///  A variable controlling whether the HIDAPI driver for Nintendo Switch
@@ -5366,25 +5367,25 @@ type
     (** GPU texture creation properties **)
 
     // Float
-    GpuTextureCreateD3D12ClearR       = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_R_FLOAT = 'SDL.gpu.texture.create.d3d12.clear.r';
+    GpuTextureCreateD3D12ClearR       = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_R_FLOAT;
 
     // Float
-    GpuTextureCreateD3D12ClearG       = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_G_FLOAT = 'SDL.gpu.texture.create.d3d12.clear.g';
+    GpuTextureCreateD3D12ClearG       = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_G_FLOAT;
 
     // Float
-    GpuTextureCreateD3D12ClearB       = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_B_FLOAT = 'SDL.gpu.texture.create.d3d12.clear.b';
+    GpuTextureCreateD3D12ClearB       = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_B_FLOAT;
 
     // Float
-    GpuTextureCreateD3D12ClearA       = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_A_FLOAT = 'SDL.gpu.texture.create.d3d12.clear.a';
+    GpuTextureCreateD3D12ClearA       = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_A_FLOAT;
 
     // Float
-    GpuTextureCreateD3D12ClearDepth   = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_DEPTH_FLOAT = 'SDL.gpu.texture.create.d3d12.clear.depth';
+    GpuTextureCreateD3D12ClearDepth   = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_DEPTH_FLOAT;
 
     // Byte
-    GpuTextureCreateD3D12ClearStencil = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_STENCIL_UINT8 = 'SDL.gpu.texture.create.d3d12.clear.stencil';
+    GpuTextureCreateD3D12ClearStencil = SDL_PROP_GPU_TEXTURE_CREATE_D3D12_CLEAR_STENCIL_UINT8;
 
     // String
-    GpuTextureCreateName              = SDL_PROP_GPU_TEXTURE_CREATE_NAME_STRING = 'SDL.gpu.texture.create.name';
+    GpuTextureCreateName              = SDL_PROP_GPU_TEXTURE_CREATE_NAME_STRING;
   public const
     (** GPU properties **)
 

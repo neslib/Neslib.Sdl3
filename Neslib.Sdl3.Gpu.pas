@@ -506,7 +506,7 @@ type
   ///  D24/D32 is supported before creating a depth-stencil texture!
   /// </summary>
   /// <seealso cref="TSdlGpuTexture"/>
-  /// <seealso cref="TSdlGpuDevice.SupportedTextureFormats"/>
+  /// <seealso cref="TSdlGpuDevice.TextureSupportsFormat"/>
   TSdlGpuTextureFormat = (
     Invalid            = SDL_GPU_TEXTUREFORMAT_INVALID,
 
@@ -748,7 +748,7 @@ type
   ///  is used as a render target.
   /// </summary>
   /// <seealso cref="TSdlGpuTexture"/>
-  /// <seealso cref="TSdlGpuTexture.SupportsSampleCount"/>
+  /// <seealso cref="TSdlGpuDevice.TextureSupportsSampleCount"/>
   TSdlGpuSampleCount = (
     /// <summary>
     ///  No multisampling.
@@ -1335,7 +1335,7 @@ type
   /// <summary>
   ///  A record specifying a viewport.
   /// </summary>
-  /// <seealso cref="TSdlGpuRenderPass.SDL_SeViewport"/>
+  /// <seealso cref="TSdlGpuRenderPass.SetViewport"/>
   TSdlGpuViewport = record
   public
     /// <summary>
@@ -1875,7 +1875,7 @@ type
   ///  GraphicsStorage.
   /// </summary>
   /// <seealso cref="TSdlGpuTexture"/>
-  /// <seealso cref="TSdlGpuTextureType"/>
+  /// <seealso cref="TSdlGpuTextureKind"/>
   /// <seealso cref="TSdlGpuTextureFormat"/>
   /// <seealso cref="TSdlGpuTextureUsageFlags"/>
   /// <seealso cref="TSdlGpuSampleCount"/>
@@ -2361,7 +2361,7 @@ type
   /// <summary>
   ///  A compute pipeline. Used during compute passes.
   /// </summary>
-  /// <seealso cref="TSdlComputePass.Bind"/>
+  /// <seealso cref="TSdlGpuComputePass.BindPipeline"/>
   TSdlGpuComputePipeline = record
   {$REGION 'Internal Declarations'}
   private
@@ -2389,14 +2389,17 @@ type
   ///  A buffer used for vertices, indices, indirect draw commands, and general
   ///  compute data.
   /// </summary>
-  /// <seealso cref="SDL_CreateGPUBuffer"/>
-  /// <seealso cref="TSdlCopyPass.UploadToBuffer"/>
-  /// <seealso cref="TSdlCopyPass.DownloadFromBuffer"/>
-  /// <seealso cref="TSdlCopyPass.Copy"/>
-  /// <seealso cref="TSdlRenderPass.Bind"/>
-  /// <seealso cref="TSdlRenderPass.DrawPrimitives"/>
-  /// <seealso cref="TSdlComputePass.Bind"/>
-  /// <seealso cref="TSdlComputePass.Dispatch"/>
+  /// <seealso cref="TSdlGpuDevice.CreateBuffer"/>
+  /// <seealso cref="TSdlGpuCopyPass.UploadToBuffer"/>
+  /// <seealso cref="TSdlGpuCopyPass.DownloadFromBuffer"/>
+  /// <seealso cref="TSdlGpuCopyPass.CopyBufferToBuffer"/>
+  /// <seealso cref="TSdlGpuRenderPass.BindVertexBuffers"/>
+  /// <seealso cref="TSdlGpuRenderPass.BindIndexBuffer"/>
+  /// <seealso cref="TSdlGpuRenderPass.BindVertexStorageBuffers"/>
+  /// <seealso cref="TSdlGpuRenderPass.BindFragmentStorageBuffers"/>
+  /// <seealso cref="TSdlGpuRenderPass.DrawPrimitives"/>
+  /// <seealso cref="TSdlGpuComputePass.BindStorageBuffers"/>
+  /// <seealso cref="TSdlGpuComputePass.Dispatch"/>
   TSdlGpuBuffer = record
   {$REGION 'Internal Declarations'}
   private
@@ -2534,10 +2537,10 @@ type
   /// </summary>
   /// <seealso cref="TSdlGpuDevice.MapTransferBuffer"/>
   /// <seealso cref="TSdlGpuDevice.UnmapTransferBuffer"/>
-  /// <seealso cref="TSdlCopyPass.UploadToBuffer"/>
-  /// <seealso cref="TSdlCopyPass.UploadToTexture"/>
-  /// <seealso cref="TSdlCopyPass.DownloadFromBuffer"/>
-  /// <seealso cref="TSdlCopyPass.DownloadFromTexture"/>
+  /// <seealso cref="TSdlGpuCopyPass.UploadToBuffer"/>
+  /// <seealso cref="TSdlGpuCopyPass.UploadToTexture"/>
+  /// <seealso cref="TSdlGpuCopyPass.DownloadFromBuffer"/>
+  /// <seealso cref="TSdlGpuCopyPass.DownloadFromTexture"/>
   TSdlGpuTransferBuffer = record
   {$REGION 'Internal Declarations'}
   private
@@ -2566,7 +2569,7 @@ type
   ///  texture.
   /// </summary>
   /// <seealso cref="TSdlGpuCopyPass.UploadToTexture"/>
-  /// <seealso cref="TSdlGpuCopyPass.DownloadFormTexture"/>
+  /// <seealso cref="TSdlGpuCopyPass.DownloadFromTexture"/>
   TSdlGpuTextureTransferInfo = record
   {$REGION 'Internal Declarations'}
   private
@@ -2603,7 +2606,7 @@ type
   ///  Used when transferring buffer data to or from a transfer buffer.
   /// </summary>
   /// <seealso cref="TSdlGpuCopyPass.UploadToTexture"/>
-  /// <seealso cref="TSdlGpuCopyPass.DownloadFormTexture"/>
+  /// <seealso cref="TSdlGpuCopyPass.DownloadFromTexture"/>
   TSdlGpuTransferBufferLocation = record
   {$REGION 'Internal Declarations'}
   private
@@ -2627,13 +2630,16 @@ type
   /// <summary>
   ///  A texture.
   /// </summary>
-  /// <seealso cref="TSdlCopyPass.UploadToTexture"/>
-  /// <seealso cref="TSdlCopyPass.DownloadFromTexture"/>
-  /// <seealso cref="TSdlCopyPass.Copy"/>
-  /// <seealso cref="TSdlRenderPass.Bind"/>
-  /// <seealso cref="TSdlComputePass.Bind"/>
-  /// <seealso cref="TSdlCommandBuffer.GenerateMipmaps"/>
-  /// <seealso cref="TSdlCommandBuffer.Blit"/>
+  /// <seealso cref="TSdlGpuCopyPass.UploadToTexture"/>
+  /// <seealso cref="TSdlGpuCopyPass.DownloadFromTexture"/>
+  /// <seealso cref="TSdlGpuCopyPass.CopyTextureToTexture"/>
+  /// <seealso cref="TSdlGpuRenderPass.BindVertexSamplers"/>
+  /// <seealso cref="TSdlGpuRenderPass.BindVertexStorageTextures"/>
+  /// <seealso cref="TSdlGpuRenderPass.BindFragmentSamplers"/>
+  /// <seealso cref="TSdlGpuRenderPass.BindFragmentStorageTextures"/>
+  /// <seealso cref="TSdlGpuComputePass.BindStorageTextures"/>
+  /// <seealso cref="TSdlGpuCommandBuffer.GenerateMipmaps"/>
+  /// <seealso cref="TSdlGpuCommandBuffer.Blit"/>
   TSdlGpuTexture = record
   {$REGION 'Internal Declarations'}
   private
@@ -2707,8 +2713,8 @@ type
   ///
   ///  Used when transferring data to or from a texture.
   /// </summary>
-  /// <seealso cref="TSdlCopyPass.UploadToTexture"/>
-  /// <seealso cref="TSdlCopyPass.DownloadFromTexture"/>
+  /// <seealso cref="TSdlGpuCopyPass.UploadToTexture"/>
+  /// <seealso cref="TSdlGpuCopyPass.DownloadFromTexture"/>
   TSdlGpuTextureRegion = record
   {$REGION 'Internal Declarations'}
   private
@@ -3128,7 +3134,8 @@ type
   /// <summary>
   ///  A sampler.
   /// </summary>
-  /// <seealso cref="TSdlRenderPass.Bind"/>
+  /// <seealso cref="TSdlGpuRenderPass.BindVertexSamplers"/>
+  /// <seealso cref="TSdlGpuRenderPass.BindFragmentSamplers"/>
   TSdlGpuSampler = record
   {$REGION 'Internal Declarations'}
   private
@@ -3296,13 +3303,13 @@ type
     /// </summary>
     property Props: TSdlProperties read GetProps write SetProps;
   end;
-  PSDL_GPUGraphicsPipelineCreateInfo = ^SDL_GPUGraphicsPipelineCreateInfo;
+  PSdlGpuGraphicsPipelineCreateInfo = ^TSdlGpuGraphicsPipelineCreateInfo;
 
 type
   /// <summary>
   ///  A graphics pipeline. Used during render passes.
   /// </summary>
-  /// <seealso cref="TSdlRenderPass.Bind"/>
+  /// <seealso cref="TSdlGpuRenderPass.BindPipeline"/>
   /// <remarks>
   ///  This struct is available since SDL 3.2.0.
   /// </remarks>
@@ -3443,10 +3450,11 @@ type
 
     /// <summary>
     ///  Sets the current blend constants on a command buffer.
+    ///  Used with `TSdlGpuBlendFactor.ConstantColor` and 
+    ///  `TSdlGpuBlendFactor.OneMinusConstantColor`.
     /// </summary>
     /// <param name="ABlendConstants">The blend constant color.</param>
-    /// <seealso cref="TSdlGpuBlendFactor.ConstantColor"/>
-    /// <seealso cref="TSdlGpuBlendFactor.OneMinusConstantColor"/>
+    /// <seealso cref="TSdlGpuBlendFactor"/>
     procedure SetBlendConstants(const ABlendConstants: TSdlColorF); inline;
 
     /// <summary>
@@ -3480,7 +3488,7 @@ type
     /// <param name="ABinding">A record containing an index buffer and offset.</param>
     /// <param name="AIndexElementSize">Whether the index values in the buffer
     ///  are 16- or 32-bit.</param>
-    procedure BindIndexBuffers(const ABinding: TSdlGpuBufferBinding;
+    procedure BindIndexBuffer(const ABinding: TSdlGpuBufferBinding;
       const AIndexElementSize: TSdlGpuIndexElementSize); inline;
 
     /// <summary>
@@ -3860,9 +3868,9 @@ type
   /// <summary>
   ///  A fence.
   /// </summary>
-  /// <seealso cref="TSdlGpuCopyPass.SubmitAndAcquireFence"/>
+  /// <seealso cref="TSdlGpuCommandBuffer.SubmitAndAcquireFence"/>
   /// <seealso cref="TSdlGpuDevice.QueryFence"/>
-  /// <seealso cref="TSdlGpuDevice.Wait"/>
+  /// <seealso cref="TSdlGpuDevice.WaitForFences"/>
   /// <seealso cref="TSdlGpuDevice.ReleaseFence"/>
   TSdlGpuFence = record
   {$REGION 'Internal Declarations'}
@@ -3904,8 +3912,8 @@ type
   ///  the thread you acquired it from.
   /// </summary>
   /// <seealso cref="TSdlGpuDevice.AcquireCommandBuffer"/>
-  /// <seealso cref="Submit"/>
-  /// <seealso cref="SubmitAndAcquireFence"/>
+  /// <seealso cref="TSdlGpuCommandBuffer.Submit"/>
+  /// <seealso cref="TSdlGpuCommandBuffer.SubmitAndAcquireFence"/>
   TSdlGpuCommandBuffer = record
   {$REGION 'Internal Declarations'}
   private
@@ -4228,7 +4236,7 @@ type
     /// <seealso cref="WaitAndAcquireSwapchainTexture"/>
     /// <seealso cref="AcquireSwapchainTexture"/>
     /// <seealso cref="Submit"/>
-    /// <seealso cref="TSdlGpuFence.Release"/>
+    /// <seealso cref="TSdlGpuDevice.ReleaseFence"/>
     function SubmitAndAcquireFence: TSdlGpuFence; inline;
 
     /// <summary>
@@ -4285,7 +4293,7 @@ type
     ///  and validations. If not given, this will be True in when the app is
     ///  compiled in DEBUG mode, or False otherwise</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="ShaderFormats"/>
+    /// <seealso cref="Formats"/>
     /// <seealso cref="Driver"/>
     /// <seealso cref="TSdlGpuDriver.SupportsFormats"/>
     constructor Create(const AFormats: TSdlGpuShaderFormats;
@@ -4300,7 +4308,7 @@ type
     ///  and validations. If not given, this will be True in when the app is
     ///  compiled in DEBUG mode, or False otherwise</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="ShaderFormats"/>
+    /// <seealso cref="Formats"/>
     /// <seealso cref="Driver"/>
     /// <seealso cref="TSdlGpuDriver.SupportsFormats"/>
     constructor Create(const AFormats: TSdlGpuShaderFormats;
@@ -4342,9 +4350,9 @@ type
     /// <param name="AProps">The properties to use.</param>
     /// <returns>a GPU context on success or NULL on failure; call SDL_GetError() for more information.</returns>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="ShaderFormats"/>
+    /// <seealso cref="Formats"/>
     /// <seealso cref="Driver"/>
-    /// <seealso cref="TSdlGpuDriver.SupportsPropertes"/>
+    /// <seealso cref="TSdlGpuDriver.SupportsProperties"/>
     constructor Create(const AProps: TSdlProperties); overload;
 
     /// <summary>
@@ -4390,7 +4398,7 @@ type
     ///  pipeline to create.</param>
     /// <returns>A compute pipeline object.</returns>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="TSdlGpuComputePass.Bind"/>
+    /// <seealso cref="TSdlGpuComputePass.BindStorageBuffers"/>
     /// <seealso cref="ReleaseComputePipeline"/>
     function CreateComputePipeline(
       const ACreateInfo: TSdlGpuComputePipelineCreateInfo): TSdlGpuComputePipeline; inline;
@@ -4417,7 +4425,7 @@ type
     /// <returns>A graphics pipeline object.</returns>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="TSdlGpuShader"/>
-    /// <seealso cref="TSdlGpuRenderPass.BindGraphicsPipeline"/>
+    /// <seealso cref="TSdlGpuRenderPass.BindPipeline"/>
     /// <seealso cref="ReleaseGraphicsPipeline"/>
     function CreateGraphicsPipeline(
       const ACreateInfo: TSdlGpuGraphicsPipelineCreateInfo): TSdlGpuGraphicsPipeline; inline;
@@ -4444,7 +4452,8 @@ type
     ///  to create.</param>
     /// <returns>A sampler object.</returns>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="TSdlGpuRenderPass.BindSampler"/>
+    /// <seealso cref="TSdlGpuRenderPass.BindVertexSamplers"/>
+    /// <seealso cref="TSdlGpuRenderPass.BindFragmentSamplers"/>
     /// <seealso cref="ReleaseSampler"/>
     function CreateSampler(
       const ACreateInfo: TSdlGpuSamplerCreateInfo): TSdlGpuSampler; inline;
@@ -4578,11 +4587,14 @@ type
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="TSdlGpuCopyPass.UploadToTexture"/>
     /// <seealso cref="TSdlGpuCopyPass.DownloadFromTexture"/>
-    /// <seealso cref="TSdlGpuRenderPass.BindTexture"/>
-    /// <seealso cref="TSdlGpuComputePass.BindTexture"/>
+    /// <seealso cref="TSdlGpuRenderPass.BindVertexSamplers"/>
+    /// <seealso cref="TSdlGpuRenderPass.BindVertexStorageTextures"/>
+    /// <seealso cref="TSdlGpuRenderPass.BindFragmentSamplers"/>
+    /// <seealso cref="TSdlGpuRenderPass.BindFragmentStorageTextures"/>
+    /// <seealso cref="TSdlGpuComputePass.BindStorageTextures"/>
     /// <seealso cref="TSdlGpuCommandBuffer.Blit"/>
     /// <seealso cref="ReleaseTexture"/>
-    /// <seealso cref="SupportsTextureFormat"/>
+    /// <seealso cref="TextureSupportsFormat"/>
     function CreateTexture(
       const ACreateInfo: TSdlGpuTextureCreateInfo): TSdlGpuTexture; inline;
 
@@ -4636,9 +4648,12 @@ type
     /// <seealso cref="TSdlGpuCopyPass.UploadToBuffer"/>
     /// <seealso cref="TSdlGpuCopyPass.DownloadFromBuffer"/>
     /// <seealso cref="TSdlGpuCopyPass.CopyBufferToBuffer"/>
-    /// <seealso cref="TSdlGpuRenderPass.BindBuffer"/>
+    /// <seealso cref="TSdlGpuRenderPass.BindVertexBuffers"/>
+    /// <seealso cref="TSdlGpuRenderPass.BindIndexBuffer"/>
+    /// <seealso cref="TSdlGpuRenderPass.BindVertexStorageBuffers"/>
+    /// <seealso cref="TSdlGpuRenderPass.BindFragmentStorageBuffers"/>
     /// <seealso cref="TSdlGpuRenderPass.DrawPrimitives"/>
-    /// <seealso cref="TSdlGpuComputePass.Bind"/>
+    /// <seealso cref="TSdlGpuComputePass.BindStorageBuffers"/>
     /// <seealso cref="TSdlGpuComputePass.Dispatch"/>
     /// <seealso cref="ReleaseBuffer"/>
     function CreateBuffer(
@@ -4755,7 +4770,7 @@ type
     /// </summary>
     /// <param name="AWindow">A TSdlWindow.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="TSdlGpuCommandBuffer.WaitWaitAndAcquireSwapchainTexture"/>
+    /// <seealso cref="TSdlGpuCommandBuffer.WaitAndAcquireSwapchainTexture"/>
     /// <seealso cref="ReleaseWindow"/>
     /// <seealso cref="WindowSupportsPresentMode"/>
     /// <seealso cref="WindowSupportsSwapchainComposition"/>
@@ -4937,9 +4952,9 @@ type
     ///  and validations. If not given, this will be True in when the app is
     ///  compiled in DEBUG mode, or False otherwise</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="TSdlGpuDevice.ShaderFormats"/>
+    /// <seealso cref="TSdlGpuDevice.Formats"/>
     /// <seealso cref="TSdlGpuDevice.Driver"/>
-    /// <seealso cref="SupportsFormats"/>
+    /// <seealso cref="TSdlGpuDriver.SupportsFormats"/>
     function CreateDevice(const AFormats: TSdlGpuShaderFormats;
       const ADebugMode: Boolean = {$IFDEF DEBUG}True{$ELSE}False{$ENDIF}): TSdlGpuDevice;
   end;
@@ -6539,7 +6554,7 @@ begin
     Length(AStorageTextures));
 end;
 
-procedure TSdlGpuRenderPass.BindIndexBuffers(
+procedure TSdlGpuRenderPass.BindIndexBuffer(
   const ABinding: TSdlGpuBufferBinding;
   const AIndexElementSize: TSdlGpuIndexElementSize);
 begin

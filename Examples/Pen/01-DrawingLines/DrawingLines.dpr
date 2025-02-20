@@ -46,7 +46,7 @@ begin
 
   { Make sure the render target matches output size (for hidpi displays, etc) so
     drawing matches the pen's position on a tablet display. }
-  var Size := FRenderer.OuputSize;
+  var Size := FRenderer.OutputSize;
   FRenderTarget := FRenderer.CreateTexture(TSdlPixelFormat.Rgba8888,
     TSdlTextureAccess.Target, Size.W, Size.H);
 

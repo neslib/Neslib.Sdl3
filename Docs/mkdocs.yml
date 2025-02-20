@@ -241,10 +241,10 @@ nav:
         - PSdlGpuBlitRegion: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuBlitRegion.md
         - PSdlGpuColorTargetBlendState: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuColorTargetBlendState.md
         - PSdlGpuDepthStencilState: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuDepthStencilState.md
+        - PSdlGpuGraphicsPipelineCreateInfo: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuGraphicsPipelineCreateInfo.md
         - PSdlGpuMultisampleState: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuMultisampleState.md
         - PSdlGpuRasterizerState: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuRasterizerState.md
         - PSdlGpuStencilOpState: Reference/Neslib.Sdl3.Gpu/types/PSdlGpuStencilOpState.md
-        - PSDL_GPUGraphicsPipelineCreateInfo: Reference/Neslib.Sdl3.Gpu/types/PSDL_GPUGraphicsPipelineCreateInfo.md
         - TSdlGpuBlendFactor: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuBlendFactor.md
         - TSdlGpuBlendOp: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuBlendOp.md
         - TSdlGpuBufferUsageFlag: Reference/Neslib.Sdl3.Gpu/types/TSdlGpuBufferUsageFlag.md

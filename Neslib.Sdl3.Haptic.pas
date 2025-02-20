@@ -1,4 +1,4 @@
-unit Neslib.Sdl3.Haptic;
+﻿unit Neslib.Sdl3.Haptic;
 
 { Simple DirectMedia Layer
   Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>
@@ -51,7 +51,7 @@ uses
 ///
 ///  Simple rumble example:
 ///
-///  ```
+///  ```delphi
 ///  // Open the device
 ///  var Haptics := TSdlHapticID.Devices;
 ///  if (Haptics <> nil) then
@@ -73,7 +73,7 @@ uses
 ///
 ///  Complete example:
 ///
-///  ```
+///  ```delphi
 ///  procedure TestHaptic(const AJoystick: TSdlJoystick)
 ///  begin
 ///    // Open the device
@@ -388,7 +388,7 @@ type
   ///                        ^
   ///                        |
   ///                        |
-  ///  (-1,0)  West <----[ HAPTIC ]----> East (1,0)
+  ///  (-1,0)  West ˂----[ HAPTIC ]----˃ East (1,0)
   ///                        |
   ///                        |
   ///                        v
@@ -435,7 +435,7 @@ type
   ///  Example of force coming from the south with all encodings (force coming
   ///  from the south means the user will have to pull the stick to counteract):
   ///
-  ///  ```
+  ///  ```delphi
   ///  var Direction: TSdlHapticDirection;
   ///
   ///  // Cartesian directions
@@ -1037,7 +1037,7 @@ type
   ///
   ///  Common parts:
   ///
-  ///  ```
+  ///  ```delphi
   ///  // Replay - All effects have this
   ///  Length: Cardinal;   // Duration of effect (ms).
   ///  Delay: Word;        // Delay before starting effect.
@@ -1065,7 +1065,7 @@ type
   ///  |                   /                     \
   ///  |                  /                       \
   ///  | attack_level --> |                        \
-  ///  |                  |                        |  <---  fade_level
+  ///  |                  |                        |  ˂---  fade_level
   ///  |
   ///  +--------------------------------------------------> Time
   ///                     [--]                 [---]

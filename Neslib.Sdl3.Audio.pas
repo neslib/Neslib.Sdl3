@@ -1483,8 +1483,8 @@ type
   ///  that is needed right now.</param>
   /// <param name="ATotalAmount">The total amount of data requested, in bytes,
   ///  that is requested or available.</param>
-  /// <seealso cref="SDL_SetAudioStreamGetCallback"/>
-  /// <seealso cref="SDL_SetAudioStreamPutCallback"/>
+  /// <seealso cref="TSdlAudioStream.SetGetCallback"/>
+  /// <seealso cref="TSdlAudioStream.SetPutCallback"/>
   /// <remarks>
   ///  This callback may run from any thread, so if you need to protect shared
   ///  data, you should use TSdlAudioStream.Lock to serialize access; this lock
@@ -1549,7 +1549,7 @@ type
     /// <param name="AUserData">(Optional) App-controlled pointer passed to callback.
     ///  Can be nil. Ignored if callback is nil.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="Resume"/>
+    /// <seealso cref="TSdlAudioStream.Resume"/>
     /// <remarks>
     ///  It is safe to call this constructor from any thread
     /// </remarks>
@@ -1890,7 +1890,7 @@ type
     /// </summary>
     /// <param name="AIndex">The index of the audio driver; the value ranges
     ///  from 0 to DriverCount - 1.</param>
-    /// <seealso cref="NumDrivers"/>
+    /// <seealso cref="DriverCount"/>
     /// <remarks>
     ///  It is safe to use this property from any thread
     /// </remarks>

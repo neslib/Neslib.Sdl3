@@ -232,7 +232,6 @@ type
   /// <param name="ASize">The new size of the memory.</param>
   /// <returns>A pointer to the newly allocated memory, or nil if allocation failed.</returns>
   /// <seealso cref="SdlRealloc"/>
-  /// <seealso cref="SDL_GetOriginalMemoryFunctions"/>
   /// <seealso cref="TSdlMemoryManager.Original"/>
   /// <seealso cref="TSdlMemoryManager.Current"/>
   /// <remarks>
@@ -248,7 +247,6 @@ type
   /// </summary>
   /// <param name="AMem">A pointer to allocated memory.</param>
   /// <seealso cref="SdlFree"/>
-  /// <seealso cref="SDL_GetOriginalMemoryFunctions"/>
   /// <seealso cref="TSdlMemoryManager.Original"/>
   /// <seealso cref="TSdlMemoryManager.Current"/>
   /// <remarks>
@@ -295,9 +293,10 @@ type
   public
     /// <summary>
     ///  Sets the memory functions to use Delphi's built-in functions (like
-    ///  GetMem and FreeMem) instead. This enables you to use a single set of
-    ///  memory management functions, as well as enable features like
-    ///  ReportMemoryLeaksOnShutdown.
+    ///  GetMem and FreeMem) instead.
+    ///
+    ///  This enables you to use a single set of memory management functions, as
+    ///  well as enable features like ReportMemoryLeaksOnShutdown.
     ///
     ///  It is not safe to change the memory functions once any allocations have
     ///  been made, as future calls to SdlFree will use the new allocator, even
@@ -419,9 +418,9 @@ type
     /// <returns>An array of pointers to environment variables in the form
     ///  'variable=value'.</returns>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="SDL_GetVariable"/>
-    /// <seealso cref="SDL_SetVariable"/>
-    /// <seealso cref="SDL_UnsetVariable"/>
+    /// <seealso cref="GetVariable"/>
+    /// <seealso cref="SetVariable"/>
+    /// <seealso cref="UnsetVariable"/>
     /// <remarks>
     ///  It is safe to call this method from any thread
     /// </remarks>
@@ -435,9 +434,9 @@ type
     /// <param name="AOverwrite">True to overwrite the variable if it exists,
     ///  False to return success without setting the variable if it already exists.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="SDL_GetVariable"/>
-    /// <seealso cref="SDL_GetVariables"/>
-    /// <seealso cref="SDL_UnsetVariable"/>
+    /// <seealso cref="GetVariable"/>
+    /// <seealso cref="GetVariables"/>
+    /// <seealso cref="UnsetVariable"/>
     /// <remarks>
     ///  It is safe to call this method from any thread
     /// </remarks>
@@ -448,9 +447,9 @@ type
     /// </summary>
     /// <param name="AName">The name of the variable to unset.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="SDL_GetVariable"/>
-    /// <seealso cref="SDL_GetVariables"/>
-    /// <seealso cref="SDL_SetVariable"/>
+    /// <seealso cref="GetVariable"/>
+    /// <seealso cref="GetVariables"/>
+    /// <seealso cref="SetVariable"/>
     /// <remarks>
     ///  It is safe to call this method from any thread
     /// </remarks>
@@ -813,7 +812,7 @@ type
     class function GetHasSse42: Boolean; inline; static;
     class function GetHasAvx: Boolean; inline; static;
     class function GetHasAvx2: Boolean; inline; static;
-    class function GetHasAvx512FSse: Boolean; inline; static;
+    class function GetHasAvx512F: Boolean; inline; static;
     class function GetHasArmSimd: Boolean; inline; static;
     class function GetHasNeon: Boolean; inline; static;
     class function GetHasLsx: Boolean; inline; static;
@@ -969,7 +968,7 @@ type
     /// <remarks>
     ///  It is safe to use this property from any thread.
     /// </remarks>
-    class property HasAvx512FSse: Boolean read GetHasAvx512FSse;
+    class property HasAvx512F: Boolean read GetHasAvx512F;
 
     /// <summary>
     ///  Determine whether the CPU has ARM SIMD (ARMv6) features.
@@ -1277,6 +1276,9 @@ type
   /// </summary>
   TSdlMessageBoxColorScheme = record
   public
+    /// <summary>
+    ///  The colors in the scheme
+    /// </summary>
     Colors: array [TSdlMessageBoxColorType] of TSdlMessageBoxColor;
   end;
   PSdlMessageBoxColorScheme = ^TSdlMessageBoxColorScheme;
@@ -1461,6 +1463,7 @@ type
 
     /// <summary>
     ///  Semicolon-separated list of file extensions (for example, "doc;docx").
+    ///
     ///  File extensions may only contain alphanumeric characters, hyphens,
     ///  underscores and periods. Alternatively, the whole string can be a
     ///  single asterisk ("*"), which serves as an "All files" filter.
@@ -1803,7 +1806,7 @@ type
     /// </summary>
     /// <returns>The newly created menu.</returns>
     /// <seealso cref="Menu"/>
-    /// <seealso cref="TSdlTrayMenu.ParentTray"/>
+    /// <seealso cref="TSdlTrayMenu.Parent"/>
     /// <remarks>
     ///  This method should be called on the thread that created the tray.
     /// </remarks>
@@ -3392,7 +3395,7 @@ begin
   Result := SDL_HasAVX2;
 end;
 
-class function TSdlCpu.GetHasAvx512FSse: Boolean;
+class function TSdlCpu.GetHasAvx512F: Boolean;
 begin
   Result := SDL_HasAVX512F;
 end;

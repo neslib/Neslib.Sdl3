@@ -631,10 +631,10 @@ type
   ///  Keyboard text input event structure (Event.TextInput.* )
   ///
   ///  This event will never be delivered unless text input is enabled by calling
-  ///  TSdlKeyboard.StartTextInput. Text input is disabled by default!
+  ///  TSdlWindow.StartTextInput. Text input is disabled by default!
   /// </summary>
-  /// <seealso cref="TSdlKeyboard.StartTextInput"/>
-  /// <seealso cref="TSdlKeyboard.StopTextInput"/>
+  /// <seealso cref="TSdlWindow.StartTextInput"/>
+  /// <seealso cref="TSdlWindow.StopTextInput"/>
   TSdlTextInputEvent = record
   {$REGION 'Internal Declarations'}
   private
@@ -1793,6 +1793,7 @@ type
 type
   /// <summary>
   ///  A variant record that contains records for the different event types.
+  ///
   ///  The TSdlEvent record is the core of all event handling in SDL. TSdlEvent
   ///  is a variant record of all event records used in SDL. Using it is a
   ///  simple matter of knowing which event kind corresponds to which property.
@@ -1811,20 +1812,17 @@ type
   ///  | MouseMotion                | TSdlMouseMotionEvent           | MouseMotion     |
   ///  | MouseButtonUp/Down         | TSdlMouseButtonEvent           | MouseButton     |
   ///  | MouseWheel                 | TSdlMouseWheelEvent            | MouseWheel      |
-  ///  | JoystickAdded/Removed/     |                                |                 |
-  ///  |   UpdateComplete           | TSdlJoyDeviceEvent             | JoyDevice       |
   ///  | JoystickAxisMotion         | TSdlJoyAxisEvent               | JoyAxis         |
   ///  | JoystickBallMotion         | TSdlJoyBallEvent               | JoyBall         |
   ///  | JoystickHatMotion          | TSdlJoyHatEvent                | JoyHat          |
   ///  | JoystickButtonUp/Down      | TSdlJoyButtonEvent             | JoyButton       |
   ///  | JoystickBatteryUpdated     | TSdlJoyBatteryEvent            | JoyBattery      |
-  ///  | GamepadAdded/Removed/      |                                |                 |
-  ///  |   Remapped/UpdateComplete  |                                |                 |
-  ///  |   SteamHandleUpdated       | TSdlGamepadDeviceEvent         | GamepadDevice   |
+  ///  | Joystick* (others)         | TSdlJoyDeviceEvent             | JoyDevice       |
   ///  | GamepadAxisMotion          | TSdlGamepadAxisEvent           | GamepadAxis     |
   ///  | GamepadButtonUp/Down       | TSdlGamepadButtonEvent         | GamepadButton   |
   ///  | GamepadTouchpad*           | TSdlGamepadTouchpadEvent       | GamepadTouch    |
   ///  | GamepadSensorUpdate        | TSdlGamepadSensorEvent         | GamepadSensor   |
+  ///  | GamepadAdded* (others)     | TSdlGamepadDeviceEvent         | GamepadDevice   |
   ///  | AudioDevice*               | TSdlAudioDeviceEvent           | Audio           |
   ///  | CameraDevice*              | TSdlCameraDeviceEvent          | Camera          |
   ///  | SensorUpdate               | TSdlSensorEvent                | Sensor          |
@@ -2213,7 +2211,6 @@ type
     ///  this function.
     /// </summary>
     /// <param name="AKind">The kind of event to be cleared.</param>
-    /// <seealso cref="FlushEvents"/>
     /// <remarks>
     ///  It is safe to call this function from any thread.
     /// </remarks>

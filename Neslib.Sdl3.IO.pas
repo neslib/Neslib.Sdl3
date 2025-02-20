@@ -505,7 +505,7 @@ type
     ///  case of an error.</param>
     /// <returns>The data.</returns>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="SdlLoadFile"/>
+    /// <seealso cref="SdlLoad"/>
     /// <seealso cref="Save"/>
     /// <remarks>
     ///  This method is not thread safe.
@@ -524,7 +524,7 @@ type
     ///  case of an error.</param>
     /// <returns>The data.</returns>
     /// <exception name="ESdlError">Raised on failure.</exception>
-    /// <seealso cref="LoadFile"/>
+    /// <seealso cref="SdlLoad"/>
     /// <seealso cref="Save"/>
     /// <remarks>
     ///  This method is not thread safe.
@@ -1615,7 +1615,7 @@ procedure SdlLoadAsync(const AFilename: String; const AQueue: TSdlAsyncIOQueue;
 ///
 ///  Consider the following example:
 ///
-///  ```
+///  ```delphi
 ///  procedure ReadGameData(const AFilenames: TArray<String>);
 ///  begin
 ///    for var Filename in AFilenames do
@@ -1691,7 +1691,7 @@ procedure SdlLoadAsync(const AFilename: String; const AQueue: TSdlAsyncIOQueue;
 ///  When using TSdlStorage, these types of problems are virtually impossible to
 ///  trip over:
 ///
-///  ```
+///  ```delphi
 ///  procedure ReadGameData(const AFilenames: TArray<String>);
 ///  begin
 ///    var Title := TSdlStorage.OpenTitle;
@@ -1992,7 +1992,7 @@ type
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="Free"/>
     /// <seealso cref="GetFileSize"/>
-    /// <seealso cref="OpenSystem"/>
+    /// <seealso cref="OpenTitle"/>
     /// <seealso cref="ReadFile"/>
     /// <seealso cref="SpaceRemaining"/>
     /// <seealso cref="IsReady"/>
@@ -2014,7 +2014,7 @@ type
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="Free"/>
     /// <seealso cref="GetFileSize"/>
-    /// <seealso cref="OpenSystem"/>
+    /// <seealso cref="OpenTitle"/>
     /// <seealso cref="ReadFile"/>
     /// <seealso cref="SpaceRemaining"/>
     /// <seealso cref="IsReady"/>
