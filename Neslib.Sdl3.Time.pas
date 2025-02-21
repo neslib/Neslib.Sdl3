@@ -153,6 +153,16 @@ function SdlNSToUS(const ANanoSeconds: Int64): Int64; inline;
 function SdlGetTicks: Int64; inline;
 
 /// <summary>
+///  Get the number of nanoseconds since SDL library initialization.
+/// </summary>
+/// <returns>A signed 64-bit value representing the number of
+///  nanoseconds since the SDL library initialized.</returns>
+/// <remarks>
+///  It is safe to call this function from any thread.
+/// </remarks>
+function SdlGetTicksNS: Int64; inline;
+
+/// <summary>
 ///  Get the current value of the high resolution counter.
 ///
 ///  This function is typically used for profiling.
@@ -395,6 +405,11 @@ end;
 function SdlGetTicks: Int64;
 begin
   Result := Int64(SDL_GetTicks);
+end;
+
+function SdlGetTicksNS: Int64;
+begin
+  Result := Int64(SDL_GetTicksNS);
 end;
 
 function SdlGetPerformanceCounter: Int64;

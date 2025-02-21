@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{00D56C76-89B7-4B4E-81D0-E4A5685E34B0}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="01-Snake\Snake.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="04-BytePusher\BytePusher.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Snake">
+        <MSBuild Projects="01-Snake\Snake.dproj"/>
+    </Target>
+    <Target Name="Snake:Clean">
+        <MSBuild Projects="01-Snake\Snake.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Snake:Make">
+        <MSBuild Projects="01-Snake\Snake.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BytePusher">
+        <MSBuild Projects="04-BytePusher\BytePusher.dproj"/>
+    </Target>
+    <Target Name="BytePusher:Clean">
+        <MSBuild Projects="04-BytePusher\BytePusher.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BytePusher:Make">
+        <MSBuild Projects="04-BytePusher\BytePusher.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Snake;BytePusher"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Snake:Clean;BytePusher:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Snake:Make;BytePusher:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

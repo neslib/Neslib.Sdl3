@@ -981,7 +981,9 @@ type
     /// </remarks>
     procedure Init(const AR, AG, AB: Byte; const AA: Byte = 255); inline;
   end;
+  {$POINTERMATH ON}
   PSdlColor = ^TSdlColor;
+  {$POINTERMATH OFF}
 
 /// <summary>
 ///  Create a color.
@@ -1143,7 +1145,7 @@ type
     /// <summary>Number of elements in `Colors`.</summary>
     property NumColors: Integer read GetNumColors;
 
-    /// <summary>Poitner to an array of colors, `NumColors` long.</summary>
+    /// <summary>Pointer to an array of colors, `NumColors` long.</summary>
     property Colors: PSdlColor read GetColors;
   end;
 
@@ -2494,6 +2496,7 @@ type
     function GetH: Integer; inline;
     function GetPitch: Integer; inline;
     function GetPixels: Pointer; inline;
+    procedure SetPixels(const AValue: Pointer); inline;
     function GetW: Integer; inline;
     function GetMustLock: Boolean; inline;
     function GetColorspace: TSdlColorspace; inline;
@@ -3214,7 +3217,7 @@ type
     ///  A pointer to the pixels of the surface, the pixels are
     ///  writeable if non-nil
     /// </summary>
-    property Pixels: Pointer read GetPixels;
+    property Pixels: Pointer read GetPixels write SetPixels;
 
     /// <summary>
     ///  Whether the surface needs to be locked before access.
@@ -7403,6 +7406,18 @@ type
     procedure FillRects(const ARects: array of TSdlRectF); overload;
 
     /// <summary>
+    ///  Copy the texture to fill the entire current rendering target.
+    /// </summary>
+    /// <param name="ATexture">The source texture.</param>
+    /// <exception name="ESdlError">Raised on failure.</exception>
+    /// <seealso cref="DrawTextureRotated"/>
+    /// <seealso cref="DrawTextureTiled"/>
+    /// <remarks>
+    ///  This method should only be called on the main thread.
+    /// </remarks>
+    procedure DrawTexture(const ATexture: TSdlTexture); overload; inline;
+
+    /// <summary>
     ///  Copy the texture to the current rendering target at subpixel precision.
     /// </summary>
     /// <param name="ATexture">The source texture.</param>
@@ -11088,6 +11103,12 @@ begin
   SdlCheck(SDL_WriteSurfacePixelFloat(FHandle, AX, AY, AValue.R, AValue.G, AValue.B, AValue.A));
 end;
 
+procedure TSdlSurface.SetPixels(const AValue: Pointer);
+begin
+  if (FHandle <> nil) then
+    FHandle.pixels := AValue;
+end;
+
 procedure TSdlSurface.SetUseRle(const AValue: Boolean);
 begin
   SdlCheck(SDL_SetSurfaceRLE(FHandle, AValue));
@@ -12256,6 +12277,11 @@ procedure TSdlRenderer.DrawTexture(const ATexture: TSdlTexture; const ASrcRect,
   ADstRect: TSdlRectF);
 begin
   SdlCheck(SDL_RenderTexture(FHandle, ATexture.FHandle, @ASrcRect, @ADstRect));
+end;
+
+procedure TSdlRenderer.DrawTexture(const ATexture: TSdlTexture);
+begin
+  SdlCheck(SDL_RenderTexture(FHandle, ATexture.FHandle, nil, nil));
 end;
 
 procedure TSdlRenderer.DrawTexture9Grid(const ATexture: TSdlTexture;
