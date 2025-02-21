@@ -1,22 +1,3 @@
-/// <summary>
-///  Lightweight, very low-overhead, type-safe, object-oriented wrapper for SDL3.
-///
-///  Wraps most of SDL into a class library (but using records instead of classes
-///  to reduce overhead). However, some functionality is not wrapped, in particular
-///  functionality that is not applicable to Delphi, or that the Delphi RTL already
-///  provides.
-///
-///  In addition, errors are forwarded to the virtual TSdlApp.HandleError
-///  method (from the thread that caused the error). Be default, this method
-///  raises an exception of type ESdlError, but you can override to perform some
-///  other action, such as logging it instead. However, if you choose to not
-///  raise an exception, then the flow of execution will not be interrupted and
-///  you will have to use TSdlApp.HasError and TSdlApp.ErrorMessage to check for
-///  errors. Also, when the construction of an object (eg. a Texture, Window,
-///  Audio stream etc.) fails, and an exception is *not* raised, then you will
-///  have to check if the object is not nil before using it.
-/// </summary>
-
 unit Neslib.Sdl3;
 
 { Simple DirectMedia Layer
@@ -48,6 +29,25 @@ interface
 uses
   Neslib.Sdl3.Api,
   Neslib.Sdl3.Events;
+
+/// <summary>
+///  Lightweight, very low-overhead, type-safe, object-oriented wrapper for SDL3.
+///
+///  Wraps most of SDL into a class library (but using records instead of classes
+///  to reduce overhead). However, some functionality is not wrapped, in particular
+///  functionality that is not applicable to Delphi, or that the Delphi RTL already
+///  provides.
+///
+///  In addition, errors are forwarded to the virtual TSdlApp.HandleError
+///  method (from the thread that caused the error). Be default, this method
+///  raises an exception of type ESdlError, but you can override to perform some
+///  other action, such as logging it instead. However, if you choose to not
+///  raise an exception, then the flow of execution will not be interrupted and
+///  you will have to use TSdlApp.HasError and TSdlApp.ErrorMessage to check for
+///  errors. Also, when the construction of an object (eg. a Texture, Window,
+///  Audio stream etc.) fails, and an exception is *not* raised, then you will
+///  have to check if the object is not nil before using it.
+/// </summary>
 
 type
   /// <summary>

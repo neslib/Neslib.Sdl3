@@ -69,6 +69,12 @@
         <Projects Include="AsyncIO\01-LoadBitmap\LoadBitmaps.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Input\01-JoystickPolling\JoystickPolling.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Input\02-JoystickEvents\JoystickEvents.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -275,14 +281,32 @@
     <Target Name="LoadBitmaps:Make">
         <MSBuild Projects="AsyncIO\01-LoadBitmap\LoadBitmaps.dproj" Targets="Make"/>
     </Target>
+    <Target Name="JoystickPolling">
+        <MSBuild Projects="Input\01-JoystickPolling\JoystickPolling.dproj"/>
+    </Target>
+    <Target Name="JoystickPolling:Clean">
+        <MSBuild Projects="Input\01-JoystickPolling\JoystickPolling.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="JoystickPolling:Make">
+        <MSBuild Projects="Input\01-JoystickPolling\JoystickPolling.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="JoystickEvents">
+        <MSBuild Projects="Input\02-JoystickEvents\JoystickEvents.dproj"/>
+    </Target>
+    <Target Name="JoystickEvents:Clean">
+        <MSBuild Projects="Input\02-JoystickEvents\JoystickEvents.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="JoystickEvents:Make">
+        <MSBuild Projects="Input\02-JoystickEvents\JoystickEvents.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Clear;Primitives;Lines;Points;Rectangles;Textures;StreamingTextures;RotatingTextures;ScalingTextures;Geometry;ColorMods;Viewport;ClipRect;ReadPixels;DebugText;ReadAndDraw;SimplePlayback;SimplePlaybackCallback;LoadWav;MultipleStreams;DrawingLines;LoadBitmaps"/>
+        <CallTarget Targets="Clear;Primitives;Lines;Points;Rectangles;Textures;StreamingTextures;RotatingTextures;ScalingTextures;Geometry;ColorMods;Viewport;ClipRect;ReadPixels;DebugText;ReadAndDraw;SimplePlayback;SimplePlaybackCallback;LoadWav;MultipleStreams;DrawingLines;LoadBitmaps;JoystickPolling;JoystickEvents"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Clear:Clean;Primitives:Clean;Lines:Clean;Points:Clean;Rectangles:Clean;Textures:Clean;StreamingTextures:Clean;RotatingTextures:Clean;ScalingTextures:Clean;Geometry:Clean;ColorMods:Clean;Viewport:Clean;ClipRect:Clean;ReadPixels:Clean;DebugText:Clean;ReadAndDraw:Clean;SimplePlayback:Clean;SimplePlaybackCallback:Clean;LoadWav:Clean;MultipleStreams:Clean;DrawingLines:Clean;LoadBitmaps:Clean"/>
+        <CallTarget Targets="Clear:Clean;Primitives:Clean;Lines:Clean;Points:Clean;Rectangles:Clean;Textures:Clean;StreamingTextures:Clean;RotatingTextures:Clean;ScalingTextures:Clean;Geometry:Clean;ColorMods:Clean;Viewport:Clean;ClipRect:Clean;ReadPixels:Clean;DebugText:Clean;ReadAndDraw:Clean;SimplePlayback:Clean;SimplePlaybackCallback:Clean;LoadWav:Clean;MultipleStreams:Clean;DrawingLines:Clean;LoadBitmaps:Clean;JoystickPolling:Clean;JoystickEvents:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Clear:Make;Primitives:Make;Lines:Make;Points:Make;Rectangles:Make;Textures:Make;StreamingTextures:Make;RotatingTextures:Make;ScalingTextures:Make;Geometry:Make;ColorMods:Make;Viewport:Make;ClipRect:Make;ReadPixels:Make;DebugText:Make;ReadAndDraw:Make;SimplePlayback:Make;SimplePlaybackCallback:Make;LoadWav:Make;MultipleStreams:Make;DrawingLines:Make;LoadBitmaps:Make"/>
+        <CallTarget Targets="Clear:Make;Primitives:Make;Lines:Make;Points:Make;Rectangles:Make;Textures:Make;StreamingTextures:Make;RotatingTextures:Make;ScalingTextures:Make;Geometry:Make;ColorMods:Make;Viewport:Make;ClipRect:Make;ReadPixels:Make;DebugText:Make;ReadAndDraw:Make;SimplePlayback:Make;SimplePlaybackCallback:Make;LoadWav:Make;MultipleStreams:Make;DrawingLines:Make;LoadBitmaps:Make;JoystickPolling:Make;JoystickEvents:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

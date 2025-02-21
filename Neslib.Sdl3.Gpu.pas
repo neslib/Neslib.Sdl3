@@ -2381,9 +2381,19 @@ type
     class operator Equal(const ALeft: TSdlGpuComputePipeline; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuComputePipeline.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuComputePipeline): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuComputePipeline; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuComputePipeline.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuComputePipeline): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -2419,9 +2429,19 @@ type
     class operator Equal(const ALeft: TSdlGpuBuffer; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuBuffer.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuBuffer): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuBuffer; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuBuffer.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuBuffer): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -2560,9 +2580,19 @@ type
     class operator Equal(const ALeft: TSdlGpuTransferBuffer; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuTransferBuffer.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuTransferBuffer): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuTransferBuffer; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuTransferBuffer.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuTransferBuffer): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -2659,9 +2689,19 @@ type
     class operator Equal(const ALeft: TSdlGpuTexture; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuTexture.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuTexture): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuTexture; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuTexture.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuTexture): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -3156,9 +3196,19 @@ type
     class operator Equal(const ALeft: TSdlGpuSampler; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuSampler.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuSampler): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuSampler; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuSampler.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuSampler): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -3211,9 +3261,19 @@ type
     class operator Equal(const ALeft: TSdlGpuShader; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuShader.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuShader): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuShader; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuShader.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuShader): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -3334,9 +3394,19 @@ type
     class operator Equal(const ALeft: TSdlGpuGraphicsPipeline; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuGraphicsPipeline.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuGraphicsPipeline): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuGraphicsPipeline; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuGraphicsPipeline.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuGraphicsPipeline): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -3428,9 +3498,19 @@ type
     class operator Equal(const ALeft: TSdlGpuRenderPass; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuRenderPass.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuRenderPass): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuRenderPass; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuRenderPass.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuRenderPass): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -3685,9 +3765,19 @@ type
     class operator Equal(const ALeft: TSdlGpuComputePass; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuComputePass.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuComputePass): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuComputePass; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuComputePass.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuComputePass): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -3808,9 +3898,19 @@ type
     class operator Equal(const ALeft: TSdlGpuCopyPass; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuCopyPass.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuCopyPass): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuCopyPass; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuCopyPass.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuCopyPass): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -3929,9 +4029,19 @@ type
     class operator Equal(const ALeft: TSdlGpuFence; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuFence.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuFence): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuFence; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuFence.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuFence): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -3971,9 +4081,19 @@ type
     class operator Equal(const ALeft: TSdlGpuCommandBuffer; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuCommandBuffer.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuCommandBuffer): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuCommandBuffer; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuCommandBuffer.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuCommandBuffer): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -4345,9 +4465,19 @@ type
     class operator Equal(const ALeft: TSdlGpuDevice; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGpuDevice.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGpuDevice): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGpuDevice; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGpuDevice.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGpuDevice): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -5672,9 +5802,21 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlGpuComputePipeline.Equal(const ALeft,
+  ARight: TSdlGpuComputePipeline): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlGpuComputePipeline.Implicit(const AValue: Pointer): TSdlGpuComputePipeline;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlGpuComputePipeline.NotEqual(const ALeft,
+  ARight: TSdlGpuComputePipeline): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuComputePipeline.NotEqual(
@@ -5765,6 +5907,11 @@ begin
   SdlCheck(Result.FHandle);
 end;
 
+class operator TSdlGpuDevice.Equal(const ALeft, ARight: TSdlGpuDevice): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlGpuDevice.Equal(const ALeft: TSdlGpuDevice;
   const ARight: Pointer): Boolean;
 begin
@@ -5805,6 +5952,12 @@ function TSdlGpuDevice.MapTransferBuffer(
 begin
   Result := SDL_MapGPUTransferBuffer(FHandle, ATransferBuffer.FHandle, ACycle);
   SdlCheck(Result);
+end;
+
+class operator TSdlGpuDevice.NotEqual(const ALeft,
+  ARight: TSdlGpuDevice): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuDevice.NotEqual(const ALeft: TSdlGpuDevice;
@@ -5952,9 +6105,20 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlGpuBuffer.Equal(const ALeft, ARight: TSdlGpuBuffer): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlGpuBuffer.Implicit(const AValue: Pointer): TSdlGpuBuffer;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlGpuBuffer.NotEqual(const ALeft,
+  ARight: TSdlGpuBuffer): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuBuffer.NotEqual(const ALeft: TSdlGpuBuffer;
@@ -6020,9 +6184,21 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlGpuTransferBuffer.Equal(const ALeft,
+  ARight: TSdlGpuTransferBuffer): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlGpuTransferBuffer.Implicit(const AValue: Pointer): TSdlGpuTransferBuffer;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlGpuTransferBuffer.NotEqual(const ALeft,
+  ARight: TSdlGpuTransferBuffer): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuTransferBuffer.NotEqual(
@@ -6065,9 +6241,21 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlGpuTexture.Equal(const ALeft,
+  ARight: TSdlGpuTexture): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlGpuTexture.Implicit(const AValue: Pointer): TSdlGpuTexture;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlGpuTexture.NotEqual(const ALeft,
+  ARight: TSdlGpuTexture): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuTexture.NotEqual(const ALeft: TSdlGpuTexture;
@@ -6294,9 +6482,21 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlGpuSampler.Equal(const ALeft,
+  ARight: TSdlGpuSampler): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlGpuSampler.Implicit(const AValue: Pointer): TSdlGpuSampler;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlGpuSampler.NotEqual(const ALeft,
+  ARight: TSdlGpuSampler): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuSampler.NotEqual(const ALeft: TSdlGpuSampler;
@@ -6335,9 +6535,20 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlGpuShader.Equal(const ALeft, ARight: TSdlGpuShader): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlGpuShader.Implicit(const AValue: Pointer): TSdlGpuShader;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlGpuShader.NotEqual(const ALeft,
+  ARight: TSdlGpuShader): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuShader.NotEqual(const ALeft: TSdlGpuShader;
@@ -6453,10 +6664,22 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlGpuGraphicsPipeline.Equal(const ALeft,
+  ARight: TSdlGpuGraphicsPipeline): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlGpuGraphicsPipeline.Implicit(
   const AValue: Pointer): TSdlGpuGraphicsPipeline;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlGpuGraphicsPipeline.NotEqual(const ALeft,
+  ARight: TSdlGpuGraphicsPipeline): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuGraphicsPipeline.NotEqual(
@@ -6508,6 +6731,12 @@ begin
   FHandle := 0;
 end;
 
+class operator TSdlGpuCommandBuffer.Equal(const ALeft,
+  ARight: TSdlGpuCommandBuffer): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 function TSdlGpuCommandBuffer.BeginRenderPass(
   const AColorTargetInfos: TArray<TSdlGpuColorTargetInfo>): TSdlGpuRenderPass;
 begin
@@ -6534,6 +6763,12 @@ end;
 procedure TSdlGpuCommandBuffer.InsertDebugLabel(const AText: String);
 begin
   SDL_InsertGPUDebugLabel(FHandle, __ToUtf8(AText));
+end;
+
+class operator TSdlGpuCommandBuffer.NotEqual(const ALeft,
+  ARight: TSdlGpuCommandBuffer): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuCommandBuffer.NotEqual(const ALeft: TSdlGpuCommandBuffer;
@@ -6696,6 +6931,12 @@ begin
   SDL_DrawGPUPrimitivesIndirect(FHandle, ABuffer.FHandle, AOffset, ADrawCount);
 end;
 
+class operator TSdlGpuRenderPass.Equal(const ALeft,
+  ARight: TSdlGpuRenderPass): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlGpuRenderPass.Equal(const ALeft: TSdlGpuRenderPass;
   const ARight: Pointer): Boolean;
 begin
@@ -6711,6 +6952,12 @@ end;
 class operator TSdlGpuRenderPass.Implicit(const AValue: Pointer): TSdlGpuRenderPass;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlGpuRenderPass.NotEqual(const ALeft,
+  ARight: TSdlGpuRenderPass): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuRenderPass.NotEqual(const ALeft: TSdlGpuRenderPass;
@@ -6775,6 +7022,12 @@ begin
   SDL_DispatchGPUComputeIndirect(FHandle, ABuffer.FHandle, AOffset);
 end;
 
+class operator TSdlGpuComputePass.Equal(const ALeft,
+  ARight: TSdlGpuComputePass): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 procedure TSdlGpuComputePass.Dispatch(const AGroupCountX, AGroupCountY,
   AGroupCountZ: Integer);
 begin
@@ -6796,6 +7049,12 @@ end;
 class operator TSdlGpuComputePass.Implicit(const AValue: Pointer): TSdlGpuComputePass;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlGpuComputePass.NotEqual(const ALeft,
+  ARight: TSdlGpuComputePass): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuComputePass.NotEqual(const ALeft: TSdlGpuComputePass;
@@ -6835,6 +7094,12 @@ begin
   SDL_DownloadFromGPUTexture(FHandle, @ASource.FHandle, @ADestination.FHandle);
 end;
 
+class operator TSdlGpuCopyPass.Equal(const ALeft,
+  ARight: TSdlGpuCopyPass): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlGpuCopyPass.Equal(const ALeft: TSdlGpuCopyPass;
   const ARight: Pointer): Boolean;
 begin
@@ -6850,6 +7115,12 @@ end;
 class operator TSdlGpuCopyPass.Implicit(const AValue: Pointer): TSdlGpuCopyPass;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlGpuCopyPass.NotEqual(const ALeft,
+  ARight: TSdlGpuCopyPass): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuCopyPass.NotEqual(const ALeft: TSdlGpuCopyPass;
@@ -6880,9 +7151,20 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlGpuFence.Equal(const ALeft, ARight: TSdlGpuFence): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlGpuFence.Implicit(const AValue: Pointer): TSdlGpuFence;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlGpuFence.NotEqual(const ALeft,
+  ARight: TSdlGpuFence): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGpuFence.NotEqual(const ALeft: TSdlGpuFence;

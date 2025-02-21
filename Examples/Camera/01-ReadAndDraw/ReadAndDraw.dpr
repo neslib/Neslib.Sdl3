@@ -10,6 +10,13 @@ uses
   Neslib.Sdl3.Events,
   Neslib.Sdl3;
 
+{ This example code reads frames from a camera and draws it to the screen.
+
+  This is a very simple approach that is often Good Enough. You can get
+  fancier with this: multiple cameras, front/back facing cameras on phones,
+  color spaces, choosing formats and framerates...this just requests
+  _anything_ and goes with what it is handed. }
+
 type
   TApp = class(TSdlApp)
   private

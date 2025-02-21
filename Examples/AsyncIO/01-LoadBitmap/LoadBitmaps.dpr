@@ -13,6 +13,8 @@ uses
   Neslib.Sdl3,
   Sample.Utils;
 
+{ This example code loads a bitmap with asynchronous i/o and renders it. }
+
 const
   TOTAL_TEXTURES = 4;
 

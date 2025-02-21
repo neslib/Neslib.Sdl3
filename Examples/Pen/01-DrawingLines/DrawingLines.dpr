@@ -11,6 +11,12 @@ uses
   Neslib.Sdl3.Events,
   Neslib.Sdl3;
 
+{ This example code reads pen/stylus input and draws lines. Darker lines
+  for harder pressure.
+
+  SDL can track multiple pens, but for simplicity here, this assumes any
+  pen input we see was from one device. }
+
 type
   TApp = class(TSdlApp)
   private

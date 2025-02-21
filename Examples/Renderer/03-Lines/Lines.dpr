@@ -9,6 +9,9 @@ uses
   Neslib.Sdl3.Video,
   Neslib.Sdl3;
 
+{ This example creates an SDL window and renderer, and then draws some lines
+  to it every frame. }
+
 type
   TApp = class(TSdlApp)
   private

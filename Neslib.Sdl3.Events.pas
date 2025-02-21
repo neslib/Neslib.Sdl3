@@ -957,7 +957,7 @@ type
     function GetKind: TSdlEventKind; inline;
     function GetJoystickID: TSdlJoystickID; inline;
     function GetJoystick: TSdlJoystick; inline;
-    function GetValue: TSdlHat; inline;
+    function GetValue: TSdlHats; inline;
   {$ENDREGION 'Internal Declarations'}
   public
     /// <summary>Event kind (TSdlEventKind.JoystickHatMotion)</summary> }
@@ -976,9 +976,9 @@ type
     property Hat: Byte read FHandle.hat;
 
     /// <summary>The hat position value.
-    /// Note that zero means the POV is centered.
+    /// Note that [] means the POV is centered.
     /// </summary>
-    property Value: TSdlHat read GetValue;
+    property Value: TSdlHats read GetValue;
   end;
 
 type
@@ -2791,9 +2791,9 @@ begin
   Result := TSdlEventKind(FHandle.&type);
 end;
 
-function TSdlJoyHatEvent.GetValue: TSdlHat;
+function TSdlJoyHatEvent.GetValue: TSdlHats;
 begin
-  Result := TSdlHat(FHandle.value);
+  Byte(Result) := FHandle.value;
 end;
 
 { TSdlJoyButtonEvent }

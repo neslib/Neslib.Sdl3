@@ -204,9 +204,19 @@ type
     class operator Equal(const ALeft: TSdlIOStream; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlIOStream.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlIOStream): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlIOStream; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlIOStream.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlIOStream): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1229,9 +1239,19 @@ type
     class operator Equal(const ALeft: TSdlAsyncIOQueue; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlAsyncIOQueue.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlAsyncIOQueue): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlAsyncIOQueue; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlAsyncIOQueue.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlAsyncIOQueue): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1380,9 +1400,19 @@ type
     class operator Equal(const ALeft: TSdlAsyncIO; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlAsyncIO.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlAsyncIO): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlAsyncIO; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlAsyncIO.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlAsyncIO): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1944,9 +1974,19 @@ type
     class operator Equal(const ALeft: TSdlStorage; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlStorage.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlStorage): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlStorage; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlStorage.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlStorage): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -2319,6 +2359,11 @@ begin
   SdlCheck(FHandle);
 end;
 
+class operator TSdlIOStream.Equal(const ALeft, ARight: TSdlIOStream): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlIOStream.Equal(const ALeft: TSdlIOStream;
   const ARight: Pointer): Boolean;
 begin
@@ -2362,6 +2407,12 @@ function TSdlIOStream.Load(const AClose: Boolean): Pointer;
 begin
   Result := SDL_LoadFile_IO(FHandle, nil, AClose);
   SdlCheck(Result);
+end;
+
+class operator TSdlIOStream.NotEqual(const ALeft,
+  ARight: TSdlIOStream): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlIOStream.NotEqual(const ALeft: TSdlIOStream;
@@ -2584,6 +2635,11 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlAsyncIO.Equal(const ALeft, ARight: TSdlAsyncIO): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 procedure TSdlAsyncIO.Free(const AFlush: Boolean;
   const AQueue: TSdlAsyncIOQueue; const AUserData: Pointer);
 begin
@@ -2601,6 +2657,11 @@ end;
 class operator TSdlAsyncIO.Implicit(const AValue: Pointer): TSdlAsyncIO;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlAsyncIO.NotEqual(const ALeft, ARight: TSdlAsyncIO): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlAsyncIO.NotEqual(const ALeft: TSdlAsyncIO;
@@ -2647,6 +2708,12 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlAsyncIOQueue.Equal(const ALeft,
+  ARight: TSdlAsyncIOQueue): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 procedure TSdlAsyncIOQueue.Free;
 begin
  SDL_DestroyAsyncIOQueue(FHandle);
@@ -2661,6 +2728,12 @@ end;
 class operator TSdlAsyncIOQueue.Implicit(const AValue: Pointer): TSdlAsyncIOQueue;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlAsyncIOQueue.NotEqual(const ALeft,
+  ARight: TSdlAsyncIOQueue): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlAsyncIOQueue.NotEqual(const ALeft: TSdlAsyncIOQueue;
@@ -2774,6 +2847,11 @@ begin
   Result := SDL_ENUM_CONTINUE;
 end;
 
+class operator TSdlStorage.Equal(const ALeft, ARight: TSdlStorage): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlStorage.Equal(const ALeft: TSdlStorage;
   const ARight: Pointer): Boolean;
 begin
@@ -2834,6 +2912,11 @@ end;
 class operator TSdlStorage.Implicit(const AValue: Pointer): TSdlStorage;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlStorage.NotEqual(const ALeft, ARight: TSdlStorage): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlStorage.NotEqual(const ALeft: TSdlStorage;

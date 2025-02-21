@@ -11,6 +11,13 @@ uses
   Neslib.Sdl3.Audio,
   Neslib.Sdl3;
 
+{ This example code creates a simple audio stream for playing sound, and
+  generates a sine wave sound effect for it to play as time goes on. Unlike
+  the previous example, this uses a callback to generate sound.
+
+  This might be the path of least resistance if you're moving an SDL2
+  program's audio code to SDL3. }
+
 type
   TApp = class(TSdlApp)
   private

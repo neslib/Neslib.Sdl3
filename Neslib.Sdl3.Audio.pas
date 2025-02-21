@@ -1,3 +1,37 @@
+unit Neslib.Sdl3.Audio;
+
+{ Simple DirectMedia Layer
+  Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>
+
+  Neslib.Sdl3
+  Copyright (C) 2025 Erik van Bilsen
+
+  This software is provided 'as-is', without any express or implied
+  warranty.  In no event will the authors be held liable for any damages
+  arising from the use of this software.
+
+  Permission is granted to anyone to use this software for any purpose,
+  including commercial applications, and to alter it and redistribute it
+  freely, subject to the following restrictions:
+
+  1. The origin of this software must not be misrepresented; you must not
+     claim that you wrote the original software. If you use this software
+     in a product, an acknowledgment in the product documentation would be
+     appreciated but is not required.
+  2. Altered source versions must be plainly marked as such, and must not be
+     misrepresented as being the original software.
+  3. This notice may not be removed or altered from any source distribution. }
+
+{$Include 'Neslib.Sdl3.inc'}
+
+interface
+
+uses
+  Neslib.Sdl3.Api,
+  Neslib.Sdl3.IO,
+  Neslib.Sdl3.Basics;
+
+{$REGION 'Audio'}
 /// <summary>
 ///  Audio functionality for the SDL library.
 ///
@@ -100,40 +134,7 @@
 ///  TSdlAudioStream can also be provided channel maps to change this ordering
 ///  to whatever is necessary, in other audio processing scenarios.
 /// </summary>
-unit Neslib.Sdl3.Audio;
 
-{ Simple DirectMedia Layer
-  Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>
-
-  Neslib.Sdl3
-  Copyright (C) 2025 Erik van Bilsen
-
-  This software is provided 'as-is', without any express or implied
-  warranty.  In no event will the authors be held liable for any damages
-  arising from the use of this software.
-
-  Permission is granted to anyone to use this software for any purpose,
-  including commercial applications, and to alter it and redistribute it
-  freely, subject to the following restrictions:
-
-  1. The origin of this software must not be misrepresented; you must not
-     claim that you wrote the original software. If you use this software
-     in a product, an acknowledgment in the product documentation would be
-     appreciated but is not required.
-  2. Altered source versions must be plainly marked as such, and must not be
-     misrepresented as being the original software.
-  3. This notice may not be removed or altered from any source distribution. }
-
-{$Include 'Neslib.Sdl3.inc'}
-
-interface
-
-uses
-  Neslib.Sdl3.Api,
-  Neslib.Sdl3.IO,
-  Neslib.Sdl3.Basics;
-
-{$REGION 'Audio'}
 type
   /// <summary>
   ///  Audio format.
@@ -361,9 +362,19 @@ type
     class operator Equal(const ALeft: TSdlAudioDeviceID; const ARight: Cardinal): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlAudioDeviceID.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlAudioDeviceID): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `0`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlAudioDeviceID; const ARight: Cardinal): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlAudioDeviceID.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlAudioDeviceID): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `0`.
@@ -515,9 +526,19 @@ type
     class operator Equal(const ALeft: TSdlAudioStream; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlAudioStream.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlAudioStream): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlAudioStream; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlAudioStream.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlAudioStream): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1040,9 +1061,19 @@ type
     class operator Equal(const ALeft: TSdlAudioDevice; const ARight: Cardinal): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlAudioDevice.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlAudioDevice): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `0`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlAudioDevice; const ARight: Cardinal): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlAudioDevice.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlAudioDevice): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `0`.
@@ -1847,9 +1878,19 @@ type
     class operator Equal(const ALeft: TSdlAudioDriver; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlAudioDriver.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlAudioDriver): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlAudioDriver; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlAudioDriver.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlAudioDriver): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1974,6 +2015,12 @@ begin
   Result := (ALeft.FHandle = ARight);
 end;
 
+class operator TSdlAudioDeviceID.Equal(const ALeft,
+  ARight: TSdlAudioDeviceID): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 function TSdlAudioDeviceID.GetChannelMap: TArray<Integer>;
 begin
   var Count := 0;
@@ -2047,6 +2094,12 @@ begin
   Result.FHandle := AValue;
 end;
 
+class operator TSdlAudioDeviceID.NotEqual(const ALeft,
+  ARight: TSdlAudioDeviceID): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlAudioDeviceID.NotEqual(const ALeft: TSdlAudioDeviceID;
   const ARight: Cardinal): Boolean;
 begin
@@ -2069,6 +2122,12 @@ procedure TSdlAudioDevice.Close;
 begin
   SDL_CloseAudioDevice(FHandle);
   FHandle := 0;
+end;
+
+class operator TSdlAudioDevice.Equal(const ALeft,
+  ARight: TSdlAudioDevice): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 class operator TSdlAudioDevice.Equal(const ALeft: TSdlAudioDevice;
@@ -2118,6 +2177,12 @@ class operator TSdlAudioDevice.Implicit(
   const AValue: Cardinal): TSdlAudioDevice;
 begin
   Result.FHandle := AValue;
+end;
+
+class operator TSdlAudioDevice.NotEqual(const ALeft,
+  ARight: TSdlAudioDevice): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlAudioDevice.NotEqual(const ALeft: TSdlAudioDevice;
@@ -2223,6 +2288,12 @@ constructor TSdlAudioStream.Create(const ASrcSpec, ADstSpec: TSdlAudioSpec);
 begin
   FHandle := SDL_CreateAudioStream(@ASrcSpec.FHandle, @ADstSpec.FHandle);
   SdlCheck(FHandle);
+end;
+
+class operator TSdlAudioStream.Equal(const ALeft,
+  ARight: TSdlAudioStream): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 constructor TSdlAudioStream.Create(const ASpec: TSdlAudioSpec);
@@ -2338,6 +2409,12 @@ end;
 procedure TSdlAudioStream.Lock;
 begin
   SdlCheck(SDL_LockAudioStream(FHandle));
+end;
+
+class operator TSdlAudioStream.NotEqual(const ALeft,
+  ARight: TSdlAudioStream): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlAudioStream.NotEqual(const ALeft: TSdlAudioStream;
@@ -2496,6 +2573,12 @@ begin
   Result := (Pointer(ALeft.FName) = ARight);
 end;
 
+class operator TSdlAudioDriver.Equal(const ALeft,
+  ARight: TSdlAudioDriver): Boolean;
+begin
+  Result := (ALeft.FName = ARight.FName);
+end;
+
 class function TSdlAudioDriver.GetCurrent: TSdlAudioDriver;
 begin
   Result.FName := __ToString(SDL_GetCurrentAudioDriver);
@@ -2515,6 +2598,12 @@ end;
 class operator TSdlAudioDriver.Implicit(const AValue: Pointer): TSdlAudioDriver;
 begin
   Result.FName := '';
+end;
+
+class operator TSdlAudioDriver.NotEqual(const ALeft,
+  ARight: TSdlAudioDriver): Boolean;
+begin
+  Result := (ALeft.FName <> ARight.FName);
 end;
 
 class operator TSdlAudioDriver.NotEqual(const ALeft: TSdlAudioDriver;

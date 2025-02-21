@@ -1067,9 +1067,19 @@ type
     class operator Equal(const ALeft: TSdlPalette; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlPalette.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlPalette): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlPalette; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlPalette.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlPalette): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -2518,9 +2528,19 @@ type
     class operator Equal(const ALeft: TSdlSurface; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlSurface.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlSurface): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlSurface; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlSurface.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlSurface): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -4269,13 +4289,13 @@ type
     procedure SetIcon(const AValue: TSdlSurface); inline;
     function GetPositionPoint: TSdlPoint; inline;
     procedure SetPositionPoint(const AValue: TSdlPoint); inline;
-    function GetSizePoint: TSdlPoint; inline;
-    procedure SetSizePoint(const AValue: TSdlPoint); inline;
-    function GetSizeInPixelsPoint: TSdlPoint; inline;
-    function GetMinimumSizePoint: TSdlPoint; inline;
-    procedure SetMinimumSizePoint(const AValue: TSdlPoint); inline;
-    function GetMaximumSizePoint: TSdlPoint; inline;
-    procedure SetMaximumSizePoint(const AValue: TSdlPoint); inline;
+    function GetSizeSize: TSdlSize; inline;
+    procedure SetSizeSize(const AValue: TSdlSize); inline;
+    function GetSizeInPixelsSize: TSdlSize; inline;
+    function GetMinimumSizeSize: TSdlSize; inline;
+    procedure SetMinimumSizeSize(const AValue: TSdlSize); inline;
+    function GetMaximumSizeSize: TSdlSize; inline;
+    procedure SetMaximumSizeSize(const AValue: TSdlSize); inline;
     function GetSafeArea: TSdlRect; inline;
     function GetBordered: Boolean; inline;
     procedure SetBordered(const AValue: Boolean); inline;
@@ -4319,9 +4339,19 @@ type
     class operator Equal(const ALeft: TSdlWindow; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlWindow.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlWindow): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlWindow; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlWindow.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlWindow): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -5427,7 +5457,7 @@ type
     /// <remarks>
     ///  This property should only be used on the main thread.
     /// </remarks>
-    property Size: TSdlPoint read GetSizePoint write SetSizePoint;
+    property Size: TSdlSize read GetSizeSize write SetSizeSize;
 
     /// <summary>
     ///  The size of the window in pixels. See GetSizeInPixels for more information.
@@ -5436,19 +5466,19 @@ type
     /// <remarks>
     ///  This property should only be used on the main thread.
     /// </remarks>
-    property SizeInPixels: TSdlPoint read GetSizeInPixelsPoint;
+    property SizeInPixels: TSdlSize read GetSizeInPixelsSize;
 
     /// <summary>
     ///  The minimum size of the window's client area.
     ///  See GetMinimumSize and SetMinimumSize for more information.
     /// </summary>
-    property MinimumSize: TSdlPoint read GetMinimumSizePoint write SetMinimumSizePoint;
+    property MinimumSize: TSdlSize read GetMinimumSizeSize write SetMinimumSizeSize;
 
     /// <summary>
     ///  The maximum size of the window's client area.
     ///  See GetMaximumSize and SetMaximumSize for more information.
     /// </summary>
-    property MaximumSize: TSdlPoint read GetMaximumSizePoint write SetMaximumSizePoint;
+    property MaximumSize: TSdlSize read GetMaximumSizeSize write SetMaximumSizeSize;
 
     /// <summary>
     ///  The safe area for this window.
@@ -6081,9 +6111,19 @@ type
     class operator Equal(const ALeft: TSdlTexture; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlTexture.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlTexture): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlTexture; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlTexture.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlTexture): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -6691,9 +6731,19 @@ type
     class operator Equal(const ALeft: TSdlRenderer; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlRenderer.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlRenderer): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlRenderer; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlRenderer.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlRenderer): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -8284,9 +8334,19 @@ type
     class operator Equal(const ALeft: TSdlGLContext; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGLContext.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGLContext): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGLContext; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGLContext.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGLContext): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -8708,9 +8768,19 @@ type
     class operator Equal(const ALeft: TSdlEglDisplay; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlEglDisplay.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlEglDisplay): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlEglDisplay; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlEglDisplay.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlEglDisplay): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -8744,9 +8814,19 @@ type
     class operator Equal(const ALeft: TSdlEglConfig; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlEglConfig.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlEglConfig): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlEglConfig; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlEglConfig.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlEglConfig): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -8779,9 +8859,19 @@ type
     class operator Equal(const ALeft: TSdlEglSurface; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlEglSurface.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlEglSurface): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlEglSurface; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlEglSurface.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlEglSurface): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -8936,9 +9026,19 @@ type
     class operator Equal(const ALeft: TSdlMetalView; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlMetalView.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlMetalView): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlMetalView; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlMetalView.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlMetalView): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -9305,9 +9405,19 @@ type
     class operator Equal(const ALeft: TSdlCameraID; const ARight: Cardinal): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlCameraID.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlCameraID): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `0`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlCameraID; const ARight: Cardinal): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlCameraID.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlCameraID): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `0`.
@@ -9412,9 +9522,19 @@ type
     class operator Equal(const ALeft: TSdlCamera; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlCamera.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlCamera): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlCamera; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlCamera.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlCamera): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -9650,9 +9770,19 @@ type
     class operator Equal(const ALeft: TSdlCameraDriver; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlCameraDriver.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlCameraDriver): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlCameraDriver; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlCameraDriver.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlCameraDriver): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -10161,6 +10291,11 @@ begin
   Result := (ALeft.FHandle = ARight);
 end;
 
+class operator TSdlPalette.Equal(const ALeft, ARight: TSdlPalette): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 procedure TSdlPalette.Free;
 begin
   SDL_DestroyPalette(FHandle);
@@ -10186,6 +10321,11 @@ end;
 class operator TSdlPalette.Implicit(const AValue: Pointer): TSdlPalette;
 begin
   Result.FHandle := AValue;
+end;
+
+class operator TSdlPalette.NotEqual(const ALeft, ARight: TSdlPalette): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlPalette.NotEqual(const ALeft: TSdlPalette;
@@ -10648,6 +10788,11 @@ begin
   SdlCheck(Result.FHandle);
 end;
 
+class operator TSdlSurface.Equal(const ALeft, ARight: TSdlSurface): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlSurface.Equal(const ALeft: TSdlSurface;
   const ARight: Pointer): Boolean;
 begin
@@ -10856,6 +11001,11 @@ end;
 function TSdlSurface.MapRgba(const AR, AG, AB, AA: Byte): Cardinal;
 begin
   Result := SDL_MapSurfaceRGBA(FHandle, AR, AG, AB, AA);
+end;
+
+class operator TSdlSurface.NotEqual(const ALeft, ARight: TSdlSurface): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlSurface.NotEqual(const ALeft: TSdlSurface;
@@ -11209,6 +11359,11 @@ begin
   SdlCheck(FHandle);
 end;
 
+class operator TSdlWindow.Equal(const ALeft, ARight: TSdlWindow): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlWindow.Equal(const ALeft: TSdlWindow;
   const ARight: Pointer): Boolean;
 begin
@@ -11342,9 +11497,9 @@ begin
   SdlCheck(SDL_GetWindowMaximumSize(FHandle, @AMaxW, @AMaxH));
 end;
 
-function TSdlWindow.GetMaximumSizePoint: TSdlPoint;
+function TSdlWindow.GetMaximumSizeSize: TSdlSize;
 begin
-  SdlCheck(SDL_GetWindowMaximumSize(FHandle, @Result.X, @Result.Y));
+  SdlCheck(SDL_GetWindowMaximumSize(FHandle, @Result.W, @Result.H));
 end;
 
 procedure TSdlWindow.GetMinimumSize(out AMinW, AMinH: Integer);
@@ -11352,9 +11507,9 @@ begin
   SdlCheck(SDL_GetWindowMinimumSize(FHandle, @AMinW, @AMinH));
 end;
 
-function TSdlWindow.GetMinimumSizePoint: TSdlPoint;
+function TSdlWindow.GetMinimumSizeSize: TSdlSize;
 begin
-  SdlCheck(SDL_GetWindowMinimumSize(FHandle, @Result.X, @Result.Y));
+  SdlCheck(SDL_GetWindowMinimumSize(FHandle, @Result.W, @Result.H));
 end;
 
 function TSdlWindow.GetModal: Boolean;
@@ -11439,14 +11594,14 @@ begin
   SdlCheck(SDL_GetWindowSizeInPixels(FHandle, @AW, @AH));
 end;
 
-function TSdlWindow.GetSizeInPixelsPoint: TSdlPoint;
+function TSdlWindow.GetSizeInPixelsSize: TSdlSize;
 begin
-  SdlCheck(SDL_GetWindowSizeInPixels(FHandle, @Result.X, @Result.Y));
+  SdlCheck(SDL_GetWindowSizeInPixels(FHandle, @Result.W, @Result.H));
 end;
 
-function TSdlWindow.GetSizePoint: TSdlPoint;
+function TSdlWindow.GetSizeSize: TSdlSize;
 begin
-  SdlCheck(SDL_GetWindowSize(FHandle, @Result.X, @Result.Y));
+  SdlCheck(SDL_GetWindowSize(FHandle, @Result.W, @Result.H));
 end;
 
 function TSdlWindow.GetSurface: TSdlSurface;
@@ -11515,6 +11670,11 @@ begin
   SdlCheck(SDL_MinimizeWindow(FHandle));
 end;
 
+class operator TSdlWindow.NotEqual(const ALeft, ARight: TSdlWindow): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlWindow.NotEqual(const ALeft: TSdlWindow;
   const ARight: Pointer): Boolean;
 begin
@@ -11581,9 +11741,9 @@ begin
   SdlCheck(SDL_SetWindowMaximumSize(FHandle, AMaxW, AMaxH));
 end;
 
-procedure TSdlWindow.SetMaximumSizePoint(const AValue: TSdlPoint);
+procedure TSdlWindow.SetMaximumSizeSize(const AValue: TSdlSize);
 begin
-  SdlCheck(SDL_SetWindowMaximumSize(FHandle, AValue.X, AValue.Y));
+  SdlCheck(SDL_SetWindowMaximumSize(FHandle, AValue.W, AValue.H));
 end;
 
 procedure TSdlWindow.SetMinimumSize(const AMinW, AMinH: Integer);
@@ -11591,9 +11751,9 @@ begin
   SdlCheck(SDL_SetWindowMinimumSize(FHandle, AMinW, AMinH));
 end;
 
-procedure TSdlWindow.SetMinimumSizePoint(const AValue: TSdlPoint);
+procedure TSdlWindow.SetMinimumSizeSize(const AValue: TSdlSize);
 begin
-  SdlCheck(SDL_SetWindowMinimumSize(FHandle, AValue.X, AValue.Y));
+  SdlCheck(SDL_SetWindowMinimumSize(FHandle, AValue.W, AValue.H));
 end;
 
 procedure TSdlWindow.SetModal(const AValue: Boolean);
@@ -11646,9 +11806,9 @@ begin
   Result := SDL_SetWindowSize(FHandle, AW, AH);
 end;
 
-procedure TSdlWindow.SetSizePoint(const AValue: TSdlPoint);
+procedure TSdlWindow.SetSizeSize(const AValue: TSdlSize);
 begin
-  SdlCheck(SDL_SetWindowSize(FHandle, AValue.X, AValue.Y));
+  SdlCheck(SDL_SetWindowSize(FHandle, AValue.W, AValue.H));
 end;
 
 procedure TSdlWindow.SetSurfaceVSync(const AValue: TSdlWindowSurfaceVsync);
@@ -11771,6 +11931,11 @@ begin
   Result := (ALeft.FHandle = ARight);
 end;
 
+class operator TSdlTexture.Equal(const ALeft, ARight: TSdlTexture): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 procedure TSdlTexture.Free;
 begin
   if (FHandle <> nil) then
@@ -11861,6 +12026,11 @@ end;
 function TSdlTexture.LockToSurface(const ARect: TSdlRect): TSdlSurface;
 begin
   SdlCheck(SDL_LockTextureToSurface(FHandle, @ARect, @Result.FHandle));
+end;
+
+class operator TSdlTexture.NotEqual(const ALeft, ARight: TSdlTexture): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 function TSdlTexture.LockToSurface: TSdlSurface;
@@ -12156,6 +12326,11 @@ begin
     AScale, @ADstRect));
 end;
 
+class operator TSdlRenderer.Equal(const ALeft, ARight: TSdlRenderer): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 procedure TSdlRenderer.DrawTextureTiled(const ATexture: TSdlTexture;
   const AScale: Single; const ADstRect: TSdlRectF);
 begin
@@ -12338,6 +12513,12 @@ begin
   Result.FHandle := THandle(AValue);
 end;
 
+class operator TSdlRenderer.NotEqual(const ALeft,
+  ARight: TSdlRenderer): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlRenderer.NotEqual(const ALeft: TSdlRenderer;
   const ARight: Pointer): Boolean;
 begin
@@ -12494,6 +12675,11 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlGLContext.Equal(const ALeft, ARight: TSdlGLContext): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 procedure TSdlGLContext.Free;
 begin
   SdlCheck(SDL_GL_DestroyContext(FHandle));
@@ -12514,6 +12700,12 @@ end;
 procedure TSdlGLContext.MakeCurrent(const AWindow: TSdlWindow);
 begin
   SdlCheck(SDL_GL_MakeCurrent(AWindow.FHandle, FHandle));
+end;
+
+class operator TSdlGLContext.NotEqual(const ALeft,
+  ARight: TSdlGLContext): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlGLContext.NotEqual(const ALeft: TSdlGLContext;
@@ -12589,6 +12781,12 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlEglDisplay.Equal(const ALeft,
+  ARight: TSdlEglDisplay): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class function TSdlEglDisplay.GetCurrent: TSdlEglDisplay;
 begin
   Result.FHandle := SDL_EGL_GetCurrentDisplay;
@@ -12598,6 +12796,12 @@ end;
 class operator TSdlEglDisplay.Implicit(const AValue: Pointer): TSdlEglDisplay;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlEglDisplay.NotEqual(const ALeft,
+  ARight: TSdlEglDisplay): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlEglDisplay.NotEqual(const ALeft: TSdlEglDisplay;
@@ -12614,6 +12818,11 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlEglConfig.Equal(const ALeft, ARight: TSdlEglConfig): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class function TSdlEglConfig.GetCurrent: TSdlEglConfig;
 begin
   Result.FHandle := SDL_EGL_GetCurrentConfig;
@@ -12623,6 +12832,12 @@ end;
 class operator TSdlEglConfig.Implicit(const AValue: Pointer): TSdlEglConfig;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlEglConfig.NotEqual(const ALeft,
+  ARight: TSdlEglConfig): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlEglConfig.NotEqual(const ALeft: TSdlEglConfig;
@@ -12639,6 +12854,12 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlEglSurface.Equal(const ALeft,
+  ARight: TSdlEglSurface): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class function TSdlEglSurface.ForWindow(
   const AWindow: TSdlWindow): TSdlEglSurface;
 begin
@@ -12649,6 +12870,12 @@ end;
 class operator TSdlEglSurface.Implicit(const AValue: Pointer): TSdlEglSurface;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlEglSurface.NotEqual(const ALeft,
+  ARight: TSdlEglSurface): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlEglSurface.NotEqual(const ALeft: TSdlEglSurface;
@@ -12749,6 +12976,11 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlMetalView.Equal(const ALeft, ARight: TSdlMetalView): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 procedure TSdlMetalView.Free;
 begin
   SDL_Metal_DestroyView(FHandle);
@@ -12768,6 +13000,12 @@ end;
 class operator TSdlMetalView.Implicit(const AValue: Pointer): TSdlMetalView;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlMetalView.NotEqual(const ALeft,
+  ARight: TSdlMetalView): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlMetalView.NotEqual(const ALeft: TSdlMetalView;
@@ -12842,6 +13080,11 @@ begin
   FHandle := 0;
 end;
 
+class operator TSdlCamera.Equal(const ALeft, ARight: TSdlCamera): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlCamera.Equal(const ALeft: TSdlCamera;
   const ARight: Pointer): Boolean;
 begin
@@ -12872,6 +13115,11 @@ end;
 class operator TSdlCamera.Implicit(const AValue: Pointer): TSdlCamera;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlCamera.NotEqual(const ALeft, ARight: TSdlCamera): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlCamera.NotEqual(const ALeft: TSdlCamera;
@@ -12972,6 +13220,11 @@ begin
   Result := (ALeft.FHandle = ARight);
 end;
 
+class operator TSdlCameraID.Equal(const ALeft, ARight: TSdlCameraID): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class function TSdlCameraID.GetCameras: TArray<TSdlCameraID>;
 begin
   var Count := 0;
@@ -13013,6 +13266,12 @@ begin
   Result.FHandle := AValue;
 end;
 
+class operator TSdlCameraID.NotEqual(const ALeft,
+  ARight: TSdlCameraID): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlCameraID.NotEqual(const ALeft: TSdlCameraID;
   const ARight: Cardinal): Boolean;
 begin
@@ -13025,6 +13284,12 @@ class operator TSdlCameraDriver.Equal(const ALeft: TSdlCameraDriver;
   const ARight: Pointer): Boolean;
 begin
   Result := (Pointer(ALeft.FName) = ARight);
+end;
+
+class operator TSdlCameraDriver.Equal(const ALeft,
+  ARight: TSdlCameraDriver): Boolean;
+begin
+  Result := (ALeft.FName = ARight.FName);
 end;
 
 class function TSdlCameraDriver.GetCurrent: TSdlCameraDriver;
@@ -13046,6 +13311,12 @@ end;
 class operator TSdlCameraDriver.Implicit(const AValue: Pointer): TSdlCameraDriver;
 begin
   Result.FName := '';
+end;
+
+class operator TSdlCameraDriver.NotEqual(const ALeft,
+  ARight: TSdlCameraDriver): Boolean;
+begin
+  Result := (ALeft.FName <> ARight.FName);
 end;
 
 class operator TSdlCameraDriver.NotEqual(const ALeft: TSdlCameraDriver;

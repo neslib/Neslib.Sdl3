@@ -5511,9 +5511,19 @@ type
     class operator Equal(const ALeft: TSdlProperties; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlProperties.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlProperties): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlProperties; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlProperties.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlProperties): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -6649,6 +6659,12 @@ begin
   SdlCheck(SDL_ClearProperty(FHandle, __ToUtf8(AName)));
 end;
 
+class operator TSdlProperties.Equal(const ALeft,
+  ARight: TSdlProperties): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlProperties.Equal(const ALeft: TSdlProperties;
   const ARight: Pointer): Boolean;
 begin
@@ -6711,6 +6727,12 @@ end;
 procedure TSdlProperties.Lock;
 begin
   SdlCheck(SDL_LockProperties(FHandle));
+end;
+
+class operator TSdlProperties.NotEqual(const ALeft,
+  ARight: TSdlProperties): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlProperties.NotEqual(const ALeft: TSdlProperties;

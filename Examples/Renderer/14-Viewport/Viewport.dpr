@@ -10,6 +10,9 @@ uses
   Neslib.Sdl3,
   Sample.Utils;
 
+{ This example creates an SDL window and renderer, and then draws some
+  textures to it every frame, adjusting the viewport. }
+
 const
   WINDOW_WIDTH  = 640;
   WINDOW_HEIGHT = 480;

@@ -11,6 +11,9 @@ uses
   Neslib.Sdl3,
   Sample.Utils;
 
+{ This example creates an SDL window and renderer, and then draws some
+  geometry (arbitrary polygons) to it every frame. }
+
 const
   WINDOW_WIDTH  = 640;
   WINDOW_HEIGHT = 480;

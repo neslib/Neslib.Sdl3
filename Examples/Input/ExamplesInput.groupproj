@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{86B579A7-A5C7-4F89-9CE6-C9B313899C93}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="01-JoystickPolling\JoystickPolling.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="02-JoystickEvents\JoystickEvents.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="JoystickPolling">
+        <MSBuild Projects="01-JoystickPolling\JoystickPolling.dproj"/>
+    </Target>
+    <Target Name="JoystickPolling:Clean">
+        <MSBuild Projects="01-JoystickPolling\JoystickPolling.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="JoystickPolling:Make">
+        <MSBuild Projects="01-JoystickPolling\JoystickPolling.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="JoystickEvents">
+        <MSBuild Projects="02-JoystickEvents\JoystickEvents.dproj"/>
+    </Target>
+    <Target Name="JoystickEvents:Clean">
+        <MSBuild Projects="02-JoystickEvents\JoystickEvents.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="JoystickEvents:Make">
+        <MSBuild Projects="02-JoystickEvents\JoystickEvents.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="JoystickPolling;JoystickEvents"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="JoystickPolling:Clean;JoystickEvents:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="JoystickPolling:Make;JoystickEvents:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -10,6 +10,9 @@ uses
   Neslib.Sdl3.Video,
   Neslib.Sdl3;
 
+{ This example creates an SDL window and renderer, and then draws a streaming
+  texture to it every frame. }
+
 const
   WINDOW_WIDTH  = 640;
   WINDOW_HEIGHT = 480;

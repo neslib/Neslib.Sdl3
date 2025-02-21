@@ -1132,9 +1132,19 @@ type
     class operator Equal(const ALeft: TSdlHapticID; const ARight: Cardinal): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlHapticID.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlHapticID): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `0`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlHapticID; const ARight: Cardinal): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlHapticID.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlHapticID): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `0`.
@@ -1188,9 +1198,19 @@ type
     class operator Equal(const ALeft: TSdlHaptic; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlHaptic.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlHaptic): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlHaptic; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlHaptic.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlHaptic): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1740,6 +1760,11 @@ begin
   Result := (ALeft.FHandle = ARight);
 end;
 
+class operator TSdlHapticID.Equal(const ALeft, ARight: TSdlHapticID): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class function TSdlHapticID.GetDevices: TArray<TSdlHapticID>;
 begin
   var Count := 0;
@@ -1761,6 +1786,12 @@ end;
 class operator TSdlHapticID.Implicit(const AValue: Cardinal): TSdlHapticID;
 begin
   Result.FHandle := AValue;
+end;
+
+class operator TSdlHapticID.NotEqual(const ALeft,
+  ARight: TSdlHapticID): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlHapticID.NotEqual(const ALeft: TSdlHapticID;
@@ -1791,6 +1822,11 @@ begin
   Result := SDL_CreateHapticEffect(FHandle, @AEffect);
   if (Result = -1) then
     __HandleError;
+end;
+
+class operator TSdlHaptic.Equal(const ALeft, ARight: TSdlHaptic): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 class operator TSdlHaptic.Equal(const ALeft: TSdlHaptic;
@@ -1872,6 +1908,11 @@ end;
 function TSdlHaptic.IsEffectSupported(const AEffect: TSdlHapticEffect): Boolean;
 begin
   Result := SDL_HapticEffectSupported(FHandle, @AEffect);
+end;
+
+class operator TSdlHaptic.NotEqual(const ALeft, ARight: TSdlHaptic): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlHaptic.NotEqual(const ALeft: TSdlHaptic;

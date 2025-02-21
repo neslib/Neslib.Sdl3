@@ -367,9 +367,19 @@ type
     class operator Equal(const ALeft: TSdlEnvironment; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlEnvironment.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlEnvironment): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlEnvironment; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlEnvironment.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlEnvironment): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1709,9 +1719,19 @@ type
     class operator Equal(const ALeft: TSdlTrayMenu; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlTrayMenu.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlTrayMenu): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlTrayMenu; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlTrayMenu.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlTrayMenu): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1737,9 +1757,19 @@ type
     class operator Equal(const ALeft: TSdlTray; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlTray.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlTray): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlTray; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlTray.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlTray): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1865,9 +1895,19 @@ type
     class operator Equal(const ALeft: TSdlTrayEntry; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlTrayEntry.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlTrayEntry): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlTrayEntry; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlTrayEntry.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlTrayEntry): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -2248,9 +2288,19 @@ type
     class operator Equal(const ALeft: TSdlProcess; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlProcess.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlProcess): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlProcess; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlProcess.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlProcess): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -3171,6 +3221,12 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlEnvironment.Equal(const ALeft,
+  ARight: TSdlEnvironment): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 procedure TSdlEnvironment.Free;
 begin
   SDL_DestroyEnvironment(FHandle);
@@ -3217,6 +3273,12 @@ end;
 class operator TSdlEnvironment.Implicit(const AValue: Pointer): TSdlEnvironment;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlEnvironment.NotEqual(const ALeft,
+  ARight: TSdlEnvironment): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlEnvironment.NotEqual(const ALeft: TSdlEnvironment;
@@ -3604,6 +3666,11 @@ begin
   Result.FHandle := SDL_CreateTrayMenu(FHandle);
 end;
 
+class operator TSdlTray.Equal(const ALeft, ARight: TSdlTray): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlTray.Equal(const ALeft: TSdlTray;
   const ARight: Pointer): Boolean;
 begin
@@ -3642,6 +3709,11 @@ begin
   Result.FHandle := THandle(AValue);
 end;
 
+class operator TSdlTray.NotEqual(const ALeft, ARight: TSdlTray): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlTray.NotEqual(const ALeft: TSdlTray;
   const ARight: Pointer): Boolean;
 begin
@@ -3671,9 +3743,20 @@ begin
   Result := (ALeft.FHandle = THandle(ARight));
 end;
 
+class operator TSdlTrayMenu.Equal(const ALeft, ARight: TSdlTrayMenu): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlTrayMenu.Implicit(const AValue: Pointer): TSdlTrayMenu;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlTrayMenu.NotEqual(const ALeft,
+  ARight: TSdlTrayMenu): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlTrayMenu.NotEqual(const ALeft: TSdlTrayMenu;
@@ -3725,6 +3808,11 @@ begin
   Result.FHandle := SDL_CreateTraySubmenu(FHandle);
 end;
 
+class operator TSdlTrayEntry.Equal(const ALeft, ARight: TSdlTrayEntry): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlTrayEntry.Equal(const ALeft: TSdlTrayEntry;
   const ARight: Pointer): Boolean;
 begin
@@ -3759,6 +3847,12 @@ end;
 class operator TSdlTrayEntry.Implicit(const AValue: Pointer): TSdlTrayEntry;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlTrayEntry.NotEqual(const ALeft,
+  ARight: TSdlTrayEntry): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlTrayEntry.NotEqual(const ALeft: TSdlTrayEntry;
@@ -3858,6 +3952,11 @@ begin
   SdlCheck(FHandle);
 end;
 
+class operator TSdlProcess.Equal(const ALeft, ARight: TSdlProcess): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class operator TSdlProcess.Equal(const ALeft: TSdlProcess;
   const ARight: Pointer): Boolean;
 begin
@@ -3896,6 +3995,11 @@ end;
 procedure TSdlProcess.Kill(const AForce: Boolean);
 begin
   SdlCheck(SDL_KillProcess(FHandle, AForce));
+end;
+
+class operator TSdlProcess.NotEqual(const ALeft, ARight: TSdlProcess): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlProcess.NotEqual(const ALeft: TSdlProcess;

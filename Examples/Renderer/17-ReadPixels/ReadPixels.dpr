@@ -11,6 +11,15 @@ uses
   Neslib.Sdl3,
   Sample.Utils;
 
+{ This example creates an SDL window and renderer, and draws a
+  rotating texture to it, reads back the rendered pixels, converts them to
+  black and white, and then draws the converted image to a corner of the
+  screen.
+
+  This isn't necessarily an efficient thing to do--in real life one might
+  want to do this sort of thing with a render target--but it's just a visual
+  example of how to use TSdlRenderer.ReadPixels. }
+
 const
   WINDOW_WIDTH  = 640;
   WINDOW_HEIGHT = 480;

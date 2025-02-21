@@ -11,6 +11,18 @@ uses
   Neslib.Sdl3,
   Sample.Utils;
 
+{ This example code creates a simple audio stream for playing sound, and
+  loads a .wav file that is pushed through the stream in a loop.
+
+  The .wav file is a sample from Will Provost's song, The Living Proof,
+  used with permission.
+
+     From the album The Living Proof
+     Publisher: 5 Guys Named Will
+     Copyright 1996 Will Provost
+     https://itunes.apple.com/us/album/the-living-proof/id4153978
+     http://www.amazon.com/The-Living-Proof-Will-Provost/dp/B00004R8RH }
+
 type
   TApp = class(TSdlApp)
   private

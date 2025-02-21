@@ -1025,9 +1025,19 @@ type
     class operator Equal(const ALeft: TSdlKeyboard; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlKeyboard.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlKeyboard): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlKeyboard; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlKeyboard.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlKeyboard): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1299,9 +1309,19 @@ type
     class operator Equal(const ALeft: TSdlCursor; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlCursor.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlCursor): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlCursor; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlCursor.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlCursor): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1512,9 +1532,19 @@ type
     class operator Equal(const ALeft: TSdlMouse; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlMouse.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlMouse): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlMouse; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlMouse.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlMouse): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1899,9 +1929,19 @@ type
     class operator Equal(const ALeft: TSdlFinger; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlFinger.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlFinger): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlFinger; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlFinger.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlFinger): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -1955,9 +1995,19 @@ type
     class operator Equal(const ALeft: TSdlTouch; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlTouch.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlTouch): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlTouch; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlTouch.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlTouch): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -2205,9 +2255,19 @@ type
     class operator Equal(const ALeft: TSdlSensorID; const ARight: Cardinal): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlSensorID.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlSensorID): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `0`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlSensorID; const ARight: Cardinal): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlSensorID.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlSensorID): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `0`.
@@ -2261,9 +2321,19 @@ type
     class operator Equal(const ALeft: TSdlSensor; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlSensor.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlSensor): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlSensor; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlSensor.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlSensor): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -2710,9 +2780,19 @@ type
     class operator Equal(const ALeft: TSdlGamepadBinding; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGamepadBinding.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGamepadBinding): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGamepadBinding; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGamepadBinding.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGamepadBinding): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -2809,9 +2889,19 @@ type
     class operator Equal(const ALeft: TSdlGamepadID; const ARight: Cardinal): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGamepadID.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGamepadID): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `0`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGamepadID; const ARight: Cardinal): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGamepadID.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGamepadID): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `0`.
@@ -2962,9 +3052,19 @@ type
     class operator Equal(const ALeft: TSdlGamepad; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlGamepad.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlGamepad): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlGamepad; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlGamepad.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlGamepad): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -3620,15 +3720,16 @@ type
   ///  Joystick Hat positions
   /// </summary>
   TSdlHat = (
-    Centered  = SDL_HAT_CENTERED,
-    Up        = SDL_HAT_UP,
-    Right     = SDL_HAT_RIGHT,
-    Down      = SDL_HAT_DOWN,
-    Left      = SDL_HAT_LEFT,
-    RightUp   = SDL_HAT_RIGHTUP,
-    RightDown = SDL_HAT_RIGHTDOWN,
-    LeftUp    = SDL_HAT_LEFTUP,
-    LeftDown  = SDL_HAT_LEFTDOWN);
+    Up    = 0,
+    Right = 1,
+    Down  = 2,
+    Left  = 3);
+
+type
+  /// <summary>
+  ///  A sert of joystick Hat positions
+  /// </summary>
+  TSdlHats = set of TSdlHat;
 
 type
   /// <summary>
@@ -3659,9 +3760,19 @@ type
     class operator Equal(const ALeft: TSdlJoystickID; const ARight: Cardinal): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlJoystickID.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlJoystickID): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `0`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlJoystickID; const ARight: Cardinal): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlJoystickID.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlJoystickID): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `0`.
@@ -3800,7 +3911,7 @@ type
     function GetNumBalls: Integer; inline;
     function GetBall(const ABall: Integer): TSdlPoint; inline;
     function GetNumHats: Integer; inline;
-    function GetHat(const AHat: Integer): TSdlHat; inline;
+    function GetHats(const AHat: Integer): TSdlHats; inline;
     function GetNumButtons: Integer; inline;
     function GetButton(const AButton: Integer): Boolean; inline;
     function GetConnectionState: TsdlJoystickConnectionState; inline;
@@ -3817,9 +3928,19 @@ type
     class operator Equal(const ALeft: TSdlJoystick; const ARight: Pointer): Boolean; inline; static;
 
     /// <summary>
+    ///  Used to compare against another TSdlJoystick.
+    /// </summary>
+    class operator Equal(const ALeft, ARight: TSdlJoystick): Boolean; inline; static;
+
+    /// <summary>
     ///  Used to compare against `nil`.
     /// </summary>
     class operator NotEqual(const ALeft: TSdlJoystick; const ARight: Pointer): Boolean; inline; static;
+
+    /// <summary>
+    ///  Used to compare against another TSdlJoystick.
+    /// </summary>
+    class operator NotEqual(const ALeft, ARight: TSdlJoystick): Boolean; inline; static;
 
     /// <summary>
     ///  Used to set the value to `nil`.
@@ -4266,7 +4387,7 @@ type
     /// <param name="AHat">The hat index to get the state from;
     ///  indices start at index 0.</param>
     /// <seealso cref="NumHats"/>
-    property Hat[const AHat: Integer]: TSdlHat read GetHat;
+    property Hats[const AHat: Integer]: TSdlHats read GetHats;
 
     /// <summary>
     ///  The number of buttons on this joystick.
@@ -4704,6 +4825,11 @@ begin
   Result := (ALeft.FHandle = UIntPtr(ARight));
 end;
 
+class operator TSdlKeyboard.Equal(const ALeft, ARight: TSdlKeyboard): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 class function TSdlKeyboard.GetFocus: TSdlWindow;
 begin
   THandle(Result) := SDL_GetKeyboardFocus;
@@ -4752,6 +4878,12 @@ begin
   Result.FHandle := UIntPtr(AValue);
 end;
 
+class operator TSdlKeyboard.NotEqual(const ALeft,
+  ARight: TSdlKeyboard): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlKeyboard.NotEqual(const ALeft: TSdlKeyboard;
   const ARight: Pointer): Boolean;
 begin
@@ -4788,6 +4920,11 @@ constructor TSdlCursor.Create(const ASystemCursor: TSdlSystemCursor);
 begin
   FHandle := SDL_CreateSystemCursor(Ord(ASystemCursor));
   SdlCheck(FHandle);
+end;
+
+class operator TSdlCursor.Equal(const ALeft, ARight: TSdlCursor): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 class operator TSdlCursor.Equal(const ALeft: TSdlCursor;
@@ -4827,6 +4964,11 @@ begin
   Result.FHandle := THandle(AValue);
 end;
 
+class operator TSdlCursor.NotEqual(const ALeft, ARight: TSdlCursor): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlCursor.NotEqual(const ALeft: TSdlCursor;
   const ARight: Pointer): Boolean;
 begin
@@ -4862,6 +5004,11 @@ class operator TSdlMouse.Equal(const ALeft: TSdlMouse;
   const ARight: Pointer): Boolean;
 begin
   Result := (ALeft.FHandle = UIntPtr(ARight));
+end;
+
+class operator TSdlMouse.Equal(const ALeft, ARight: TSdlMouse): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 class function TSdlMouse.GetFocus: TSdlWindow;
@@ -4939,6 +5086,11 @@ begin
   Result.FHandle := UIntPtr(AValue);
 end;
 
+class operator TSdlMouse.NotEqual(const ALeft, ARight: TSdlMouse): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlMouse.NotEqual(const ALeft: TSdlMouse;
   const ARight: Pointer): Boolean;
 begin
@@ -4961,6 +5113,11 @@ class operator TSdlFinger.Equal(const ALeft: TSdlFinger;
   const ARight: Pointer): Boolean;
 begin
   Result := (ALeft.FHandle = ARight);
+end;
+
+class operator TSdlFinger.Equal(const ALeft, ARight: TSdlFinger): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 function TSdlFinger.GetID: TSdlFingerID;
@@ -5008,6 +5165,11 @@ begin
   Result.FHandle := AValue;
 end;
 
+class operator TSdlFinger.NotEqual(const ALeft, ARight: TSdlFinger): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlFinger.NotEqual(const ALeft: TSdlFinger;
   const ARight: Pointer): Boolean;
 begin
@@ -5020,6 +5182,11 @@ class operator TSdlTouch.Equal(const ALeft: TSdlTouch;
   const ARight: Pointer): Boolean;
 begin
   Result := (ALeft.FHandle = UIntPtr(ARight));
+end;
+
+class operator TSdlTouch.Equal(const ALeft, ARight: TSdlTouch): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 class function TSdlTouch.GetDevices: TArray<TSdlTouch>;
@@ -5070,6 +5237,11 @@ begin
   Result.FHandle := UIntPtr(AValue);
 end;
 
+class operator TSdlTouch.NotEqual(const ALeft, ARight: TSdlTouch): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlTouch.NotEqual(const ALeft: TSdlTouch;
   const ARight: Pointer): Boolean;
 begin
@@ -5082,6 +5254,11 @@ class operator TSdlSensorID.Equal(const ALeft: TSdlSensorID;
   const ARight: Cardinal): Boolean;
 begin
   Result := (ALeft.FHandle = ARight);
+end;
+
+class operator TSdlSensorID.Equal(const ALeft, ARight: TSdlSensorID): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 function TSdlSensorID.GetKind: TSdlSensorKind;
@@ -5110,6 +5287,12 @@ begin
   Result.FHandle := AValue;
 end;
 
+class operator TSdlSensorID.NotEqual(const ALeft,
+  ARight: TSdlSensorID): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlSensorID.NotEqual(const ALeft: TSdlSensorID;
   const ARight: Cardinal): Boolean;
 begin
@@ -5128,6 +5311,11 @@ class operator TSdlSensor.Equal(const ALeft: TSdlSensor;
   const ARight: Pointer): Boolean;
 begin
   Result := (ALeft.FHandle = THandle(ARight));
+end;
+
+class operator TSdlSensor.Equal(const ALeft, ARight: TSdlSensor): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 class function TSdlSensor.FromID(const AInstanceID: TSdlSensorID): TSdlSensor;
@@ -5189,6 +5377,11 @@ end;
 class operator TSdlSensor.Implicit(const AValue: Pointer): TSdlSensor;
 begin
   Result.FHandle := THandle(AValue);
+end;
+
+class operator TSdlSensor.NotEqual(const ALeft, ARight: TSdlSensor): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlSensor.NotEqual(const ALeft: TSdlSensor;
@@ -5260,6 +5453,12 @@ class operator TSdlGamepadBinding.Equal(const ALeft: TSdlGamepadBinding;
   const ARight: Pointer): Boolean;
 begin
   Result := (ALeft.FHandle = ARight);
+end;
+
+class operator TSdlGamepadBinding.Equal(const ALeft,
+  ARight: TSdlGamepadBinding): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 function TSdlGamepadBinding.GetInputAxisIndex: Integer;
@@ -5363,6 +5562,12 @@ begin
   Result.FHandle := AValue;
 end;
 
+class operator TSdlGamepadBinding.NotEqual(const ALeft,
+  ARight: TSdlGamepadBinding): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlGamepadBinding.NotEqual(const ALeft: TSdlGamepadBinding;
   const ARight: Pointer): Boolean;
 begin
@@ -5375,6 +5580,11 @@ class operator TSdlGamepadID.Equal(const ALeft: TSdlGamepadID;
   const ARight: Cardinal): Boolean;
 begin
   Result := (ALeft.FHandle = ARight);
+end;
+
+class operator TSdlGamepadID.Equal(const ALeft, ARight: TSdlGamepadID): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 function TSdlGamepadID.GetGuid: TGuid;
@@ -5437,6 +5647,12 @@ begin
   Result.FHandle := AValue;
 end;
 
+class operator TSdlGamepadID.NotEqual(const ALeft,
+  ARight: TSdlGamepadID): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlGamepadID.NotEqual(const ALeft: TSdlGamepadID;
   const ARight: Cardinal): Boolean;
 begin
@@ -5487,6 +5703,11 @@ procedure TSdlGamepad.Close;
 begin
   SDL_CloseGamepad(FHandle);
   FHandle := 0;
+end;
+
+class operator TSdlGamepad.Equal(const ALeft, ARight: TSdlGamepad): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 class operator TSdlGamepad.Equal(const ALeft: TSdlGamepad;
@@ -5739,6 +5960,11 @@ begin
   end;
 end;
 
+class operator TSdlGamepad.NotEqual(const ALeft, ARight: TSdlGamepad): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlGamepad.NotEqual(const ALeft: TSdlGamepad;
   const ARight: Pointer): Boolean;
 begin
@@ -5814,6 +6040,12 @@ begin
   Result := (ALeft.FHandle = ARight);
 end;
 
+class operator TSdlJoystickID.Equal(const ALeft,
+  ARight: TSdlJoystickID): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
+end;
+
 function TSdlJoystickID.GetGuid: TGuid;
 begin
   Result := TGuid(SDL_GetJoystickGUIDForID(FHandle));
@@ -5869,6 +6101,12 @@ begin
   Result.FHandle := AValue;
 end;
 
+class operator TSdlJoystickID.NotEqual(const ALeft,
+  ARight: TSdlJoystickID): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
+end;
+
 class operator TSdlJoystickID.NotEqual(const ALeft: TSdlJoystickID;
   const ARight: Cardinal): Boolean;
 begin
@@ -5887,6 +6125,11 @@ procedure TSdlJoystick.Close;
 begin
   SDL_CloseJoystick(FHandle);
   FHandle := 0;
+end;
+
+class operator TSdlJoystick.Equal(const ALeft, ARight: TSdlJoystick): Boolean;
+begin
+  Result := (ALeft.FHandle = ARight.FHandle);
 end;
 
 class operator TSdlJoystick.Equal(const ALeft: TSdlJoystick;
@@ -5956,9 +6199,9 @@ begin
   Result := SDL_HasJoystick;
 end;
 
-function TSdlJoystick.GetHat(const AHat: Integer): TSdlHat;
+function TSdlJoystick.GetHats(const AHat: Integer): TSdlHats;
 begin
-  Result := TSdlHat(SDL_GetJoystickHat(FHandle, AHat));
+  Byte(Result) := SDL_GetJoystickHat(FHandle, AHat);
 end;
 
 function TSdlJoystick.GetID: TSdlJoystickID;
@@ -6079,6 +6322,12 @@ end;
 class procedure TSdlJoystick.Lock;
 begin
   SDL_LockJoysticks;
+end;
+
+class operator TSdlJoystick.NotEqual(const ALeft,
+  ARight: TSdlJoystick): Boolean;
+begin
+  Result := (ALeft.FHandle <> ARight.FHandle);
 end;
 
 class operator TSdlJoystick.NotEqual(const ALeft: TSdlJoystick;
