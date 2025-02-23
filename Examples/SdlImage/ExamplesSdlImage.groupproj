@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{AE58C9F0-204E-4D53-A98F-F985312013FB}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="01-ShowImage\ShowImage.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="02-ShowAnim\ShowAnim.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ShowImage">
+        <MSBuild Projects="01-ShowImage\ShowImage.dproj"/>
+    </Target>
+    <Target Name="ShowImage:Clean">
+        <MSBuild Projects="01-ShowImage\ShowImage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ShowImage:Make">
+        <MSBuild Projects="01-ShowImage\ShowImage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ShowAnim">
+        <MSBuild Projects="02-ShowAnim\ShowAnim.dproj"/>
+    </Target>
+    <Target Name="ShowAnim:Clean">
+        <MSBuild Projects="02-ShowAnim\ShowAnim.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ShowAnim:Make">
+        <MSBuild Projects="02-ShowAnim\ShowAnim.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ShowImage;ShowAnim"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ShowImage:Clean;ShowAnim:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ShowImage:Make;ShowAnim:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,6 +1,13 @@
 # Neslib.Sdl3
 
-Delphi bindings and OOP-like wrappers for [SDL3](https://libsdl.org/index.php) version [3.2.4](https://github.com/libsdl-org/SDL/releases/tag/release-3.2.4).
+Delphi bindings and OOP-like wrappers for SDL3 and its satellite libraries:
+
+* [SDL3](https://libsdl.org/index.php) version [3.2.4](https://github.com/libsdl-org/SDL/releases/tag/release-3.2.4).
+* [SDL_image](https://github.com/libsdl-org/SDL_image), version [3.2.0](https://github.com/libsdl-org/SDL_image/releases/tag/release-3.2.0).
+* SDL_ttf (coming soon).
+* SDL_mixer (coming soon).
+* SDL_net (coming soon).
+* SDL_rtf (coming soon).
 
 ## Supported Platforms
 
@@ -40,13 +47,13 @@ Some platforms require some additional setup.
 
 ### Windows
 
-There are no additional requirements other than deploying the 32-bit or 64-bit version of SDL3.dll with your application.
+There are no additional requirements other than deploying the 32-bit or 64-bit version of SDL3.dll with your application. For the SDL satellite libraries, you must deploy the corresponding DLL's as well.
 
 ### macOS
 
 Only Intel macOS is currently supported (since I don't have an ARM Mac to test on).
 
-You don't need to deploy any files. The SDL library is linked into the application.
+You don't need to deploy any files. The SDL library, as well as its satellite libraries, are linked into the application.
 
 You may need to add the following frameworks to the SDK manager if you haven't done so already:
 
@@ -70,7 +77,7 @@ To add these in Delphi:
 
 Only deploying to an actual iOS device is currently supported. The simulator is currently not supported since it requires an ARM Mac, which I currently do not have.
 
-You don't need to deploy any files. The SDL library is linked into the application.
+You don't need to deploy any files. The SDL library, as well as its satellite libraries, are linked into the application.
 
 You may need to add the following frameworks to the SDK manager if you haven't sone so already (see above under macOS for instructions on how to add them):
 
@@ -80,7 +87,7 @@ You may need to add the following frameworks to the SDK manager if you haven't s
 
 ### Android
 
-You don't need to deploy any files. The SDL library is linked into the application.
+You don't need to deploy any files. The SDL library, as well as its satellite libraries, are linked into the application.
 
 You need to add the "sdl3.jar" Java archive to your applications though (for both 32-bit and 64-bit build):
 

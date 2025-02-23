@@ -13,7 +13,8 @@ uses
   Neslib.Sdl3.Video,
   Neslib.Sdl3.Input,
   Neslib.Sdl3.Events,
-  Neslib.Sdl3;
+  Neslib.Sdl3,
+  Neslib.Sdl3.Image in '..\..\..\Neslib.Sdl3.Image.pas';
 
 { An implementation of the BytePusher VM.
 

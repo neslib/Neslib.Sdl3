@@ -3650,7 +3650,7 @@ type
 
     /// <summary>Scale converting size to pixels (e.g. a 1920x1080 mode with
     ///  2.0 scale would have 3840x2160 pixels)</summary>
-    property PixelDdensity: Single read FHandle.pixel_density;
+    property PixelDensity: Single read FHandle.pixel_density;
 
     /// <summary>Refresh rate (or 0.0f for unspecified)</summary>
     property RefreshRate: Single read FHandle.refresh_rate;
@@ -6092,7 +6092,7 @@ type
     function GetFormat: TSdlPixelFormat; inline;
     function GetW: Integer; inline;
     function GetH: Integer; inline;
-    function GetSize: TSdlSizeF; inline;
+    function GetSize: TSdlSizeF;
     function GetColorMod: TSdlColor; inline;
     procedure SetColorMod(const AValue: TSdlColor); inline;
     function GetColorModFloat: TSdlColorF; inline;

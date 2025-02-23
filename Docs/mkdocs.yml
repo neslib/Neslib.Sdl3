@@ -16,6 +16,7 @@ nav:
       - APIByCategory/Neslib.Sdl3.Time.md
       - APIByCategory/Neslib.Sdl3.IO.md
       - APIByCategory/Neslib.Sdl3.Additional.md
+      - APIByCategory/Neslib.Sdl3.Image.md
     - Useful Information:
       - Misc/KeyboardBestPractices.md
   - Reference:
@@ -302,6 +303,15 @@ nav:
         - SdlIsMouseHaptic: Reference/Neslib.Sdl3.Haptic/routines/SdlIsMouseHaptic.md
       - Constants:
         - SDL_HAPTIC_INFINITY: Reference/Neslib.Sdl3.Haptic/constants/SDL_HAPTIC_INFINITY.md
+    - Neslib.Sdl3.Image:
+      - Reference/Neslib.Sdl3.Image/index.md
+      - Classes & Records:
+        - TSdlAnimatedImage: Reference/Neslib.Sdl3.Image/classes/TSdlAnimatedImage.md
+        - TSdlImage: Reference/Neslib.Sdl3.Image/classes/TSdlImage.md
+      - Constants:
+        - SDL_IMAGE_MAJOR_VERSION: Reference/Neslib.Sdl3.Image/constants/SDL_IMAGE_MAJOR_VERSION.md
+        - SDL_IMAGE_MICRO_VERSION: Reference/Neslib.Sdl3.Image/constants/SDL_IMAGE_MICRO_VERSION.md
+        - SDL_IMAGE_MINOR_VERSION: Reference/Neslib.Sdl3.Image/constants/SDL_IMAGE_MINOR_VERSION.md
     - Neslib.Sdl3.Input:
       - Reference/Neslib.Sdl3.Input/index.md
       - Classes & Records:
@@ -334,6 +344,7 @@ nav:
         - TSdlGamepadConnectionState: Reference/Neslib.Sdl3.Input/types/TSdlGamepadConnectionState.md
         - TSdlGamepadKind: Reference/Neslib.Sdl3.Input/types/TSdlGamepadKind.md
         - TSdlHat: Reference/Neslib.Sdl3.Input/types/TSdlHat.md
+        - TSdlHats: Reference/Neslib.Sdl3.Input/types/TSdlHats.md
         - TSdlJoystickConnectionState: Reference/Neslib.Sdl3.Input/types/TSdlJoystickConnectionState.md
         - TSdlJoystickKind: Reference/Neslib.Sdl3.Input/types/TSdlJoystickKind.md
         - TSdlKeycode: Reference/Neslib.Sdl3.Input/types/TSdlKeycode.md
@@ -400,6 +411,7 @@ nav:
         - SdlGetPerformanceCounter: Reference/Neslib.Sdl3.Time/routines/SdlGetPerformanceCounter.md
         - SdlGetPerformanceFrequency: Reference/Neslib.Sdl3.Time/routines/SdlGetPerformanceFrequency.md
         - SdlGetTicks: Reference/Neslib.Sdl3.Time/routines/SdlGetTicks.md
+        - SdlGetTicksNS: Reference/Neslib.Sdl3.Time/routines/SdlGetTicksNS.md
         - SdlMSToNS: Reference/Neslib.Sdl3.Time/routines/SdlMSToNS.md
         - SdlNSToMS: Reference/Neslib.Sdl3.Time/routines/SdlNSToMS.md
         - SdlNSToSeconds: Reference/Neslib.Sdl3.Time/routines/SdlNSToSeconds.md

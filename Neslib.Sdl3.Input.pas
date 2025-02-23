@@ -4374,7 +4374,7 @@ type
     /// <summary>
     ///  The number of POV hats on this joystick.
     /// </summary>
-    /// <seealso cref="Hat"/>
+    /// <seealso cref="Hats"/>
     /// <seealso cref="NumAxes"/>
     /// <seealso cref="NumBalls"/>
     /// <seealso cref="NumButtons"/>

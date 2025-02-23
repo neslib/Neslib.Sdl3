@@ -81,6 +81,12 @@
         <Projects Include="Demo\04-BytePusher\BytePusher.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="SdlImage\01-ShowImage\ShowImage.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SdlImage\02-ShowAnim\ShowAnim.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -323,14 +329,32 @@
     <Target Name="BytePusher:Make">
         <MSBuild Projects="Demo\04-BytePusher\BytePusher.dproj" Targets="Make"/>
     </Target>
+    <Target Name="ShowImage">
+        <MSBuild Projects="SdlImage\01-ShowImage\ShowImage.dproj"/>
+    </Target>
+    <Target Name="ShowImage:Clean">
+        <MSBuild Projects="SdlImage\01-ShowImage\ShowImage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ShowImage:Make">
+        <MSBuild Projects="SdlImage\01-ShowImage\ShowImage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ShowAnim">
+        <MSBuild Projects="SdlImage\02-ShowAnim\ShowAnim.dproj"/>
+    </Target>
+    <Target Name="ShowAnim:Clean">
+        <MSBuild Projects="SdlImage\02-ShowAnim\ShowAnim.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ShowAnim:Make">
+        <MSBuild Projects="SdlImage\02-ShowAnim\ShowAnim.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Clear;Primitives;Lines;Points;Rectangles;Textures;StreamingTextures;RotatingTextures;ScalingTextures;Geometry;ColorMods;Viewport;ClipRect;ReadPixels;DebugText;ReadAndDraw;SimplePlayback;SimplePlaybackCallback;LoadWav;MultipleStreams;DrawingLines;LoadBitmaps;JoystickPolling;JoystickEvents;Snake;BytePusher"/>
+        <CallTarget Targets="Clear;Primitives;Lines;Points;Rectangles;Textures;StreamingTextures;RotatingTextures;ScalingTextures;Geometry;ColorMods;Viewport;ClipRect;ReadPixels;DebugText;ReadAndDraw;SimplePlayback;SimplePlaybackCallback;LoadWav;MultipleStreams;DrawingLines;LoadBitmaps;JoystickPolling;JoystickEvents;Snake;BytePusher;ShowImage;ShowAnim"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Clear:Clean;Primitives:Clean;Lines:Clean;Points:Clean;Rectangles:Clean;Textures:Clean;StreamingTextures:Clean;RotatingTextures:Clean;ScalingTextures:Clean;Geometry:Clean;ColorMods:Clean;Viewport:Clean;ClipRect:Clean;ReadPixels:Clean;DebugText:Clean;ReadAndDraw:Clean;SimplePlayback:Clean;SimplePlaybackCallback:Clean;LoadWav:Clean;MultipleStreams:Clean;DrawingLines:Clean;LoadBitmaps:Clean;JoystickPolling:Clean;JoystickEvents:Clean;Snake:Clean;BytePusher:Clean"/>
+        <CallTarget Targets="Clear:Clean;Primitives:Clean;Lines:Clean;Points:Clean;Rectangles:Clean;Textures:Clean;StreamingTextures:Clean;RotatingTextures:Clean;ScalingTextures:Clean;Geometry:Clean;ColorMods:Clean;Viewport:Clean;ClipRect:Clean;ReadPixels:Clean;DebugText:Clean;ReadAndDraw:Clean;SimplePlayback:Clean;SimplePlaybackCallback:Clean;LoadWav:Clean;MultipleStreams:Clean;DrawingLines:Clean;LoadBitmaps:Clean;JoystickPolling:Clean;JoystickEvents:Clean;Snake:Clean;BytePusher:Clean;ShowImage:Clean;ShowAnim:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Clear:Make;Primitives:Make;Lines:Make;Points:Make;Rectangles:Make;Textures:Make;StreamingTextures:Make;RotatingTextures:Make;ScalingTextures:Make;Geometry:Make;ColorMods:Make;Viewport:Make;ClipRect:Make;ReadPixels:Make;DebugText:Make;ReadAndDraw:Make;SimplePlayback:Make;SimplePlaybackCallback:Make;LoadWav:Make;MultipleStreams:Make;DrawingLines:Make;LoadBitmaps:Make;JoystickPolling:Make;JoystickEvents:Make;Snake:Make;BytePusher:Make"/>
+        <CallTarget Targets="Clear:Make;Primitives:Make;Lines:Make;Points:Make;Rectangles:Make;Textures:Make;StreamingTextures:Make;RotatingTextures:Make;ScalingTextures:Make;Geometry:Make;ColorMods:Make;Viewport:Make;ClipRect:Make;ReadPixels:Make;DebugText:Make;ReadAndDraw:Make;SimplePlayback:Make;SimplePlaybackCallback:Make;LoadWav:Make;MultipleStreams:Make;DrawingLines:Make;LoadBitmaps:Make;JoystickPolling:Make;JoystickEvents:Make;Snake:Make;BytePusher:Make;ShowImage:Make;ShowAnim:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
