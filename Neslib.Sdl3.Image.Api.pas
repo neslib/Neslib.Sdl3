@@ -31,7 +31,6 @@ unit Neslib.Sdl3.Image.Api;
   with your application. On other platforms, this library will be linked into
   your executable. }
 
-
 {$MINENUMSIZE 4}
 
 interface
@@ -41,22 +40,22 @@ uses
 
 const
   {$IF Defined(WIN32)}
-  LIB_SDL3 = 'SDL3_image.dll';
+  LIB_SDL3_IMAGE = 'SDL3_image.dll';
   _PU = '';
   {$ELSEIF Defined(WIN64)}
-  LIB_SDL3 = 'SDL3_image.dll';
+  LIB_SDL3_IMAGE = 'SDL3_image.dll';
   _PU = '';
   {$ELSEIF Defined(MACOS64) and Defined(CPUX64) and not Defined(IOS)}
-  LIB_SDL3 = 'libSdl3Image_macos_intel.a';
+  LIB_SDL3_IMAGE = 'libSdl3Image_macos_intel.a';
   _PU = '';
   {$ELSEIF Defined(IOS)}
-  LIB_SDL3 = 'libSdl3Image_ios.a';
+  LIB_SDL3_IMAGE = 'libSdl3Image_ios.a';
   _PU = '';
   {$ELSEIF Defined(ANDROID32)}
-  LIB_SDL3 = 'libSdl3Image_android32.a';
+  LIB_SDL3_IMAGE = 'libSdl3Image_android32.a';
   _PU = '';
   {$ELSEIF Defined(ANDROID64)}
-  LIB_SDL3 = 'libSdl3Image_android64.a';
+  LIB_SDL3_IMAGE = 'libSdl3Image_android64.a';
   _PU = '';
   {$ELSE}
     {$MESSAGE Error 'Unsupported platform'}
@@ -90,7 +89,7 @@ type
   PIMG_Animation = ^IMG_Animation;
 
 function IMG_Version(): Integer; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_Version';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_Version';
 
 (**
  * Load an image from an SDL data source into a software surface.
@@ -153,7 +152,7 @@ function IMG_Version(): Integer; cdecl;
  * \sa SDL_DestroySurface
  *)
 function IMG_LoadTyped_IO(src: SDL_IOStream; closeio: Boolean; const &type: PUTF8Char): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadTyped_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadTyped_IO';
 
 (**
  * Load an image from a filesystem path into a software surface.
@@ -199,7 +198,7 @@ function IMG_LoadTyped_IO(src: SDL_IOStream; closeio: Boolean; const &type: PUTF
  * \sa SDL_DestroySurface
  *)
 function IMG_Load(const &file: PUTF8Char): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_Load';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_Load';
 
 (**
  * Load an image from an SDL data source into a software surface.
@@ -254,7 +253,7 @@ function IMG_Load(const &file: PUTF8Char): PSDL_Surface; cdecl;
  * \sa SDL_DestroySurface
  *)
 function IMG_Load_IO(src: SDL_IOStream; closeio: Boolean): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_Load_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_Load_IO';
 
 (**
  * Load an image from a filesystem path into a GPU texture.
@@ -290,7 +289,7 @@ function IMG_Load_IO(src: SDL_IOStream; closeio: Boolean): PSDL_Surface; cdecl;
  * \sa IMG_LoadTexture_IO
  *)
 function IMG_LoadTexture(renderer: SDL_Renderer; const &file: PUTF8Char): PSDL_Texture; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadTexture';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadTexture';
 
 (**
  * Load an image from an SDL data source into a GPU texture.
@@ -338,7 +337,7 @@ function IMG_LoadTexture(renderer: SDL_Renderer; const &file: PUTF8Char): PSDL_T
  * \sa SDL_DestroyTexture
  *)
 function IMG_LoadTexture_IO(renderer: SDL_Renderer; src: SDL_IOStream; closeio: Boolean): PSDL_Texture; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadTexture_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadTexture_IO';
 
 (**
  * Load an image from an SDL data source into a GPU texture.
@@ -394,7 +393,7 @@ function IMG_LoadTexture_IO(renderer: SDL_Renderer; src: SDL_IOStream; closeio: 
  * \sa SDL_DestroyTexture
  *)
 function IMG_LoadTextureTyped_IO(renderer: SDL_Renderer; src: SDL_IOStream; closeio: Boolean; const &type: PUTF8Char): PSDL_Texture; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadTextureTyped_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadTextureTyped_IO';
 
 (**
  * Detect AVIF image data on a readable/seekable SDL_IOStream.
@@ -439,7 +438,7 @@ function IMG_LoadTextureTyped_IO(renderer: SDL_Renderer; src: SDL_IOStream; clos
  * \sa IMG_isWEBP
  *)
 function IMG_isAVIF(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isAVIF';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isAVIF';
 
 (**
  * Detect ICO image data on a readable/seekable SDL_IOStream.
@@ -483,7 +482,7 @@ function IMG_isAVIF(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isICO(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isICO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isICO';
 
 (**
  * Detect CUR image data on a readable/seekable SDL_IOStream.
@@ -527,7 +526,7 @@ function IMG_isICO(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isCUR(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isCUR';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isCUR';
 
 (**
  * Detect BMP image data on a readable/seekable SDL_IOStream.
@@ -571,7 +570,7 @@ function IMG_isCUR(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isBMP(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isBMP';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isBMP';
 
 (**
  * Detect GIF image data on a readable/seekable SDL_IOStream.
@@ -615,7 +614,7 @@ function IMG_isBMP(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isGIF(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isGIF';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isGIF';
 
 (**
  * Detect JPG image data on a readable/seekable SDL_IOStream.
@@ -659,7 +658,7 @@ function IMG_isGIF(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isJPG(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isJPG';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isJPG';
 
 (**
  * Detect JXL image data on a readable/seekable SDL_IOStream.
@@ -703,7 +702,7 @@ function IMG_isJPG(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isJXL(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isJXL';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isJXL';
 
 (**
  * Detect LBM image data on a readable/seekable SDL_IOStream.
@@ -747,7 +746,7 @@ function IMG_isJXL(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isLBM(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isLBM';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isLBM';
 
 (**
  * Detect PCX image data on a readable/seekable SDL_IOStream.
@@ -791,7 +790,7 @@ function IMG_isLBM(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isPCX(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isPCX';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isPCX';
 
 (**
  * Detect PNG image data on a readable/seekable SDL_IOStream.
@@ -835,7 +834,7 @@ function IMG_isPCX(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isPNG(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isPNG';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isPNG';
 
 (**
  * Detect PNM image data on a readable/seekable SDL_IOStream.
@@ -879,7 +878,7 @@ function IMG_isPNG(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isPNM(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isPNM';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isPNM';
 
 (**
  * Detect SVG image data on a readable/seekable SDL_IOStream.
@@ -923,7 +922,7 @@ function IMG_isPNM(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isSVG(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isSVG';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isSVG';
 
 (**
  * Detect QOI image data on a readable/seekable SDL_IOStream.
@@ -967,7 +966,7 @@ function IMG_isSVG(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isQOI(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isQOI';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isQOI';
 
 (**
  * Detect TIFF image data on a readable/seekable SDL_IOStream.
@@ -1011,7 +1010,7 @@ function IMG_isQOI(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isTIF(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isTIF';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isTIF';
 
 (**
  * Detect XCF image data on a readable/seekable SDL_IOStream.
@@ -1055,7 +1054,7 @@ function IMG_isTIF(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isXCF(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isXCF';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isXCF';
 
 (**
  * Detect XPM image data on a readable/seekable SDL_IOStream.
@@ -1099,7 +1098,7 @@ function IMG_isXCF(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isXPM(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isXPM';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isXPM';
 
 (**
  * Detect XV image data on a readable/seekable SDL_IOStream.
@@ -1143,7 +1142,7 @@ function IMG_isXPM(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isWEBP
  *)
 function IMG_isXV(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isXV';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isXV';
 
 (**
  * Detect WEBP image data on a readable/seekable SDL_IOStream.
@@ -1187,7 +1186,7 @@ function IMG_isXV(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_isXV
  *)
 function IMG_isWEBP(src: SDL_IOStream): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_isWEBP';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_isWEBP';
 
 (**
  * Load a AVIF image directly.
@@ -1222,7 +1221,7 @@ function IMG_isWEBP(src: SDL_IOStream): Boolean; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadAVIF_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadAVIF_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadAVIF_IO';
 
 (**
  * Load a ICO image directly.
@@ -1257,7 +1256,7 @@ function IMG_LoadAVIF_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadICO_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadICO_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadICO_IO';
 
 (**
  * Load a CUR image directly.
@@ -1292,7 +1291,7 @@ function IMG_LoadICO_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadCUR_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadCUR_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadCUR_IO';
 
 (**
  * Load a BMP image directly.
@@ -1327,7 +1326,7 @@ function IMG_LoadCUR_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadBMP_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadBMP_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadBMP_IO';
 
 (**
  * Load a GIF image directly.
@@ -1362,7 +1361,7 @@ function IMG_LoadBMP_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadGIF_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadGIF_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadGIF_IO';
 
 (**
  * Load a JPG image directly.
@@ -1397,7 +1396,7 @@ function IMG_LoadGIF_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadJPG_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadJPG_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadJPG_IO';
 
 (**
  * Load a JXL image directly.
@@ -1432,7 +1431,7 @@ function IMG_LoadJPG_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadJXL_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadJXL_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadJXL_IO';
 
 (**
  * Load a LBM image directly.
@@ -1467,7 +1466,7 @@ function IMG_LoadJXL_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadLBM_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadLBM_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadLBM_IO';
 
 (**
  * Load a PCX image directly.
@@ -1502,7 +1501,7 @@ function IMG_LoadLBM_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadPCX_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadPCX_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadPCX_IO';
 
 (**
  * Load a PNG image directly.
@@ -1537,7 +1536,7 @@ function IMG_LoadPCX_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadPNG_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadPNG_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadPNG_IO';
 
 (**
  * Load a PNM image directly.
@@ -1572,7 +1571,7 @@ function IMG_LoadPNG_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadPNM_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadPNM_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadPNM_IO';
 
 (**
  * Load a SVG image directly.
@@ -1607,7 +1606,7 @@ function IMG_LoadPNM_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadSVG_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadSVG_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadSVG_IO';
 
 (**
  * Load a QOI image directly.
@@ -1642,7 +1641,7 @@ function IMG_LoadSVG_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadQOI_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadQOI_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadQOI_IO';
 
 (**
  * Load a TGA image directly.
@@ -1677,7 +1676,7 @@ function IMG_LoadQOI_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadTGA_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadTGA_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadTGA_IO';
 
 (**
  * Load a TIFF image directly.
@@ -1712,7 +1711,7 @@ function IMG_LoadTGA_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadTIF_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadTIF_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadTIF_IO';
 
 (**
  * Load a XCF image directly.
@@ -1747,7 +1746,7 @@ function IMG_LoadTIF_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadXCF_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadXCF_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadXCF_IO';
 
 (**
  * Load a XPM image directly.
@@ -1782,7 +1781,7 @@ function IMG_LoadXCF_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadXPM_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadXPM_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadXPM_IO';
 
 (**
  * Load a XV image directly.
@@ -1817,7 +1816,7 @@ function IMG_LoadXPM_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadWEBP_IO
  *)
 function IMG_LoadXV_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadXV_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadXV_IO';
 
 (**
  * Load a WEBP image directly.
@@ -1852,7 +1851,7 @@ function IMG_LoadXV_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \sa IMG_LoadXV_IO
  *)
 function IMG_LoadWEBP_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadWEBP_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadWEBP_IO';
 
 (**
  * Load an SVG image, scaled to a specific size.
@@ -1874,7 +1873,7 @@ function IMG_LoadWEBP_IO(src: SDL_IOStream): PSDL_Surface; cdecl;
  * \since This function is available since SDL_image 3.0.0.
  *)
 function IMG_LoadSizedSVG_IO(src: SDL_IOStream; width: Integer; height: Integer): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadSizedSVG_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadSizedSVG_IO';
 
 (**
  * Load an XPM image from a memory array.
@@ -1894,7 +1893,7 @@ function IMG_LoadSizedSVG_IO(src: SDL_IOStream; width: Integer; height: Integer)
  * \sa IMG_ReadXPMFromArrayToRGB888
  *)
 function IMG_ReadXPMFromArray(xpm: PPUTF8Char): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_ReadXPMFromArray';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_ReadXPMFromArray';
 
 (**
  * Load an XPM image from a memory array.
@@ -1914,7 +1913,7 @@ function IMG_ReadXPMFromArray(xpm: PPUTF8Char): PSDL_Surface; cdecl;
  * \sa IMG_ReadXPMFromArray
  *)
 function IMG_ReadXPMFromArrayToRGB888(xpm: PPUTF8Char): PSDL_Surface; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_ReadXPMFromArrayToRGB888';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_ReadXPMFromArrayToRGB888';
 
 (**
  * Save an SDL_Surface into a AVIF image file.
@@ -1933,7 +1932,7 @@ function IMG_ReadXPMFromArrayToRGB888(xpm: PPUTF8Char): PSDL_Surface; cdecl;
  * \sa IMG_SaveAVIF_IO
  *)
 function IMG_SaveAVIF(surface: PSDL_Surface; const &file: PUTF8Char; quality: Integer): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_SaveAVIF';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_SaveAVIF';
 
 (**
  * Save an SDL_Surface into AVIF image data, via an SDL_IOStream.
@@ -1957,7 +1956,7 @@ function IMG_SaveAVIF(surface: PSDL_Surface; const &file: PUTF8Char; quality: In
  * \sa IMG_SaveAVIF
  *)
 function IMG_SaveAVIF_IO(surface: PSDL_Surface; dst: SDL_IOStream; closeio: Boolean; quality: Integer): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_SaveAVIF_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_SaveAVIF_IO';
 
 (**
  * Save an SDL_Surface into a PNG image file.
@@ -1974,7 +1973,7 @@ function IMG_SaveAVIF_IO(surface: PSDL_Surface; dst: SDL_IOStream; closeio: Bool
  * \sa IMG_SavePNG_IO
  *)
 function IMG_SavePNG(surface: PSDL_Surface; const &file: PUTF8Char): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_SavePNG';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_SavePNG';
 
 (**
  * Save an SDL_Surface into PNG image data, via an SDL_IOStream.
@@ -1996,7 +1995,7 @@ function IMG_SavePNG(surface: PSDL_Surface; const &file: PUTF8Char): Boolean; cd
  * \sa IMG_SavePNG
  *)
 function IMG_SavePNG_IO(surface: PSDL_Surface; dst: SDL_IOStream; closeio: Boolean): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_SavePNG_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_SavePNG_IO';
 
 (**
  * Save an SDL_Surface into a JPEG image file.
@@ -2015,7 +2014,7 @@ function IMG_SavePNG_IO(surface: PSDL_Surface; dst: SDL_IOStream; closeio: Boole
  * \sa IMG_SaveJPG_IO
  *)
 function IMG_SaveJPG(surface: PSDL_Surface; const &file: PUTF8Char; quality: Integer): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_SaveJPG';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_SaveJPG';
 
 (**
  * Save an SDL_Surface into JPEG image data, via an SDL_IOStream.
@@ -2039,7 +2038,7 @@ function IMG_SaveJPG(surface: PSDL_Surface; const &file: PUTF8Char; quality: Int
  * \sa IMG_SaveJPG
  *)
 function IMG_SaveJPG_IO(surface: PSDL_Surface; dst: SDL_IOStream; closeio: Boolean; quality: Integer): Boolean; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_SaveJPG_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_SaveJPG_IO';
 
 (**
  * Load an animation from a file.
@@ -2055,7 +2054,7 @@ function IMG_SaveJPG_IO(surface: PSDL_Surface; dst: SDL_IOStream; closeio: Boole
  * \sa IMG_FreeAnimation
  *)
 function IMG_LoadAnimation(const &file: PUTF8Char): PIMG_Animation; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadAnimation';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadAnimation';
 
 (**
  * Load an animation from an SDL_IOStream.
@@ -2077,7 +2076,7 @@ function IMG_LoadAnimation(const &file: PUTF8Char): PIMG_Animation; cdecl;
  * \sa IMG_FreeAnimation
  *)
 function IMG_LoadAnimation_IO(src: SDL_IOStream; closeio: Boolean): PIMG_Animation; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadAnimation_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadAnimation_IO';
 
 (**
  * Load an animation from an SDL datasource
@@ -2108,7 +2107,7 @@ function IMG_LoadAnimation_IO(src: SDL_IOStream; closeio: Boolean): PIMG_Animati
  * \sa IMG_FreeAnimation
  *)
 function IMG_LoadAnimationTyped_IO(src: SDL_IOStream; closeio: Boolean; const &type: PUTF8Char): PIMG_Animation; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadAnimationTyped_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadAnimationTyped_IO';
 
 (**
  * Dispose of an IMG_Animation and free its resources.
@@ -2124,7 +2123,7 @@ function IMG_LoadAnimationTyped_IO(src: SDL_IOStream; closeio: Boolean; const &t
  * \sa IMG_LoadAnimationTyped_IO
  *)
 procedure IMG_FreeAnimation(anim: PIMG_Animation); cdecl;
-  external LIB_SDL3 name _PU + 'IMG_FreeAnimation';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_FreeAnimation';
 
 (**
  * Load a GIF animation directly.
@@ -2145,7 +2144,7 @@ procedure IMG_FreeAnimation(anim: PIMG_Animation); cdecl;
  * \sa IMG_FreeAnimation
  *)
 function IMG_LoadGIFAnimation_IO(src: SDL_IOStream): PIMG_Animation; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadGIFAnimation_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadGIFAnimation_IO';
 
 (**
  * Load a WEBP animation directly.
@@ -2166,7 +2165,7 @@ function IMG_LoadGIFAnimation_IO(src: SDL_IOStream): PIMG_Animation; cdecl;
  * \sa IMG_FreeAnimation
  *)
 function IMG_LoadWEBPAnimation_IO(src: SDL_IOStream): PIMG_Animation; cdecl;
-  external LIB_SDL3 name _PU + 'IMG_LoadWEBPAnimation_IO';
+  external LIB_SDL3_IMAGE name _PU + 'IMG_LoadWEBPAnimation_IO';
 
 implementation
 

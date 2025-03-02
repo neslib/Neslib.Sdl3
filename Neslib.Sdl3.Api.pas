@@ -114,7 +114,7 @@ const
    *
    * \since This macro is available since SDL 3.2.0.
    *)
-  SDL_MICRO_VERSION = 4;
+  SDL_MICRO_VERSION = 6;
 
 (**
  * This macro turns the version numbers into a numeric value.
@@ -10814,6 +10814,7 @@ const
   SDL_PIXELFORMAT_P010 = 808530000;
   (** Android video texture format *)
   SDL_PIXELFORMAT_EXTERNAL_OES = 542328143;
+  SDL_PIXELFORMAT_MJPG = 1196444237;
   SDL_PIXELFORMAT_RGBA32 = 376840196;
   SDL_PIXELFORMAT_ARGB32 = 377888772;
   SDL_PIXELFORMAT_BGRA32 = 372645892;
@@ -12467,6 +12468,9 @@ const
   SDL_PROP_SURFACE_SDR_WHITE_POINT_FLOAT = 'SDL.surface.SDR_white_point';
   SDL_PROP_SURFACE_HDR_HEADROOM_FLOAT = 'SDL.surface.HDR_headroom';
   SDL_PROP_SURFACE_TONEMAP_OPERATOR_STRING = 'SDL.surface.tonemap';
+  SDL_PROP_SURFACE_HOTSPOT_X_NUMBER = 'SDL.surface.hotspot.x';
+  SDL_PROP_SURFACE_HOTSPOT_Y_NUMBER = 'SDL.surface.hotspot.y';
+
 
 (**
  * Set the colorspace used by a surface.
@@ -34447,6 +34451,28 @@ const
    * \since This hint is available since SDL 3.2.0.
    *)
   SDL_HINT_JOYSTICK_ZERO_CENTERED_DEVICES = 'SDL_JOYSTICK_ZERO_CENTERED_DEVICES';
+
+  (**
+   * A variable containing a list of devices and their desired number of haptic
+   * (force feedback) enabled axis.
+   *
+   * The format of the string is a comma separated list of USB VID/PID pairs in
+   * hexadecimal form plus the number of desired axes, e.g.
+   *
+   * `0xAAAA/0xBBBB/1,0xCCCC/0xDDDD/3`
+   *
+   * This hint supports a "wildcard" device that will set the number of haptic
+   * axes on all initialized haptic devices which were not defined explicitly in
+   * this hint.
+   *
+   * `0xFFFF/0xFFFF/1`
+   *
+   * This hint should be set before a controller is opened. The number of haptic
+   * axes won't exceed the number of real axes found on the device.
+   *
+   * \since This hint is available since SDL 3.2.5.
+   *)
+  SDL_HINT_JOYSTICK_HAPTIC_AXES = 'SDL_JOYSTICK_HAPTIC_AXES';
 
   (**
    * A variable that controls keycode representation in keyboard events.

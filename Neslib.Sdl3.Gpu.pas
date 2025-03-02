@@ -46,13 +46,13 @@ uses
 ///  can render offscreen entirely, perhaps for image processing, and not use a
 ///  window at all.
 ///
-///  Next the app prepares static data (things that are created once and used
+///  Next, the app prepares static data (things that are created once and used
 ///  over and over). For example:
 ///
 ///  - Shaders (programs that run on the GPU): use TSdlGpuShader.
-///  - Vertex buffers (arrays of geometry data) and other data rendering will
-///    need: use TSdlGpuCopyPass.UploadToBuffer.
-///  - Textures (images): use TSdlGpuCopyPass.UploadToTexture.
+///  - Vertex buffers (arrays of geometry data) and other rendering data: use
+///    TSdlGpuBuffer and TSdlGpuCopyPass.UploadToBuffer.
+///  - Textures (images): use TSdlGpuTexture and TSdlGpuCopyPass.UploadToTexture.
 ///  - Samplers (how textures should be read from): use TSdlGpuSampler.
 ///  - Render pipelines (precalculated rendering state): use
 ///    TSdlGpuGraphicsPipeline.
@@ -1475,8 +1475,15 @@ type
 type
   /// <summary>
   ///  A record specifying the parameters of a sampler.
+  ///
+  ///  Note that MipLodBias is a no-op for the Metal driver. For Metal, LOD bias
+  ///  must be applied via shader instead.
   /// </summary>
   /// <seealso cref="TSdlGpuSampler"/>
+  /// <seealso cref="TSdlGpuFilter"/>
+  /// <seealso cref="TSdlGpuSamplerMipmapMode"/>
+  /// <seealso cref="TSdlGpuSamplerAddressMode"/>
+  /// <seealso cref="TSdlGpuCompareOp"/>
   TSdlGpuSamplerCreateInfo = record
   {$REGION 'Internal Declarations'}
   private
@@ -1541,6 +1548,8 @@ type
 
     /// <summary>
     ///  The bias to be added to mipmap LOD calculation.
+    ///  Note that this is a no-op for the Metal driver. For Metal, LOD bias
+    ///  must be applied via shader instead.
     /// </summary>
     property MipLodBias: Single read FHandle.mip_lod_bias write FHandle.mip_lod_bias;
 
@@ -1596,7 +1605,7 @@ type
   ///  0, then that attribute belongs to the vertex buffer bound at slot 0.
   /// </summary>
   /// <seealso cref="TSdlGpuVertexAttribute"/>
-  /// <seealso cref="TSdlGpuVertexInputState"/>
+  /// <seealso cref="TSdlGpuVertexInputRate"/>
   TSdlGpuVertexBufferDescription = record
   {$REGION 'Internal Declarations'}
   private
@@ -1619,11 +1628,6 @@ type
     ///  Whether attribute addressing is a function of the vertex index or instance index.
     /// </summary>
     property InputRate: TSdlGpuVertexInputRate read GetInputRate write SetInputRate;
-
-    /// <summary>
-    ///  The number of instances to draw using the same per-instance data before advancing in the instance buffer by one element. Ignored unless input_rate is SDL_GPU_VERTEXINPUTRATE_INSTANCE
-    /// </summary>
-    property InstanceStepRate: Integer read FHandle.instance_step_rate write FHandle.instance_step_rate;
   end;
 
 type
@@ -2048,10 +2052,12 @@ type
   ///  A record specifying the parameters of the graphics pipeline rasterizer
   ///  state.
   ///
-  ///  NOTE: Some backend APIs (D3D11/12) will enable depth clamping even if
-  ///  enable_depth_clip is true. If you rely on this clamp+clip behavior,
-  ///  consider enabling depth clip and then manually clamping depth in your
-  ///  fragment shaders on Metal and Vulkan.
+  ///  Note that TSdlGpuFillMode.Line is not supported on many Android devices.
+  ///  For those devices, the fill mode will automatically fall back to Fill.
+  ///  Also note that the D3D12 driver will enable depth clamping even if
+  ///  DepthClipEnabled is True. If you need this clamp+clip behavior, consider
+  ///  enabling depth clip and then manually clamping depth in your fragment
+  ///  shaders on Metal and Vulkan.
   /// </summary>
   /// <seealso cref="TSdlGpuGraphicsPipelineCreateInfo"/>
   TSdlGpuRasterizerState = record
@@ -2129,17 +2135,6 @@ type
     ///  The number of samples to be used in rasterization.
     /// </summary>
     property SampleCount: TSdlGpuSampleCount read GetSampleCount write SetSampleCount;
-
-    /// <summary>
-    ///  Determines which samples get updated in the render targets.
-    ///  Treated as $FFFFFFFF if MaskEnabled is False.
-    /// </summary>
-    property SampleMask: Integer read FHandle.sample_mask write FHandle.sample_mask;
-
-    /// <summary>
-    ///  Enables sample masking.
-    /// </summary>
-    property MaskEnabled: Boolean read FHandle.enable_mask write FHandle.enable_mask;
   end;
   PSdlGpuMultisampleState = ^TSdlGpuMultisampleState;
 
@@ -2234,6 +2229,8 @@ type
   ///  graphics pipeline.
   /// </summary>
   /// <seealso cref="TSdlGpuGraphicsPipelineCreateInfo"/>
+  /// <seealso cref="TSdlGpuColorTargetDescription"/>
+  /// <seealso cref="TSdlGpuTextureFormat"/>
   TSdlGpuGraphicsPipelineTargetInfo = record
   {$REGION 'Internal Declarations'}
   private
@@ -4375,6 +4372,9 @@ type
     ///  The swapchain texture is managed by the implementation and must not be
     ///  freed by the user. You MUST NOT call this method from any thread other
     ///  than the one that created the window.
+    ///
+    ///  The swapchain texture is write-only and cannot be used as a sampler or
+    ///  for another reading operation.
     /// </summary>
     /// <param name="AWindow">A window that has been claimed.</param>
     /// <param name="ASwapchainTexture">Is set to a swapchain texture.</param>
@@ -4383,6 +4383,7 @@ type
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="Submit"/>
     /// <seealso cref="SubmitAndAcquireFence"/>
+    /// <seealso cref="AcquireSwapchainTexture"/>
     /// <remarks>
     ///  This method should only be called from the thread that created the window.
     /// </remarks>
@@ -4457,7 +4458,7 @@ type
     FHandle: SDL_GPUDevice;
     function GetDriver: TSdlGpuDriver; inline;
     function GetFormats: TSdlGpuShaderFormats; inline;
-  {$REGION 'Internal Declarations'}
+  {$ENDREGION 'Internal Declarations'}
   public
     /// <summary>
     ///  Used to compare against `nil`.

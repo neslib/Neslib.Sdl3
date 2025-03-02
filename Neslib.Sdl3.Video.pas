@@ -985,6 +985,12 @@ type
   PSdlColor = ^TSdlColor;
   {$POINTERMATH OFF}
 
+type
+  _TSdlColorHelper = record helper for TSdlColor
+  public const
+    Null: TSdlColor = (R: 0; G: 0; B: 0; A: 0);
+  end;
+
 /// <summary>
 ///  Create a color.
 /// </summary>
@@ -1037,6 +1043,12 @@ type
     procedure Init(const AR, AG, AB: Single; const AA: Single = 1); inline;
   end;
   PSdlColorF = ^TSdlColorF;
+
+type
+  _TSdlColorFHelper = record helper for TSdlColorF
+  public const
+    Null: TSdlColor = (R: 0; G: 0; B: 0; A: 0);
+  end;
 
 /// <summary>
 ///  Create a color.
@@ -1339,6 +1351,9 @@ type
 
     /// <summary>Android video texture format</summary>
     ExternalOes  = SDL_PIXELFORMAT_EXTERNAL_OES,
+
+    /// <summary>Motion JPOEG</summary>
+    Mjpg         = SDL_PIXELFORMAT_MJPG,
 
     Rgba32       = SDL_PIXELFORMAT_RGBA32,
     Argb32       = SDL_PIXELFORMAT_ARGB32,
@@ -2486,6 +2501,9 @@ type
   ///  contiguous without padding between them, e.g. a 32x32 surface in NV12
   ///  format with a pitch of 32 would consist of 32x32 bytes of Y plane followed
   ///  by 32x16 bytes of UV plane.
+  ///
+  ///  When a surface holds MJPG format data, pixels points at the compressed JPEG
+  ///  image and pitch is the length of that data.
   /// </summary>
   TSdlSurface = record
   {$REGION 'Internal Declarations'}
@@ -3400,6 +3418,10 @@ type
     ///    the same tone mapping that Chrome uses for HDR content, the form '*=N',
     ///    where N is a floating point scale factor applied in linear space, and
     ///    'none', which disables tone mapping. This defaults to 'chrome'.
+    ///  - `TSdlProperty.SurfaceHotspotX`: the hotspot pixel offset from the
+    ///    left edge of the image, if this surface is being used as a cursor.
+    ///  - `TSdlProperty.SurfaceHotspotY`: the hotspot pixel offset from the
+    ///    top edge of the image, if this surface is being used as a cursor.
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     property Properties: TSdlProperties read GetProperties;
@@ -7130,25 +7152,39 @@ type
       const AA: Single = SDL_ALPHA_OPAQUE_FLOAT); overload; inline;
 
     /// <summary>
-    ///  Set a device independent resolution and presentation mode for rendering.
+    ///  Set a device-independent resolution and presentation mode for rendering.
     ///
     ///  This method sets the width and height of the logical rendering output.
-    ///  The renderer will act as if the window is always the requested dimensions,
-    ///  scaling to the actual window resolution as necessary.
+    ///  The renderer will act as if the current render target is always the
+    ///  requested dimensions, scaling to the actual resolution as necessary.
     ///
     ///  This can be useful for games that expect a fixed size, but would like to
     ///  scale the output to whatever is available, regardless of how a user resizes
     ///  a window, or if the display is high DPI.
     ///
+    ///  Logical presentation can be used with both render target textures and the
+    ///  renderer's window; the state is unique to each render target, and this
+    ///  function sets the state for the current render target. It might be useful
+    ///  to draw to a texture that matches the window dimensions with logical
+    ///  presentation enabled, and then draw that texture across the entire window
+    ///  with logical presentation disabled. Be careful not to render both with
+    ///  logical presentation enabled, however, as this could produce
+    ///  double-letterboxing, etc.
+    ///
     ///  You can disable logical coordinates by setting the mode to
     ///  TSdlLogicalPresentation.Disabled, and in that case you get the full pixel
-    ///  resolution of the output window; it is safe to toggle logical presentation
+    ///  resolution of the render target; it is safe to toggle logical presentation
     ///  during the rendering of a frame: perhaps most of the rendering is done to
     ///  specific dimensions but to make fonts look sharp, the app turns off logical
-    ///  presentation while drawing text.
+    ///  presentation while drawing text, for example.
     ///
-    ///  Letterboxing will only happen if logical presentation is enabled during
-    ///  Present; be sure to reenable it first if you were using it.
+    ///  For the renderer's window, letterboxing is drawn into the framebuffer if
+    ///  logical presentation is enabled during Present; be sure to reenable it
+    ///  before presenting if you were toggling it, otherwise the letterbox areas
+    ///  might have artifacts from previous frames (or artifacts from external
+    ///  overlays, etc). Letterboxing is never drawn into texture render targets;
+    ///  be sure to call Clear before drawing into the texture so the letterboxing
+    ///  areas are cleared, if appropriate.
     ///
     ///  You can convert coordinates in an event into rendering coordinates using
     ///  TSdlEvent.ConvertToRenderCoordinates.
@@ -7171,6 +7207,9 @@ type
     ///
     ///  This method gets the width and height of the logical rendering output, or
     ///  the output size in pixels if a logical resolution is not enabled.
+    ///
+    ///  Each render target has its own logical presentation state. This method
+    ///  gets the state for the current render target.
     /// </summary>
     /// <param name="AW">Set to the width.</param>
     /// <param name="AH">Set to the height.</param>
@@ -7768,7 +7807,12 @@ type
     /// <summary>
     ///  Read pixels from the entire viewport of the current rendering target.
     ///
-    ///  The returned surface should be freed.
+    ///  The returned surface contains pixels inside the desired area clipped to the
+    ///  current viewport, and should be freed.
+    ///
+    ///  Note that this returns the actual pixels on the screen, so if you are using
+    ///  logical presentation you should use LogicalPresentationRect to get the area
+    ///  containing your content.
     ///
     ///  **WARNING**: This is a very slow operation, and should not be used
     ///  frequently. If you're using this on the main rendering target, it should be
@@ -7784,14 +7828,15 @@ type
     /// <summary>
     ///  Read pixels from the current rendering target.
     ///
-    ///  The returned surface should be freed.
+    ///  The returned surface contains pixels inside the desired area clipped to the
+    ///  current viewport, and should be freed.
     ///
-    ///  **WARNING**: This is a very slow operation, and should not be used
-    ///  frequently. If you're using this on the main rendering target, it should be
-    ///  called after rendering and before Present.
+    ///  Note that this returns the actual pixels on the screen, so if you are using
+    ///  logical presentation you should use LogicalPresentationRect to get the area
+    ///  containing your content.
     /// </summary>
-    /// <param name="ARect">The area to read in pixels relative to the to
-    ///  current viewport.</param>
+    /// <param name="ARect">The area to read, which will be clipped to the current
+    ///  viewport.</param>
     /// <returns>A new SDL surface</returns>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <remarks>
@@ -7973,6 +8018,9 @@ type
     ///
     ///  This returns the true output size in pixels, ignoring any render targets or
     ///  logical size and presentation.
+    ///
+    ///  For the output size of the current rendering target, with logical size
+    ///  adjustments, use CurrentOutputSize instead.
     /// </summary>
     /// <param name="ARenderer">the rendering context.</param>
     /// <exception name="ESdlError">Raised on failure.</exception>
@@ -7986,8 +8034,10 @@ type
     ///  The current output size in pixels of a rendering context.
     ///
     ///  If a rendering target is active, this will return the size of the rendering
-    ///  target in pixels, otherwise if a logical size is set, it will return the
-    ///  logical size, otherwise it will return the value of OutputSize.
+    ///  target in pixels, otherwise return the value of OutputSize.
+    ///
+    ///  Rendering target or not, the output will be adjusted by the current logical
+    ///  presentation state, dictated by SetLogicalPresentation.
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="OutputSize"/>
@@ -8003,6 +8053,9 @@ type
     ///  presentation, based on the presentation mode and output size. If logical
     ///  presentation is disabled, it will fill the rectangle with the output size,
     ///  in pixels.
+    ///
+    ///  Each render target has its own logical presentation state. This function
+    ///  gets the rectangle for the current render target.
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="SetLogicalPresentation"/>
@@ -8017,6 +8070,11 @@ type
     ///  The default render target is the window for which the renderer was created.
     ///  To stop rendering to a texture and render to the window again, set this
     ///  property to a nil `texture`.
+    ///
+    ///  Viewport, cliprect, scale, and logical presentation are unique to each
+    ///  render target. Functions and properties for these states apply to the
+    ///  current render target set by this function, and those states persist on
+    ///  each target when the current render target changes.
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <remarks>
@@ -8032,6 +8090,9 @@ type
     ///  for future drawing commands.
     ///
     ///  The area's width and height must be >= 0.
+    ///
+    ///  Each render target has its own viewport. This property applies to the
+    ///  current render target.
     ///
     ///  Call ResetViewport to set the viewport to the entire target.
     /// </summary>
@@ -8049,6 +8110,9 @@ type
     ///  This is useful if you're saving and restoring the viewport and want to know
     ///  whether you should restore a specific rectangle or reset the viewport.
     ///  Note that the viewport is always reset when changing rendering targets.
+    ///
+    ///  Each render target has its own viewport. This property checks the viewport
+    ///  for the current render target.
     /// </summary>
     /// <seealso cref="Viewport"/>
     /// <seealso cref="ResetViewport"/>
@@ -8078,6 +8142,9 @@ type
     ///  the viewport (or an empty rectangle if clipping is disabled).
     ///
     ///  To disable clipping, set IsClipEnabled to False.
+    ///
+    ///  Each render target has its own clip rectangle. This property applies to
+    ///  the current render target.
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <seealso cref="IsClipEnabled"/>
@@ -8087,7 +8154,10 @@ type
     property ClipRect: TSdlRect read GetClipRect write SetClipRect;
 
     /// <summary>
-    ///  Whether clipping is enabled on the given renderer.
+    ///  Whether clipping is enabled on the given render target.
+    ///
+    ///  Each render target has its own clip rectangle. This property checks the
+    ///  cliprect for the current render target.
     ///
     ///  Set this property to False to disable clipping.
     ///  To enable clipping, set the ClipRect property.
@@ -8109,6 +8179,9 @@ type
     ///  If this results in scaling or subpixel drawing by the rendering backend, it
     ///  will be handled using the appropriate quality hints. For best results use
     ///  integer scaling factors.
+    ///
+    ///  Each render target has its own scale. This property applies to the
+    ///  current render target.
     /// </summary>
     /// <exception name="ESdlError">Raised on failure.</exception>
     /// <remarks>

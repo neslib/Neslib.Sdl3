@@ -10,11 +10,11 @@ A basic workflow might be something like this:
 
 The app creates a [TSdlGpuDevice](../Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuDevice.md) and assigns it to a window with [TSdlGpuDevice.ClaimWindow](../Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuDevice.md/#ClaimWindow)--although strictly speaking you can render offscreen entirely, perhaps for image processing, and not use a window at all.
 
-Next the app prepares static data (things that are created once and used over and over). For example:
+Next, the app prepares static data (things that are created once and used over and over). For example:
 
 - Shaders (programs that run on the GPU): use [TSdlGpuShader](../Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuShader.md).
-- Vertex buffers (arrays of geometry data) and other data rendering will need: use [TSdlGpuCopyPass.UploadToBuffer](../Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuCopyPass.md/#UploadToBuffer).
-- Textures (images): use [TSdlGpuCopyPass.UploadToTexture](../Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuCopyPass.md/#UploadToTexture).
+- Vertex buffers (arrays of geometry data) and other rendering data: use  [TSdlGpuBuffer](../Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuBuffer.md) and [TSdlGpuCopyPass.UploadToBuffer](../Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuCopyPass.md/#UploadToBuffer).
+- Textures (images): use [TSdlGpuTexture](../Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuTexture.md) and [TSdlGpuCopyPass.UploadToTexture](../Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuCopyPass.md/#UploadToTexture).
 - Samplers (how textures should be read from): use [TSdlGpuSampler](../Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuSampler.md).
 - Render pipelines (precalculated rendering state): use [TSdlGpuGraphicsPipeline](../Reference/Neslib.Sdl3.Gpu/classes/TSdlGpuGraphicsPipeline.md).
 

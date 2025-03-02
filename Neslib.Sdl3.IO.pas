@@ -2280,7 +2280,9 @@ type
     ///
     ///  This property should be checked at regular intervals until it returns
     ///  True - however, it is not recommended to spinwait on this call, as the
-    ///  backend may depend on a synchronous message loop.
+    ///  backend may depend on a synchronous message loop. You might instead poll
+    ///  this in your game's main loop while processing events and drawing a
+    ///  loading screen.
     /// </summary>
     property IsReady: Boolean read GetIsReady;
 

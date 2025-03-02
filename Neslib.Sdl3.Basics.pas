@@ -2815,6 +2815,26 @@ type
     JoystickZeroCenteredDevices = SDL_HINT_JOYSTICK_ZERO_CENTERED_DEVICES;
 
     /// <summary>
+    ///  A variable containing a list of devices and their desired number of haptic
+    ///  (force feedback) enabled axis.
+    ///
+    ///  The format of the string is a comma separated list of USB VID/PID pairs in
+    ///  hexadecimal form plus the number of desired axes, e.g.
+    ///
+    ///  `0xAAAA/0xBBBB/1,0xCCCC/0xDDDD/3`
+    ///
+    ///  This hint supports a "wildcard" device that will set the number of haptic
+    ///  axes on all initialized haptic devices which were not defined explicitly in
+    ///  this hint.
+    ///
+    ///  `0xFFFF/0xFFFF/1`
+    ///
+    ///  This hint should be set before a controller is opened. The number of haptic
+    ///  axes won't exceed the number of real axes found on the device.
+    /// </summary>
+    JoystickHapticAxes = SDL_HINT_JOYSTICK_HAPTIC_AXES;
+
+    /// <summary>
     ///  A variable that controls keycode representation in keyboard events.
     ///
     ///  This variable is a comma separated set of options for translating keycodes
@@ -4997,6 +5017,12 @@ type
 
     // String
     SurfaceTonemapOperator = SDL_PROP_SURFACE_TONEMAP_OPERATOR_STRING;
+
+    // Number
+    SurfaceHotspotX        = SDL_PROP_SURFACE_HOTSPOT_X_NUMBER;
+
+    // Number
+    SurfaceHotspotY        = SDL_PROP_SURFACE_HOTSPOT_Y_NUMBER;
   public const
     (** I/O Stream properties **)
 
@@ -5774,9 +5800,11 @@ type
 {$ENDREGION 'Properties'}
 
 {$REGION 'Internal Declarations'}
-function __ToUtf8(const AString: String): PUTF8Char;
+function __ToUtf8(const AString: String): PUTF8Char; overload;
+function __ToUtf8(const AString: String; out ALength: Integer): PUTF8Char; overload;
 function __ToUtf8B(const AString: String): PUTF8Char;
-function __ToString(const AUtf8: PUTF8Char): String;
+function __ToString(const AUtf8: PUTF8Char): String; overload;
+function __ToString(const AUtf8: PUTF8Char; const ALength: Integer): String; overload;
 procedure __HandleError; overload;
 procedure __HandleError(const AMessage: String); overload;
 {$ENDREGION 'Internal Declarations'}
@@ -6110,6 +6138,24 @@ begin
   Result[DstLen] := #0;
 end;
 
+function __ToUtf8(const AString: String; out ALength: Integer): PUTF8Char;
+begin
+  var SrcLen := Length(AString);
+  if (SrcLen = 0) then
+  begin
+    ALength := 0;
+    Exit(nil);
+  end;
+
+  var DstLen := (SrcLen + 1) * 3;
+  if (DstLen >= Length(GUtf8Buf)) then
+    SetLength(GUtf8Buf, DstLen + 32);
+
+  Result := Pointer(GUtf8Buf);
+  ALength := Utf16ToUtf8(Pointer(AString), SrcLen, Result);
+  Result[ALength] := #0;
+end;
+
 function __ToUtf8B(const AString: String): PUTF8Char;
 begin
   var SrcLen := Length(AString);
@@ -6128,6 +6174,11 @@ end;
 function __ToString(const AUtf8: PUTF8Char): String;
 begin
   Result := Utf8ToUtf16(AUtf8, Length(PAnsiChar(AUtf8)));
+end;
+
+function __ToString(const AUtf8: PUTF8Char; const ALength: Integer): String;
+begin
+  Result := Utf8ToUtf16(AUtf8, ALength);
 end;
 
 type

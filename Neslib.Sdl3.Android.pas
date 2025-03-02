@@ -655,7 +655,7 @@ begin
 
       Android_OnPen(Window, PointerId, ButtonState, Action, X, Y, P);
     end
-    else if (ToolType = AMOTION_EVENT_TOOL_TYPE_FINGER) then
+    else
     begin
       PointerId := AMotionEvent_getPointerId(AEvent, I);
       X := AMotionEvent_getX(AEvent, I); // Java version uses getNormalizedX

@@ -2,7 +2,7 @@
 
 Delphi bindings and OOP-like wrappers for SDL3 and its satellite libraries:
 
-* [SDL3](https://libsdl.org/index.php) version [3.2.4](https://github.com/libsdl-org/SDL/releases/tag/release-3.2.4).
+* [SDL3](https://libsdl.org/index.php) version [3.2.6](https://github.com/libsdl-org/SDL/releases/tag/release-3.2.6).
 * [SDL_image](https://github.com/libsdl-org/SDL_image), version [3.2.0](https://github.com/libsdl-org/SDL_image/releases/tag/release-3.2.0).
 * SDL_ttf (coming soon).
 * SDL_mixer (coming soon).
