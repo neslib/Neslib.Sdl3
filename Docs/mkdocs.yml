@@ -17,6 +17,7 @@ nav:
       - APIByCategory/Neslib.Sdl3.IO.md
       - APIByCategory/Neslib.Sdl3.Additional.md
       - APIByCategory/Neslib.Sdl3.Image.md
+      - APIByCategory/Neslib.Sdl3.Ttf.md
     - Useful Information:
       - Misc/KeyboardBestPractices.md
   - Reference:
@@ -425,6 +426,45 @@ nav:
         - SDL_NS_PER_SECOND: Reference/Neslib.Sdl3.Time/constants/SDL_NS_PER_SECOND.md
         - SDL_NS_PER_US: Reference/Neslib.Sdl3.Time/constants/SDL_NS_PER_US.md
         - SDL_US_PER_SECOND: Reference/Neslib.Sdl3.Time/constants/SDL_US_PER_SECOND.md
+    - Neslib.Sdl3.Ttf:
+      - Reference/Neslib.Sdl3.Ttf/index.md
+      - Classes & Records:
+        - TSdlTtfFont: Reference/Neslib.Sdl3.Ttf/classes/TSdlTtfFont.md
+        - TSdlTtfGpuAtlasDrawSequence: Reference/Neslib.Sdl3.Ttf/classes/TSdlTtfGpuAtlasDrawSequence.md
+        - TSdlTtfGpuTextEngine: Reference/Neslib.Sdl3.Ttf/classes/TSdlTtfGpuTextEngine.md
+        - TSdlTtfProperty: Reference/Neslib.Sdl3.Ttf/classes/TSdlTtfProperty.md
+        - TSdlTtfRendererTextEngine: Reference/Neslib.Sdl3.Ttf/classes/TSdlTtfRendererTextEngine.md
+        - TSdlTtfSubString: Reference/Neslib.Sdl3.Ttf/classes/TSdlTtfSubString.md
+        - TSdlTtfSurfaceTextEngine: Reference/Neslib.Sdl3.Ttf/classes/TSdlTtfSurfaceTextEngine.md
+        - TSdlTtfText: Reference/Neslib.Sdl3.Ttf/classes/TSdlTtfText.md
+        - TSdlTtfTextEngine: Reference/Neslib.Sdl3.Ttf/classes/TSdlTtfTextEngine.md
+      - Types:
+        - TSdlTtfDirection: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfDirection.md
+        - TSdlTtfFontStyle: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfFontStyle.md
+        - TSdlTtfFontStyles: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfFontStyles.md
+        - TSdlTtfGpuTextEngineWinding: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfGpuTextEngineWinding.md
+        - TSdlTtfHinting: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfHinting.md
+        - TSdlTtfHorizontalAlignment: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfHorizontalAlignment.md
+        - TSdlTtfImageType: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfImageType.md
+        - TSdlTtfLineCap: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfLineCap.md
+        - TSdlTtfLineJoin: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfLineJoin.md
+        - TSdlTtfRenderMode: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfRenderMode.md
+        - TSdlTtfSubStringFlag: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfSubStringFlag.md
+        - TSdlTtfSubStringFlags: Reference/Neslib.Sdl3.Ttf/types/TSdlTtfSubStringFlags.md
+      - Routines:
+        - SdlTtfGetFreeTypeVersion: Reference/Neslib.Sdl3.Ttf/routines/SdlTtfGetFreeTypeVersion.md
+        - SdlTtfGetGlyphScript: Reference/Neslib.Sdl3.Ttf/routines/SdlTtfGetGlyphScript.md
+        - SdlTtfGetHarfBuzzVersion: Reference/Neslib.Sdl3.Ttf/routines/SdlTtfGetHarfBuzzVersion.md
+        - SdlTtfGetVersion: Reference/Neslib.Sdl3.Ttf/routines/SdlTtfGetVersion.md
+        - SdlTtfInit: Reference/Neslib.Sdl3.Ttf/routines/SdlTtfInit.md
+        - SdlTtfQuit: Reference/Neslib.Sdl3.Ttf/routines/SdlTtfQuit.md
+        - SdlTtfStringToTag: Reference/Neslib.Sdl3.Ttf/routines/SdlTtfStringToTag.md
+        - SdlTtfTagToString: Reference/Neslib.Sdl3.Ttf/routines/SdlTtfTagToString.md
+        - SdlTtfWasInit: Reference/Neslib.Sdl3.Ttf/routines/SdlTtfWasInit.md
+      - Constants:
+        - SDL_TTF_MAJOR_VERSION: Reference/Neslib.Sdl3.Ttf/constants/SDL_TTF_MAJOR_VERSION.md
+        - SDL_TTF_MICRO_VERSION: Reference/Neslib.Sdl3.Ttf/constants/SDL_TTF_MICRO_VERSION.md
+        - SDL_TTF_MINOR_VERSION: Reference/Neslib.Sdl3.Ttf/constants/SDL_TTF_MINOR_VERSION.md
     - Neslib.Sdl3.Video:
       - Reference/Neslib.Sdl3.Video/index.md
       - Classes & Records:

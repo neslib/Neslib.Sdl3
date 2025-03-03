@@ -15,4 +15,5 @@ Every Neslib.Sdl3 unit roughly represents a category of SDL3 APIs:
 | [Neslib.Sdl3.Time](Neslib.Sdl3.Time.md)             | Timer support.                                               |
 | [Neslib.Sdl3.IO](Neslib.Sdl3.IO.md)                 | I/O streams, async I/O and storage abstraction.              |
 | [Neslib.Sdl3.Additional](Neslib.Sdl3.Additional.md) | Various additional features such as clipboard access, CPU information, file dialogs, message boxes and tray menus. |
-| [Neslib.Sdl3.Image](Neslib.Sdl3.Image.md)      | Supports additional image file formats and animated images.  |
+| [Neslib.Sdl3.Image](Neslib.Sdl3.Image.md)           | Supports additional image file formats and animated images.  |
+| [Neslib.Sdl3.Ttf](Neslib.Sdl3.Ttf.md)               | Supports TrueType/OpenType fonts and complex text shaping.   |

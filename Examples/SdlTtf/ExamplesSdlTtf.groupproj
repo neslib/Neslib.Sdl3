@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{F0A9B795-AB9C-48AE-BDE2-58681EC3756F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="01-TextShaping\TextShaping.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TextShaping">
+        <MSBuild Projects="01-TextShaping\TextShaping.dproj"/>
+    </Target>
+    <Target Name="TextShaping:Clean">
+        <MSBuild Projects="01-TextShaping\TextShaping.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TextShaping:Make">
+        <MSBuild Projects="01-TextShaping\TextShaping.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TextShaping"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TextShaping:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TextShaping:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

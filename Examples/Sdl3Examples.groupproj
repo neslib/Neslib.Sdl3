@@ -87,6 +87,9 @@
         <Projects Include="SdlImage\02-ShowAnim\ShowAnim.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="SdlTtf\01-TextShaping\TextShaping.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -347,14 +350,23 @@
     <Target Name="ShowAnim:Make">
         <MSBuild Projects="SdlImage\02-ShowAnim\ShowAnim.dproj" Targets="Make"/>
     </Target>
+    <Target Name="TextShaping">
+        <MSBuild Projects="SdlTtf\01-TextShaping\TextShaping.dproj"/>
+    </Target>
+    <Target Name="TextShaping:Clean">
+        <MSBuild Projects="SdlTtf\01-TextShaping\TextShaping.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TextShaping:Make">
+        <MSBuild Projects="SdlTtf\01-TextShaping\TextShaping.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Clear;Primitives;Lines;Points;Rectangles;Textures;StreamingTextures;RotatingTextures;ScalingTextures;Geometry;ColorMods;Viewport;ClipRect;ReadPixels;DebugText;ReadAndDraw;SimplePlayback;SimplePlaybackCallback;LoadWav;MultipleStreams;DrawingLines;LoadBitmaps;JoystickPolling;JoystickEvents;Snake;BytePusher;ShowImage;ShowAnim"/>
+        <CallTarget Targets="Clear;Primitives;Lines;Points;Rectangles;Textures;StreamingTextures;RotatingTextures;ScalingTextures;Geometry;ColorMods;Viewport;ClipRect;ReadPixels;DebugText;ReadAndDraw;SimplePlayback;SimplePlaybackCallback;LoadWav;MultipleStreams;DrawingLines;LoadBitmaps;JoystickPolling;JoystickEvents;Snake;BytePusher;ShowImage;ShowAnim;TextShaping"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Clear:Clean;Primitives:Clean;Lines:Clean;Points:Clean;Rectangles:Clean;Textures:Clean;StreamingTextures:Clean;RotatingTextures:Clean;ScalingTextures:Clean;Geometry:Clean;ColorMods:Clean;Viewport:Clean;ClipRect:Clean;ReadPixels:Clean;DebugText:Clean;ReadAndDraw:Clean;SimplePlayback:Clean;SimplePlaybackCallback:Clean;LoadWav:Clean;MultipleStreams:Clean;DrawingLines:Clean;LoadBitmaps:Clean;JoystickPolling:Clean;JoystickEvents:Clean;Snake:Clean;BytePusher:Clean;ShowImage:Clean;ShowAnim:Clean"/>
+        <CallTarget Targets="Clear:Clean;Primitives:Clean;Lines:Clean;Points:Clean;Rectangles:Clean;Textures:Clean;StreamingTextures:Clean;RotatingTextures:Clean;ScalingTextures:Clean;Geometry:Clean;ColorMods:Clean;Viewport:Clean;ClipRect:Clean;ReadPixels:Clean;DebugText:Clean;ReadAndDraw:Clean;SimplePlayback:Clean;SimplePlaybackCallback:Clean;LoadWav:Clean;MultipleStreams:Clean;DrawingLines:Clean;LoadBitmaps:Clean;JoystickPolling:Clean;JoystickEvents:Clean;Snake:Clean;BytePusher:Clean;ShowImage:Clean;ShowAnim:Clean;TextShaping:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Clear:Make;Primitives:Make;Lines:Make;Points:Make;Rectangles:Make;Textures:Make;StreamingTextures:Make;RotatingTextures:Make;ScalingTextures:Make;Geometry:Make;ColorMods:Make;Viewport:Make;ClipRect:Make;ReadPixels:Make;DebugText:Make;ReadAndDraw:Make;SimplePlayback:Make;SimplePlaybackCallback:Make;LoadWav:Make;MultipleStreams:Make;DrawingLines:Make;LoadBitmaps:Make;JoystickPolling:Make;JoystickEvents:Make;Snake:Make;BytePusher:Make;ShowImage:Make;ShowAnim:Make"/>
+        <CallTarget Targets="Clear:Make;Primitives:Make;Lines:Make;Points:Make;Rectangles:Make;Textures:Make;StreamingTextures:Make;RotatingTextures:Make;ScalingTextures:Make;Geometry:Make;ColorMods:Make;Viewport:Make;ClipRect:Make;ReadPixels:Make;DebugText:Make;ReadAndDraw:Make;SimplePlayback:Make;SimplePlaybackCallback:Make;LoadWav:Make;MultipleStreams:Make;DrawingLines:Make;LoadBitmaps:Make;JoystickPolling:Make;JoystickEvents:Make;Snake:Make;BytePusher:Make;ShowImage:Make;ShowAnim:Make;TextShaping:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

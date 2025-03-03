@@ -25,7 +25,7 @@ Download pre-compiled DLLs from GitHub releases.
 * Choose "Product | Build For | Running"
 * In the project view, expand the "Products" node to locate the libSDL3.a file. Right click it and select "Show in Finder". Copy and rename this file to "libSdl3_macos_intel.a".
 
-### SDL_Image
+### SDL_image
 
 * Download and unpack tar.gz from GitHub releases.
 * After pressing Configure in CMake, you get an error that SDL3Config.cmake cannot be found. Make these changes:
@@ -34,6 +34,14 @@ Download pre-compiled DLLs from GitHub releases.
   * Set CMAKE_OSX_DEPLOYMENT_TARGET to 10.13
 * Press Configure again.
 * The rest is similar to building SDL above.
+
+### SDL_ttf
+
+  * Download and unpack tar.gz from GitHub releases.
+  * Navigate to "external" directory and execute "download.sh" in terminal window.
+  * We don't use CMake since this requires building FreeType and HarfBuzz separately and results in multiple static libraries. Instead, we use a custom made shell script:
+  * Copy "Sdl3TtfMacOS.sh" from the Neslib.Sdl3\C directory to the unpacked root directory.
+  * Open a terminal and run this shell script. It creates the static library in the same directory.
 
 ## iOS
 
@@ -65,7 +73,7 @@ Download pre-compiled DLLs from GitHub releases.
 * Choose "Product | Build For | Running"
 * In the project view, expand the "Products" tab to locate the libSDL3.a file. Right click it and select "Show in Finder". Copy and rename this file to "libSdl3_ios.a".
 
-### SDL_Image
+### SDL_image
 
 * Download and unpack tar.gz from GitHub releases.
 * Use CMake GUI. 
@@ -77,6 +85,10 @@ Download pre-compiled DLLs from GitHub releases.
   * Set CMAKE_OSX_DEPLOYMENT_TARGET to 12.0 (add if needed)
 * Press Configure again.
 * The rest is similar to building SDL above, including adding the "-fno-objc-msgsend-selector-stubs" flag, but no need to set the  "SDL_HIDAPI_DISABLED=1" define.
+
+### SDL_ttf
+
+Use macOS instructions, but use "Sdl3TtfIOS.sh" instead of "Sdl3TtfMacOS.sh".
 
 ## Android
 
@@ -105,7 +117,7 @@ The Android version of SDL uses some Java code (in the directory "android-projec
 * Run the BuildJar.bat file.
 * Clean all Delphi projects or remove any generated "sdl3-dexed.jar" files in any of the project subdirectories.
 
-### SDL_Image
+### SDL_image
 
 * Download and unzip source code from GitHub releases.
 * In the unzipped directory, create a directory called Android.
@@ -116,4 +128,14 @@ The Android version of SDL uses some Java code (in the directory "android-projec
   * Change to first line to `LOCAL_PATH := $(call my-dir)/../../` (that is, add `/../../` to the end).
   * Remove or comment out the line `include $(BUILD_SHARED_LIBRARY)`
   * Before the last line that build the static library, add: `LOCAL_C_INCLUDES += $(LOCAL_PATH)/../SDL-release-3.2.4/include`, updating the path the the SDL include directory as necessary.
+* Run the BuildAndroid.bat file from the Android directory.
+
+### SDL_ttf
+
+* Download and unzip source code from GitHub releases.
+* Open PowerShell prompt in "external" subdirectory and enter `./Get-GitModules.ps1`
+* In the unzipped directory, create a directory called Android.
+* Copy the BuildAndroid.bat file from the Neslib.Sdl3\Android\Sdl3Image directory to the Android subdirectory just created.
+* Create a directory called "jni" under the Android directory.
+* Copy the Android.mk and Application.mk files from the Neslib.Sdl3\Android\Sdl3Image directory to this Android\jni directory. Note that this is a custom Android.mk file that creates a single static library instead of separate static libraries for SDL_ttf, FreeType and HarfBuzz.
 * Run the BuildAndroid.bat file from the Android directory.

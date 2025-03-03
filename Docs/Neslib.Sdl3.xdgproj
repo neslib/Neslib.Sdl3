@@ -1,6 +1,6 @@
 [Source.0]
 PasDir=..\
-Exclude=Neslib.Sdl3.Android.pas,Neslib.Sdl3.Api,Neslib.Sdl3.Image.Api.pas
+Exclude=Neslib.Sdl3.Android.pas,Neslib.Sdl3.Api,Neslib.Sdl3.Image.Api.pas,Neslib.Sdl3.Ttf.Api.pas
 
 [Options]
 MkDocs=mkdocs.yml
