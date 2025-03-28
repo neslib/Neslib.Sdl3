@@ -127,7 +127,7 @@ The Android version of SDL uses some Java code (in the directory "android-projec
 * Copy the Android.mk file from the unzipped SDL_Image source directory to this Android\jni directory as well. Open this copy and a text editor and make the following changes:
   * Change to first line to `LOCAL_PATH := $(call my-dir)/../../` (that is, add `/../../` to the end).
   * Remove or comment out the line `include $(BUILD_SHARED_LIBRARY)`
-  * Before the last line that build the static library, add: `LOCAL_C_INCLUDES += $(LOCAL_PATH)/../SDL-release-3.2.4/include`, updating the path the the SDL include directory as necessary.
+  * Before the last line that builds the static library, add: `LOCAL_C_INCLUDES += $(LOCAL_PATH)/../SDL-release-3.2.8/include`, updating the path the the SDL include directory as necessary.
 * Run the BuildAndroid.bat file from the Android directory.
 
 ### SDL_ttf

@@ -72,7 +72,7 @@ const
 const
   SDL_IMAGE_MAJOR_VERSION = 3;
   SDL_IMAGE_MINOR_VERSION = 2;
-  SDL_IMAGE_MICRO_VERSION = 0;
+  SDL_IMAGE_MICRO_VERSION = 4;
 
 (**
  * Animated image support
